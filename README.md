@@ -1,7 +1,7 @@
 ## Simulacion del desarrollo de un ecosistema natural.
 
 #### Integrantes:
-* [Dianelys Cruz Mengana](@DIANECM) C-311
+* [Dianelys Cruz Mengana](@DianeCM) C-311
 * [Leandro Hernández Nuñez](altmoket) C-312
 * [Jordan Pla González](jordipynb) C-311
 
