@@ -2,8 +2,8 @@
 
 #### Integrantes:
 * [Dianelys Cruz Mengana](@DianeCM) C-311
-* [Leandro Hernández Nuñez](altmoket) C-312
-* [Jordan Pla González](jordipynb) C-311
+* [Leandro Hernández Nuñez](@altmoket) C-312
+* [Jordan Pla González](@jordipynb) C-311
 
 #### Idea Central:
 Generar un ecosistema para simular el proceso de evolución de distintos tipos de especies que interactúan entre sí y con el medio ambiente. 
