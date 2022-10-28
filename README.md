@@ -1,9 +1,9 @@
 ## Simulacion del desarrollo de un ecosistema natural.
 
 #### Integrantes:
-* Dianelys Cruz Mengana C-311
-* Leandro Hernández Nuñez C-312
-* Jordan Pla González C-311
+* [Dianelys Cruz Mengana](https://github.com/DianeMC) C-311
+* [Leandro Hernández Nuñez](https://github.com/altmoket) C-312
+* [Jordan Pla González](https://github.com/jordipynb) C-311
 
 #### Idea Central:
 Generar un ecosistema para simular el proceso de evolución de distintos tipos de especies que interactúan entre sí y con el medio ambiente. 
