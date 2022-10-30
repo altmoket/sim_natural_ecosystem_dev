@@ -12,14 +12,14 @@ class Ecosystem:
     @property   
     def total_of_species(self):
         return self.Total_of_species
-    def total_of_animals_of(self,species):
-        return len(self.species.nodes[species]['animals'])
+    def total_of_animals_of(self,specie):
+        return len(self.species.nodes[specie]['animals'])
 
     def __init__(self):
         self.Total_of_animals=0
         self.Total_of_species=0
     
-    def add_specie(self,specie_name,a_threat_to,threatened_by):
+    def add_specie(self,specie_name, a_threat_to, threatened_by):
             if(not specie_name in self.species.nodes):
                 self.species.add_node(specie_name,animals=[])
                 for species in threatened_by:
@@ -30,6 +30,6 @@ class Ecosystem:
             else:
                 print("This species is already on the Ecosystem")
     
-    def add_animal(self,animal,species_name):
-        self.species.nodes[species_name]['animals'].append(animal)
+    def add_animal(self,animal,specie_name):
+        self.species.nodes[specie_name]['animals'].append(animal)
         self.Total_of_animals +=1
