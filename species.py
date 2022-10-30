@@ -2,6 +2,8 @@ from enum import Enum
 from subprocess import call
 # from symbol import return_stmt
 import networkx as nx
+
+
 class Species:
     @property
     def health_state(self):
@@ -54,7 +56,7 @@ class Species:
          self.Attack_level=attack_level
          self.Location=location
 
-Health_States = Enum('Health_States','Healthy Sick')
+Health_States = Enum('Health_States','Healthy Sick Optimum')
 
 Sex = Enum('Sex','Female' 'Male')
 

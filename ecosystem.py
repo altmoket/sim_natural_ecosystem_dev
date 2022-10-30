@@ -12,7 +12,6 @@ class Ecosystem:
     @property   
     def total_of_species(self):
         return self.Total_of_species
-    @property
     def total_of_animals_of(self,species):
         return len(self.species.nodes[species]['animals'])
 
