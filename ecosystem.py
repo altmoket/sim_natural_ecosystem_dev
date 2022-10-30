@@ -1,6 +1,6 @@
 from enum import Enum
 from subprocess import call
-from symbol import return_stmt
+# from symbol import return_stmt
 import networkx as nx
 import species as sp
 class Ecosystem:
