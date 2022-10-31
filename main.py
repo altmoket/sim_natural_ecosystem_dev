@@ -17,7 +17,9 @@ def main():
     args = sys.argv
     len_args = len(args)
     if len_args == 1:
-        print("Default")
+        fun = dispatcher('--help', action_dictionary)
+        assert fun is not None
+        fun()
         return
     if len_args == 2:
         action = args[1]
