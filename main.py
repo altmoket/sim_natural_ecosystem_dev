@@ -1,8 +1,10 @@
 import sys
 from scripts.generate.specie import generate_specie
+from scripts.consult.help import show_help
 
 action_dictionary = {
-    'generate': generate_specie
+    'generate': generate_specie,
+    '--help': show_help
 }
 
 def dispatcher(action, dictionary):
@@ -14,9 +16,14 @@ def dispatcher(action, dictionary):
 def main():
     args = sys.argv
     len_args = len(args)
-    print(len_args)
     if len_args == 1:
         print("Default")
+        return
+    if len_args == 2:
+        action = args[1]
+        fun = dispatcher(action, action_dictionary)
+        assert fun is not None
+        fun()
         return
     if len_args == 4:
         action, element, name = args[1],args[2],args[3]
