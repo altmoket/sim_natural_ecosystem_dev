@@ -21,7 +21,7 @@ Generar un ecosistema para simular el proceso de evolución de distintos tipos d
 * Activar el environment `pipenv shell`
 * Instalar paquetes necesarios `pipenv install`
 
-#### Forma de ejecucion
+#### Formas de ejecucion:
 * Ejecucion Basica
 ```python
 python ./main.py
