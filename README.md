@@ -24,14 +24,14 @@ Generar un ecosistema para simular el proceso de evolución de distintos tipos d
 #### Formas de ejecucion:
 * Ejecucion Basica
 ```python
-python ./main.py
+python main.py
 ```
 * Mostrar Ayuda
 ```python
-python ./main.py --help
+python main.py --help
 ```
 * Generar Especie
 ```python
-python ./main.py generate specie EspecieName
+python main.py generate specie EspecieName
 ```
 
