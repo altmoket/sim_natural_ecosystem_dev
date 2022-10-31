@@ -1,7 +1,7 @@
 from subprocess import call
 # from symbol import return_stmt
 import networkx as nx
-from .characteristics import Health_States
+from species.characteristics import Health_States
 
 class Specie:
 
@@ -51,7 +51,7 @@ class Specie:
 
     @staticmethod
     def gestation_time():
-       pass
+        pass
 
     @staticmethod
     def speed():
