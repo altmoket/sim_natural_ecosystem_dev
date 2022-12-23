@@ -2,7 +2,7 @@ from enum import Enum
 from subprocess import call
 # from symbol import return_stmt
 import networkx as nx
-import species as sp
+# import species as sp
 class Ecosystem:
     species=nx.DiGraph()
     

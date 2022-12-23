@@ -1,7 +1,4 @@
-from subprocess import call
-# from symbol import return_stmt
-import networkx as nx
-from species.characteristics import Health_States
+from utils import Health_States, Nutrition, Habitat, Sex
 
 class Specie:
 

@@ -1,7 +1,6 @@
-from species.base import Specie
-from species.characteristics import Habitat, Nutrition
+from .specie import *
 
-class Brachiosaurus(Specie):
+class Tiger(Specie):
         @staticmethod
         def life_expectancy():
             pass
@@ -10,7 +9,7 @@ class Brachiosaurus(Specie):
             return Habitat.Land
         @staticmethod
         def nutrition():
-            return Nutrition.Herbivore
+            return Nutrition.Carnivorous
         @staticmethod
         def fertility_level():
             pass
