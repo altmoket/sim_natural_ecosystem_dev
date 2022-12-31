@@ -1,9 +1,18 @@
-from enum import Enum
+class Specie:
+    base = 'base'
+    bengal_tiger = 'bengal tiger'
+    grizzly_bear = 'grizzly bear'
+    horse = 'horse'
+    polar_bear = 'polar bear'
+    rabbit = 'rabbit'
+    tiger = 'tiger'
 
-Health_States = Enum('Health_States','Healthy Sick Optimum')
+class Habitat :
+    tropical = 'tropical'
+    desertic = 'desertic'
+    polar = 'polar'
+    tempered = 'tempered'
 
-Sex = Enum('Sex','Female Male')
-
-Habitat = Enum('Habitat','Tropical Desertic Polar Tempered')
-
-Nutrition  = Enum('Nutrition','Herbivore Carnivorous')
+class Nutrition:
+    herbivore = 'herbivore'
+    carnivorous = 'carnivorous' 
