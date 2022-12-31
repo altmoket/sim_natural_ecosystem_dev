@@ -6,7 +6,7 @@ class Horse(Specie):
             pass
         @staticmethod
         def habitat():
-            pass
+            return Habitat.Tropical
         @staticmethod
         def fertility_level():
             pass
