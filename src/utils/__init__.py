@@ -1,1 +1,1 @@
-from characteristics import *
+from .characteristics import *

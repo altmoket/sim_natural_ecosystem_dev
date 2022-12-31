@@ -2,7 +2,7 @@ from enum import Enum
 
 Health_States = Enum('Health_States','Healthy Sick Optimum')
 
-Sex = Enum('Sex','Female' 'Male')
+Sex = Enum('Sex','Female Male')
 
 Habitat = Enum('Habitat','Aerial Land Maritime')
 

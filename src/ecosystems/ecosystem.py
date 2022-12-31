@@ -2,34 +2,35 @@ from enum import Enum
 from subprocess import call
 # from symbol import return_stmt
 import networkx as nx
+from ..components.zone import Zone
+from ..components.flock import Flock
+import math
 # import species as sp
 class Ecosystem:
-    species=nx.DiGraph()
-    
-    @property
-    def total_of_animals(self):
-        return self.Total_of_animals
     @property   
     def total_of_species(self):
         return self.Total_of_species
-    def total_of_animals_of(self,specie):
-        return len(self.species.nodes[specie]['animals'])
+    def __init__(self,zones:list[Zone]):
+        self.zones=zones
+        self.total_of_animals=0
+        for zone in self.zones:
+            self.total_of_animals+=zone.total
+    
+    def max_probability(self,birth:bool):
+        min=2
+        max=-1
+        output= None
+        for zone in self.zones:
+            for flock in zone.flocks:
+                current=flock.total/zone.total
+                if birth and current < min :
+                    output=flock
+                    min=current
+                if not birth and current > max:
+                    output=flock
+                    max=current
+        return output
 
-    def __init__(self):
-        self.Total_of_animals=0
-        self.Total_of_species=0
+        
+
     
-    def add_specie(self,specie_name, a_threat_to, threatened_by):
-            if(not specie_name in self.species.nodes):
-                self.species.add_node(specie_name,animals=[])
-                for species in threatened_by:
-                    self.species.add_edge(species,specie_name)
-                for species in a_threat_to:
-                    self.species.add_edge(species,a_threat_to)
-                self.Total_of_species+=1
-            else:
-                print("This species is already on the Ecosystem")
-    
-    def add_animal(self,animal,specie_name):
-        self.species.nodes[specie_name]['animals'].append(animal)
-        self.Total_of_animals +=1

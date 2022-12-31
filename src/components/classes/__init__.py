@@ -1,2 +1,2 @@
-from classes.tiger import Tiger
-from classes.horse import Horse
+from .tiger import Tiger
+from .horse import Horse
