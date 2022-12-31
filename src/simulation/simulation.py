@@ -1,9 +1,8 @@
-from ..ecosystems.ecosystem import Ecosystem
-from .flock import Flock
-import scipy.stats as st
+from src.ecosystems import Ecosystem
+from src.components import Flock, Zone
 import heapq as heap
-from scipy.stats import expon
-import numpy.random as rand
+from scipy.stats import expon, bernoulli
+
 class Simulator:
     def __init__(self,ecosystem:Ecosystem,final_time:int):      
         self.time = 0
@@ -64,5 +63,5 @@ class Simulator:
     def generate_death_time(self):
         return expon.rvs(1,size=1,scale=1) 
     def generate_sex(self):
-        ber=st.bernoulli(p=0.5)
+        ber=bernoulli(p=0.5)
         return ber.rvs(1)

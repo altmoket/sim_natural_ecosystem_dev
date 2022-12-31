@@ -1,18 +1,10 @@
-from enum import Enum
-from subprocess import call
-# from symbol import return_stmt
-import networkx as nx
-from ..components.zone import Zone
-from ..components.flock import Flock
+from ..components import Zone
 class Ecosystem:
-    @property   
-    def total_of_species(self):
-        return self.Total_of_species
     def __init__(self,zones:list[Zone]):
         self.zones=zones
-        self.total_of_animals=0
+        self.total_of_animals = 0
         for zone in self.zones:
-            self.total_of_animals+=zone.total
+            self.total_of_animals += zone.total
     
     def max_probability(self,birth:bool):
         min=2
@@ -28,7 +20,3 @@ class Ecosystem:
                     output=flock
                     max=current
         return output
-
-        
-
-    
