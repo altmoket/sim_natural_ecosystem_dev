@@ -55,10 +55,3 @@ class Zone:
                 if probability > prob: return False
                 return True
         else: return False
-
-# Prueba, luego borrar
-zone = Zone(Habitat.Tempered)
-for t in range(1, 100):
-    llueve = zone.precipitations_event()
-    string = "it rain" if llueve else "it doesn't rain"
-    print(f"Day {t}: Zone: {zone.type} with temperature: {zone.temperature}ºC and {string}")

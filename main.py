@@ -1,4 +1,3 @@
-import sys
 from src.components.simulation import Simulator
 from src.ecosystems.ecosystem import Ecosystem
 from src.components.zone import Zone

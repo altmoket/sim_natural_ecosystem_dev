@@ -1,1 +1,1 @@
-from .characteristics import *
+from .characteristics import Health_States, Nutrition, Habitat, Sex

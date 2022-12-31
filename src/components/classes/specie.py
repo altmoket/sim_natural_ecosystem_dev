@@ -1,4 +1,4 @@
-from ..utils import Health_States, Nutrition, Habitat, Sex
+from ..utils import *
 
 class Specie:
 
