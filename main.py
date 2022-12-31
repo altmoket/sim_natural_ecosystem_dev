@@ -1,8 +1,6 @@
 from src.simulation import Simulator
 from src import *
-from src.components import Zone
-from src.components.classes.specie import *
-from src.components import Flock
+from src.components.species.specie import *
 from src.components.utils import Habitat
 #from scripts.generate.specie import generate_specie
 #from scripts.consult.help import show_help
@@ -47,7 +45,7 @@ zone2:Zone=Zone(Habitat.Tempered)
 zone3:Zone=Zone(Habitat.Tropical)
 flock1:Flock=Flock('horse',zone1,34,13)
 flock2:Flock=Flock('tiger',zone1,34,13)
-flock3:Flock=Flock('horse',zone2,32,45)
+flock3:Flock=Flock('bear',zone2,32,45)
 flock4:Flock=Flock('horse',zone3,21,14)
 flock5:Flock=Flock('horse',zone3,12,23)
 zone1.add_flock(flock1)
