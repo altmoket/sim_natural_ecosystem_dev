@@ -6,12 +6,13 @@ class Zone:
     def __init__(self, zone_type):
         self.type = zone_type
         self.temperature_range = type_temperature[self.type]
-        self.temperature = None
+        self.__temperature__ = None
         self.flocks:list[Flock]=[]
 
     def get_temperature(self):
         t_min,t_max = self.temperature_range
-        return round(random.uniform(t_min, t_max),2)
+        self.__temperature__ = round(random.uniform(t_min, t_max),2)
+        return self.__temperature__
 
     @property
     def total(self):
@@ -19,17 +20,6 @@ class Zone:
         for flock in self.flocks:
             total+=flock.total
         return total
-
-    def precipitations_event(self):
-        self.temperature = self.get_temperature()
-        temp_prob = {(10,15):0.003, (15,17):0.07, (17,19):0.11, (19,21):0.15, (21,23):0.37, (23,25):0.53, (25,26):0.17,
-                     (26,28):0.08, (28,30):0.005}
-        probability = random.uniform(0,1)
-        for (t_min, t_max),prob in temp_prob.items():
-            if t_min < self.temperature and self.temperature <= t_max:
-                if probability > prob: return False
-                return True
-        else: return False
 
 class Flock:
     def __init__(self, type:str, female_total:int=0, male_total:int=0):
