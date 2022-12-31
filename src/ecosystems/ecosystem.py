@@ -1,4 +1,4 @@
-from ..components import Zone
+from ..components.zone import Zone
 class Ecosystem:
     def __init__(self,zones:list[Zone]):
         self.zones=zones

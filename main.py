@@ -1,5 +1,7 @@
 from src.simulation import Simulator
 from src import *
+from src.components.flock import Flock
+from src.components.zone import Zone
 from src.components.utils import Habitat
 #from scripts.generate.specie import generate_specie
 #from scripts.consult.help import show_help
