@@ -1,11 +1,11 @@
-from .utils import characteristics
-#from .zone import Zone
+
 class Flock:
-    def __init__(self,type:str,zone,female_total:int=0,male_total:int=0):
+    def __init__(self, type:str, zone, female_total:int=0, male_total:int=0):
         self.female_total=female_total
         self.male_total=male_total
         self.__type__=type
         self.zone=zone
+        self.zone.add_flock(self)
 
     @property
     def total(self):

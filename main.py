@@ -1,6 +1,5 @@
 from src.simulation import Simulator
 from src import *
-from src.components.species.specie import *   # Luego se quitara ya que va en la simulacion y se generan especies creadas
 from src.components.utils import Habitat
 #from scripts.generate.specie import generate_specie
 #from scripts.consult.help import show_help
@@ -40,19 +39,14 @@ from src.components.utils import Habitat
 # if __name__ == "__main__":
 #    main()
 
-zone1:Zone=Zone(Habitat.Tropical)
-zone2:Zone=Zone(Habitat.Tempered)
-zone3:Zone=Zone(Habitat.Tropical)
-flock1:Flock=Flock('horse',zone1,34,13)
-flock2:Flock=Flock('tiger',zone1,34,13)
-flock3:Flock=Flock('bear',zone2,32,45)
-flock4:Flock=Flock('horse',zone3,21,14)
-flock5:Flock=Flock('horse',zone3,12,23)
-zone1.add_flock(flock1)
-zone1.add_flock(flock2)
-zone2.add_flock(flock3)
-zone3.add_flock(flock4)
-zone3.add_flock(flock5)
+zone1 = Zone(Habitat.Tropical)
+zone2 = Zone(Habitat.Tempered)
+zone3 = Zone(Habitat.Tropical)
+flock1 = Flock('horse',zone1,34,13)
+flock2 = Flock('tiger',zone1,34,13)
+flock3 = Flock('bear',zone2,32,45)
+flock4 = Flock('horse',zone3,21,14)
+flock5 = Flock('horse',zone3,12,23)
 eco=Ecosystem([zone1,zone2,zone3])
 sim=Simulator(eco,15)
 sim.simulate()

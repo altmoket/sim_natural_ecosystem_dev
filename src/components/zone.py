@@ -1,6 +1,5 @@
 import random
 from .utils import Habitat
-from .flock import Flock
 type_temperature = {Habitat.Tropical:(17,26), Habitat.Desertic:(27,35), Habitat.Polar:(-5,10), Habitat.Tempered:(6,18)} 
 
 class Zone:
