@@ -1,2 +1,1 @@
-from .tiger import Tiger
-from .horse import Horse
+from .species_type import *

@@ -1,6 +1,6 @@
 from src.simulation import Simulator
 from src import *
-from src.components.species.specie import *
+from src.components.species.specie import *   # Luego se quitara ya que va en la simulacion y se generan especies creadas
 from src.components.utils import Habitat
 #from scripts.generate.specie import generate_specie
 #from scripts.consult.help import show_help
