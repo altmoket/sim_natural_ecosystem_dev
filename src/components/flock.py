@@ -1,4 +1,4 @@
-from ..utils import characteristics
+from .utils import characteristics
 #from .zone import Zone
 class Flock:
     def __init__(self,type:str,zone,female_total:int=0,male_total:int=0):

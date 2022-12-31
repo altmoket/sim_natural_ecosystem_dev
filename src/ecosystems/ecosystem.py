@@ -4,8 +4,6 @@ from subprocess import call
 import networkx as nx
 from ..components.zone import Zone
 from ..components.flock import Flock
-import math
-# import species as sp
 class Ecosystem:
     @property   
     def total_of_species(self):

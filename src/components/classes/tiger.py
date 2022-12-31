@@ -6,7 +6,7 @@ class Tiger(Specie):
             pass
         @staticmethod
         def habitat():
-            return Habitat.Land
+            return Habitat.Tropical
         @staticmethod
         def nutrition():
             return Nutrition.Carnivorous

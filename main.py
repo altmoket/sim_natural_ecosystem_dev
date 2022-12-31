@@ -4,6 +4,7 @@ from src.ecosystems.ecosystem import Ecosystem
 from src.components.zone import Zone
 from src.components.classes.specie import *
 from src.components.flock import Flock
+from src.components.utils import Habitat
 #from scripts.generate.specie import generate_specie
 #from scripts.consult.help import show_help
 
@@ -42,9 +43,9 @@ from src.components.flock import Flock
 # if __name__ == "__main__":
 #    main()
 
-zone1:Zone=Zone()
-zone2:Zone=Zone()
-zone3:Zone=Zone()
+zone1:Zone=Zone(Habitat.Tropical)
+zone2:Zone=Zone(Habitat.Tempered)
+zone3:Zone=Zone(Habitat.Tropical)
 flock1:Flock=Flock('horse',zone1,34,13)
 flock2:Flock=Flock('tiger',zone1,34,13)
 flock3:Flock=Flock('horse',zone2,32,45)
