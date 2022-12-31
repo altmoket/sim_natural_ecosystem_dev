@@ -1,15 +1,12 @@
 from .utils import *
 
-class Specie:
-    name = 'base'
-
+class Species:
+    name = Specie.base
     @classmethod
-    def search_qry_type(self, name: str):
-        cls = {}
-        for _cls in self.__subclasses__(): 
-            cls[_cls.name] = _cls
-        if not name in cls: raise Exception("Unknown Specie")
-        return cls[name]
+    def search_qry_type(self, name:property):
+        for cls in self.__subclasses__(): 
+            if cls.name == name: return cls
+        raise Exception("Unknown Specie")
 
     def life_expectancy():raise NotImplementedError() 
     def habitat():raise NotImplementedError()
@@ -21,77 +18,66 @@ class Specie:
     def vision():raise NotImplementedError()
 
 
-class BengalTiger(Specie):
-    name = 'bengal tiger'
-
+class BengalTiger(Species):
+    name = Specie.bengal_tiger
     def life_expectancy():pass   
-    def habitat():return [Habitat.Polar, Habitat.Tempered]      
-    def nutrition():return Nutrition.Carnivorous       
+    def habitat():return [Habitat.polar, Habitat.tempered]      
+    def nutrition():return Nutrition.carnivorous       
     def fertility_level():pass   
     def gestation_time():pass         
     def speed():pass
     def reach():pass
     def vision():pass
 
-
-class GrizzlyBear(Specie):
-    name = 'grizzly bear'
-
+class GrizzlyBear(Species):
+    name = Specie.grizzly_bear
     def life_expectancy():pass      
-    def habitat():return [Habitat.Tropical, Habitat.Desertic]     
-    def nutrition():return Nutrition.Carnivorous        
+    def habitat():return [Habitat.tropical, Habitat.desertic]     
+    def nutrition():return Nutrition.carnivorous        
     def fertility_level():pass      
     def gestation_time():pass  
     def speed():pass
     def reach():pass
     def vision():pass
 
-
-class Horse(Specie):
-    name = 'horse'
-
+class Horse(Species):
+    name = Specie.horse
     def life_expectancy():pass
-    def habitat():return [Habitat.Tropical, Habitat.Desertic]
-    def nutrition():return Nutrition.Herbivore
+    def habitat():return [Habitat.tropical, Habitat.desertic]
+    def nutrition():return Nutrition.herbivore
     def fertility_level():pass
     def gestation_time():pass  
     def speed():pass
     def reach():pass
     def vision():pass
 
-
-class PolarBear(Specie):
-    name = 'polar bear'
-
+class PolarBear(Species):
+    name = Specie.polar_bear
     def life_expectancy():pass
-    def habitat():return [Habitat.Polar, Habitat.Tempered]
-    def nutrition():return Nutrition.Carnivorous
+    def habitat():return [Habitat.polar, Habitat.tempered]
+    def nutrition():return Nutrition.carnivorous
     def fertility_level():pass
     def gestation_time():pass  
     def speed():pass
     def reach():pass
     def vision():pass
 
-
-class Rabbit(Specie):
-    name = 'rabbit'
-
+class Rabbit(Species):
+    name = Specie.rabbit
     def life_expectancy():pass
-    def habitat():return [Habitat.Tropical, Habitat.Desertic, Habitat.Tempered]
-    def nutrition():return Nutrition.Herbivore
+    def habitat():return [Habitat.tropical, Habitat.desertic, Habitat.tempered, Habitat.polar]
+    def nutrition():return Nutrition.herbivore
     def fertility_level():pass
     def gestation_time():pass  
     def speed():pass
     def reach():pass
     def vision():pass
 
-
-class Tiger(Specie):
-    name = 'tiger'
-    
+class Tiger(Species):
+    name = Specie.tiger
     def life_expectancy():pass
-    def habitat():return [Habitat.Tropical]
-    def nutrition():return Nutrition.Carnivorous
+    def habitat():return [Habitat.tropical]
+    def nutrition():return Nutrition.carnivorous
     def fertility_level():pass
     def gestation_time():pass  
     def speed():pass

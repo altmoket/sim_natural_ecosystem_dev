@@ -18,7 +18,7 @@ class Simulator:
         self.birth_event()
     @property
     def events_methods(self):
-        events={'birth': lambda:self.birth_event() ,'death': lambda:self.death_event() }
+        events={'birth':self.birth_event ,'death':self.death_event }
         return events
 
     def simulate(self):
@@ -42,7 +42,7 @@ class Simulator:
         if self.birth_count == 1:
             next_death_time = self.generate_death_time()
             self.death_time = self.time + next_death_time
-            heap.heappush(self.events,(self.birth_time,'death'))
+            heap.heappush(self.events,(self.death_time,'death'))
 
     def death_event(self):
         self.time = self.death_time
@@ -51,7 +51,7 @@ class Simulator:
         flock:Flock=self.ecosystem.max_probability(False)
         sex=self.generate_sex()
         flock.remove_animal(sex)
-        print(f'Time:{int(self.time)}  Number: {self.death_count}  Event: Death of a  {flock.__type__}')
+        print(f'Time:{int(self.time)}  Number: {self.death_count}  Event: Death of a {flock.__type__}')
         if self.ecosystem.total_of_animals > 0:
             next_death_time = self.generate_death_time()
             self.death_time = self.time + next_death_time

@@ -1,1 +1,1 @@
-from .tools import Health_States, Nutrition, Habitat, Sex
+from .tools import Nutrition, Habitat, Specie

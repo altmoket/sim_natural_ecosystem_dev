@@ -1,6 +1,6 @@
 import random
 from .utils import Habitat
-type_temperature = {Habitat.Tropical:(17,26), Habitat.Desertic:(27,35), Habitat.Polar:(-5,10), Habitat.Tempered:(6,18)} 
+type_temperature = {Habitat.tropical:(17,26), Habitat.desertic:(27,35), Habitat.polar:(-5,10), Habitat.tempered:(6,18)} 
 
 class Zone:
     def __init__(self, zone_type):
