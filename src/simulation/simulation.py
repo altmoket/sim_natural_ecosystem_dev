@@ -2,7 +2,7 @@ from src.ecosystems import Ecosystem
 from src.components.flock import Flock
 import heapq as heap
 from scipy.stats import expon, bernoulli
-import numpy.random as rand
+
 class Simulator:
     def __init__(self,ecosystem:Ecosystem,final_time:int):      
         self.time = 0
