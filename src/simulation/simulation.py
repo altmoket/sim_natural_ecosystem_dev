@@ -1,5 +1,5 @@
 from src.ecosystems import Ecosystem
-from src.components.place import Flock, Zone
+from src.components import Flock, Zone
 import heapq as heap
 from scipy.stats import expon, bernoulli
 
