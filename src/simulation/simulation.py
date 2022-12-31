@@ -1,5 +1,5 @@
-from ..ecosystems.ecosystem import Ecosystem
-from .flock import Flock
+from src.ecosystems import Ecosystem
+from src.components import Flock
 import scipy.stats as st
 import heapq as heap
 from scipy.stats import expon

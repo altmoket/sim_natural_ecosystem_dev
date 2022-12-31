@@ -29,15 +29,15 @@ class Zone:
         # La probabilidad de que llueva mediante el evento Precipitaciones es uniforme y depende de la temperatura en la zona:
         #   Temperature          Probability
         #  (-inf, 10  ]              0
-        #  (  10, 15  ]              0.03
+        #  (  10, 15  ]              0.003
         #  (  15, 17  ]              0.07
         #  (  17, 19  ]              0.11
         #  (  19, 21  ]              0.15
         #  (  21, 23  ]              0.37
         #  (  23, 25  ]              0.53
         #  (  25, 26  ]              0.17
-        #  (  26, 28  ]              0.1
-        #  (  28, 30  ]              0.05
+        #  (  26, 28  ]              0.08
+        #  (  28, 30  ]              0.005
         #  (  30, +inf)              0
         # 10ºC es la temperatura mínima y 30ºC es la temperatura máxima que se considera como posible para que llueva
         temp_prob = {(10,15):0.003,

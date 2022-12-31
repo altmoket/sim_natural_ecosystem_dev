@@ -5,10 +5,6 @@ class Ecosystem:
         self.total_of_animals = 0
         for zone in self.zones:
             self.total_of_animals += zone.total
-
-    @property   
-    def total_of_species(self):
-        return self.Total_of_species  #esto que es yumilka? eso no existe por ningun lado
     
     def max_probability(self,birth:bool):
         min=2

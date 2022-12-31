@@ -1,4 +1,4 @@
-from src.components.simulation import Simulator
+from src.simulation import Simulator
 from src import *
 from src.components import Zone
 from src.components.classes.specie import *
