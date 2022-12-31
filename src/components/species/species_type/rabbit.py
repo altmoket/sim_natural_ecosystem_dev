@@ -26,3 +26,11 @@ class Rabbit(Specie):
     @staticmethod
     def speed():
         pass
+
+    @staticmethod
+    def reach():
+        pass
+
+    @staticmethod
+    def vision():
+        pass

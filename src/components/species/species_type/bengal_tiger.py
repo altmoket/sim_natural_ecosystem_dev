@@ -25,4 +25,12 @@ class BengalTiger(Specie):
         
     @staticmethod
     def speed():
-            pass
+        pass
+
+    @staticmethod
+    def reach():
+        pass
+
+    @staticmethod
+    def vision():
+        pass
