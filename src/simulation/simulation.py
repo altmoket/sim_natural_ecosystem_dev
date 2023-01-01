@@ -18,11 +18,13 @@ class Simulator:
         self.events=[]
         self.final_time=final_time
         self.birth_event()
+        self.precipitations_event()
+
     @property
     def events_methods(self):
         events={'birth':self.birth_event,
                 'death':self.death_event,
-                #'precipitation':self.precipitations_event
+                'precipitation':self.precipitations_event
                 }
         return events
 
@@ -63,17 +65,20 @@ class Simulator:
             if self.death_time < self.final_time: heap.heappush(self.events,(self.death_time,'death'))
         self.deaths_moments[self.death_count] = self.time
 
-    # def precipitations_event(self):
-    #     zone = random.choice(self.ecosystem.zones)
-    #     temperature = zone.get_temperature()
-    #     temp_prob = {(10,15):0.003, (15,17):0.07, (17,19):0.11, (19,21):0.15, (21,23):0.37, (23,25):0.53, (25,26):0.17,
-    #                  (26,28):0.08, (28,30):0.005}
-    #     value = expon(5)
-    #     probability = random.uniform(0,1)
-    #     for (t_min, t_max),prob in temp_prob.items():
-    #         if t_min < temperature and temperature <= t_max:
-    #             if probability <= prob:
-    #                 # print(f'Time:{int(self.time)}  Number: {self.death_count}  Event: Death of a {flock.__type__}')
+    def precipitations_event(self):
+        self.time = self.precipitation_time
+        zone = random.choice(self.ecosystem.zones)
+        temperature = zone.get_temperature()
+        temp_prob = {(10,15):0.003, (15,17):0.07, (17,19):0.11, (19,21):0.15, (21,23):0.37, (23,25):0.53, (25,26):0.17,
+                     (26,28):0.08,  (28,30):0.005}
+        probability = random.uniform(0,1)
+        for (t_min, t_max),prob in temp_prob.items():
+            if t_min < temperature and temperature <= t_max:
+                if probability <= prob:
+                    print(f'Time:{int(self.time)}  Zone{zone.id}: {zone.type} is raining')
+        self.precipitation_time = self.time + expon.rvs(1,size=1,scale=1)
+        if self.precipitation_time < self.final_time:
+            heap.heappush(self.events,(self.precipitation_time,'precipitation'))
 
     def generate_birth_time(self):
         return expon.rvs(1,size=1,scale=1)
