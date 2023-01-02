@@ -3,7 +3,8 @@ from .utils import Habitat
 type_temperature = {Habitat.tropical:(17,26), Habitat.desertic:(27,35), Habitat.polar:(-5,10), Habitat.tempered:(6,18)} 
 
 class Zone:
-    def __init__(self, zone_type:Habitat):
+    def __init__(self, _id:int, zone_type):
+        self.id = _id
         self.type = zone_type
         self.temperature_range = type_temperature[self.type]
         self.__temperature__ = None

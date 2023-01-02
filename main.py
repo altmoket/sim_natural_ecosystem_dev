@@ -3,9 +3,10 @@ from src import *
 # PARA FACILIDAD EN LA SIMULACION GENERANDO ZONAS, MANADAS 
 # Y UBICANDOLAS SATISFACTORIAMENTE EN ZONAS SEGUN CSP
 def main():
-    zone1 = Zone(Habitat.tropical)
-    zone2 = Zone(Habitat.tempered)
-    zone3 = Zone(Habitat.tropical)
+    zone1 = Zone(1, Habitat.tropical)
+    zone2 = Zone(2, Habitat.tempered)
+    zone3 = Zone(3, Habitat.tropical)
+    zone4 = Zone(4, Habitat.desertic)
     flock1 = Flock(Specie.horse, 34, 13)
     flock2 = Flock(Specie.tiger, 34, 13)
     flock3 = Flock(Specie.grizzly_bear, 32, 45)
@@ -16,8 +17,8 @@ def main():
     flock3.asign_zone(zone2)
     flock4.asign_zone(zone3)
     flock5.asign_zone(zone3)
-    eco=Ecosystem([zone1,zone2,zone3])
-    sim=Simulator(eco,15)
+    eco=Ecosystem([zone1,zone2,zone3,zone4])
+    sim=Simulator(eco,30)
     sim.simulate()
 
     print('CSP')
@@ -30,13 +31,13 @@ def main():
     flock7 = Flock(Specie.horse)
     flocks =[flock1,flock2,flock3,flock4,flock5,flock6,flock7]
 
-    zone1 = Zone(Habitat.tempered)
-    zone2 = Zone(Habitat.desertic)
-    zone4 = Zone(Habitat.tropical)
-    zone3 = Zone(Habitat.polar)
+    zone1 = Zone(1,Habitat.tempered)
+    zone2 = Zone(2,Habitat.desertic)
+    zone3 = Zone(3,Habitat.tropical)
+    zone4 = Zone(4,Habitat.polar)
     zones = [zone1,zone2,zone3,zone4]
 
-    adj_z={zone1:[zone2],zone2:[zone1,zone3],zone3:[zone2,zone4],zone4:[zone3]}
+    adj_z={zone1:[zone2],zone2:[zone1,zone4],zone3:[zone4],zone4:[zone3,zone2]}
 
     adj_e={
     Specie.tiger:[Specie.grizzly_bear,Specie.horse],
@@ -44,10 +45,10 @@ def main():
     Specie.bengal_tiger:[Specie.rabbit],
     Specie.grizzly_bear:[Specie.tiger,Specie.rabbit],
     Specie.rabbit:[], Specie.horse:[]}
-
-    solution = CSP(flocks,zones,adj_z,adj_e)
-    for item in solution.items():
-        print(f'{item[0].__type__} : {item[1].type}')
+    eco=Ecosystem(zones,flocks=flocks,adj_z=adj_z,adj_e=adj_e)
+    solution = eco.zones
+    for item in solution:
+        print(f'{item.id} : {[flock.__type__ for flock in item.flocks]}')
 
 
 
