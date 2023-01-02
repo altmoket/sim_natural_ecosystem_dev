@@ -6,6 +6,7 @@ class Specie:
     polar_bear = 'polar bear'
     rabbit = 'rabbit'
     tiger = 'tiger'
+    ant = 'ant'
 
 
 class Habitat:

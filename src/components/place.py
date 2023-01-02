@@ -19,7 +19,6 @@ class Zone:
     
     def add_flock(self, flock):
         self.flocks.append(flock)
-        return self
 
     @property
     def total(self):

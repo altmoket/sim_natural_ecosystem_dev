@@ -72,8 +72,9 @@ class PolarBear(Species):
 class Rabbit(Species):
     name = Specie.rabbit
     def life_expectancy(): pass
-    def habitat(): return [Habitat.tropical,
-                           Habitat.desertic, Habitat.tempered, Habitat.polar]
+
+    def habitat():
+        return [Habitat.tropical, Habitat.desertic, Habitat.tempered, Habitat.polar]
 
     def nutrition(): return Nutrition.herbivore
     def fertility_level(): pass
@@ -93,3 +94,10 @@ class Tiger(Species):
     def speed(): pass
     def reach(): pass
     def vision(): pass
+    
+# class Ant(Species):
+#     name = Specie.ant
+#     def habitat():
+#         return [Habitat.desertic, Habitat.tropical]
+#     def nutrition():
+#         return Nutrition.herbivore
