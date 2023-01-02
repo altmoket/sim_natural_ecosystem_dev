@@ -9,7 +9,7 @@ def CSP(flocks:list[Flock],zones:list[Zone],adj_z:dict[Zone,list[Zone]],adj_e:di
     adj_f:dict[Flock,list[Flock]]=defaultdict(lambda:[])
     # Determinar opciones para cada una de las variables
     for flock in flocks:
-        options[flock]=list(filter(lambda zone: zone.type in Species.search_qry_type(flock.__type__).habitat(),zones))
+        options[flock]=list(filter(lambda zone: zone.type in Species.search_specie_type(flock.__type__).habitat(),zones))
         if len(options[flock]) == 0: return None
         if len(options[flock]) == 1: 
             assigments[flock]=options[flock][0]
@@ -24,10 +24,8 @@ def CSP(flocks:list[Flock],zones:list[Zone],adj_z:dict[Zone,list[Zone]],adj_e:di
                 arcs.append((flock1,flock2))
             if flock1.__type__ in adj_e[flock2.__type__]:
                 adj_f[flock2].append(flock1)
-                arcs.append((flock2,flock1))
-                
+                arcs.append((flock2,flock1))              
     return Backtrack_Search(options,assigments,non_assigned,arcs,adj_z,adj_f)
-
 
 def Backtrack_Search(options:dict[Flock,list[Zone]],assigment:dict[Flock,Zone],non_assigned:list[Flock],arcs:list[(Flock,Flock)],adj_z:dict[Zone,list[Zone]],adj_f:dict[Flock,list[Flock]]):
     if len(non_assigned)==0: return assigment
@@ -56,7 +54,6 @@ def Backtrack_Search(options:dict[Flock,list[Zone]],assigment:dict[Flock,Zone],n
             if (flock[1] == value or flock[1] in adj_z[value]) and (current in adj_f[flock[0]] or flock[0] in adj_f[current]):
                 valid_value=False
                 break
-
         if valid_value:
         #llamado recursivo
             assigment[current]=value
@@ -66,5 +63,4 @@ def Backtrack_Search(options:dict[Flock,list[Zone]],assigment:dict[Flock,Zone],n
             if recursive_call!= None:
                 return recursive_call
             non_assigned.insert(0,current)
-
     return None

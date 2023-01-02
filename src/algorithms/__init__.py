@@ -1,1 +1,1 @@
-from .csp import *
+from .csp import CSP
