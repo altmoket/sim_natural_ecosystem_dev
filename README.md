@@ -15,22 +15,23 @@ Generar un ecosistema para simular el proceso de evolución de distintos tipos d
 #### Requerimientos:
 * Instalar [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Instalar [Python3](https://www.python.org/downloads/)
-* Instalar [pipenv](https://pypi.org/project/pipenv/)
+* Instalar **scipy** `pip install scipy`
+<!-- * Instalar [pipenv](https://pypi.org/project/pipenv/) -->
 * Clonar repo `git clone "https://github.com/altmoket/sim_natural_ecosystem_dev.git"`
 * Moverse al directorio del proyecto `cd sim_natural_ecosystem_dev/`
-* Activar el environment `pipenv shell`
-* Instalar paquetes necesarios `pipenv install`
+<!-- * Activar el environment `pipenv shell`
+* Instalar paquetes necesarios `pipenv install` -->
+#### Requerimientos opcionales:
+* Instalar **pytest** `pip install pytest`
 
 #### Formas de ejecucion:
 * Ejecucion Basica
 ```python
 python main.py
 ```
-* Mostrar Ayuda
+
+* Ejecucion de los tests
 ```python
-python main.py --help
+python -m pytest
 ```
-* Generar Especie
-```python
-python main.py generate specie EspecieName
-```
+
