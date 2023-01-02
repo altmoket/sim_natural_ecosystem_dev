@@ -3,7 +3,7 @@ from .utils import *
 class Species:
     name = Specie.base
     @classmethod
-    def search_qry_type(self, name:property):
+    def search_specie_type(self, name:property):
         for cls in self.__subclasses__(): 
             if cls.name == name: return cls
         raise Exception("Unknown Specie")
