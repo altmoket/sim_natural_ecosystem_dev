@@ -7,12 +7,14 @@ class Specie:
     rabbit = 'rabbit'
     tiger = 'tiger'
 
-class Habitat :
+
+class Habitat:
     tropical = 'tropical'
     desertic = 'desertic'
     polar = 'polar'
     tempered = 'tempered'
 
+
 class Nutrition:
     herbivore = 'herbivore'
-    carnivorous = 'carnivorous' 
+    carnivorous = 'carnivorous'
