@@ -16,9 +16,12 @@ class Zone:
         t_min, t_max = self.temperature_range
         self.__temperature__ = round(random.uniform(t_min, t_max), 2)
         return self.__temperature__
-    
+
     def add_flock(self, flock):
         self.flocks.append(flock)
+        
+    def __repr__(self) -> str:
+        return str(self.id)
 
     @property
     def total(self):
@@ -54,3 +57,60 @@ class Flock:
             self.male_total -= 1
         else:
             self.female_total -= 1
+
+
+class Behavior:
+    group = 'group'
+    individual = 'individual'
+
+
+class Entity:
+    behavior: Behavior = None
+
+    def __init__(self) -> None:
+        self.members = {}
+        self.member = None
+
+    def all(self):
+        if self.behavior == Behavior.individual:
+            return self.member
+        if self.behavior == Behavior.group:
+            return self.members
+
+
+class Group(Entity):
+    behavior = Behavior.group
+
+    def __init__(self, behavior: str = Behavior.group) -> None:
+        self.behavior = behavior
+        super().__init__()
+
+    def create_subgroup(self, member_type: str, is_individual: bool = False):
+        if not self.exist_subgroup(member_type):
+            self.subgroups[member_type]
+
+    def exist_subgroup(self, member_type: str):
+        return self.subgroups[member_type] is not None
+
+    def add_member(self, member_type: str):
+        pass
+
+    def remove_member(self, member_type: str):
+        pass
+
+    def remove_individual_member(self, member_type: str, id: int):
+        pass
+
+    def add_individual_member(self, member_type: str, gender: str):
+        pass
+
+
+class Individual(Entity):
+    behavior = Behavior.individual
+
+    def __init__(self, id: int, type: str, gender: str) -> None:
+        pass
+
+
+class Hive(Group):
+    pass
