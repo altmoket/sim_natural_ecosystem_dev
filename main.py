@@ -1,4 +1,5 @@
 from src import *
+from src.algorithms.world_generator import WorldGenerator
 
 # PARA FACILIDAD EN LA SIMULACION GENERANDO ZONAS, MANADAS
 # Y UBICANDOLAS SATISFACTORIAMENTE EN ZONAS SEGUN CSP
@@ -33,16 +34,17 @@ def main():
     flock7 = Flock(Specie.horse)
     flocks = [flock1, flock2, flock3, flock4, flock5, flock6, flock7]
 
-    zone1 = Zone(1, Habitat.tempered)
-    zone2 = Zone(2, Habitat.desertic)
-    zone3 = Zone(3, Habitat.tropical)
-    zone4 = Zone(4, Habitat.polar)
-    zones = [zone1, zone2, zone3, zone4]
+    # zone1 = Zone(1, Habitat.tempered)
+    # zone2 = Zone(2, Habitat.desertic)
+    # zone3 = Zone(3, Habitat.tropical)
+    # zone4 = Zone(4, Habitat.polar)
+    # zones = [zone1, zone2, zone3, zone4]
 
-    adj_z = {zone1: [zone2],
-             zone2: [zone1, zone4],
-             zone3: [zone4],
-             zone4: [zone3, zone2]}
+    # adj_z = {zone1: [zone2],
+    #          zone2: [zone1, zone4],
+    #          zone3: [zone4],
+    #          zone4: [zone3, zone2]}
+    zones, adj_z = WorldGenerator().generate(4, 7)
 
     adj_e = {Specie.tiger: [Specie.grizzly_bear, Specie.horse],
              Specie.polar_bear: [Specie.bengal_tiger],
