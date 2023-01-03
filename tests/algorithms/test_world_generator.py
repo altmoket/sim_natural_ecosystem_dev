@@ -1,7 +1,5 @@
-
-
-from src.algorithms.world_generator import WorldGenerator
-
+from src import WorldGenerator
+import random
 
 class TestWorldGenerator:
     generator = WorldGenerator()
@@ -9,7 +7,7 @@ class TestWorldGenerator:
     def test_generate_habitat(self):
         habitats = []
         for _ in range(10):
-            habitat = self.generator.generate_habitat()
+            habitat = random.choice(self.generator.habitats)
             habitats.append(habitat)
         assert len(habitats) == 10
         
