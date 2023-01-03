@@ -9,9 +9,18 @@ class WorldGenerator:
     def __init__(self) -> None:
         self.habitats = [Habitat.tropical, Habitat.desertic,
                          Habitat.polar, Habitat.tempered]
+        
+    def random(self, min, max):
+        try:
+            if min > max: return 0
+            return random.randint(min, max)
+        except:
+            print("Min and Max:")
+            print(min, max)
+            raise "Error generando random"
 
     def generate(self, min_number_of_zones, max_number_of_zones):
-        number_of_zones = random.randint(
+        number_of_zones = self.random(
             min_number_of_zones, max_number_of_zones)
 
         zones = self.generate_zones(number_of_zones)
@@ -32,7 +41,7 @@ class WorldGenerator:
 
     def generate_habitat(self) -> str:
         number_of_habitats = len(self.habitats)
-        habitat_index = random.randint(0, number_of_habitats-1)
+        habitat_index = self.random(0, number_of_habitats-1)
         return self.habitats[habitat_index]
 
     def generate_adjacent_zones(self, zones: list[Zone]):
@@ -55,11 +64,11 @@ class WorldGenerator:
 
     def generate_adjacent_zones_to_zone_i(self, zones: list[Zone], id: int, adjacent_zones):
         avaliable_zones = self.get_avaliable_zones(zones, id, adjacent_zones)
-        number_of_adjacent_zones = random.randint(0, len(avaliable_zones)-1)
+        number_of_adjacent_zones = self.random(0, len(avaliable_zones)-1)
 
         adjacent_zones = []
         while number_of_adjacent_zones > 0:
-            zone_number = random.randint(0, number_of_adjacent_zones - 1)
+            zone_number = self.random(0, number_of_adjacent_zones - 1)
             zone = avaliable_zones.pop(zone_number)
             adjacent_zones.append(zone)
             number_of_adjacent_zones -= 1
