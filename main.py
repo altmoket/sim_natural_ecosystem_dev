@@ -1,5 +1,5 @@
 from src import *
-from src.algorithms.world_generator import WorldGenerator
+from src.algorithms import WorldGenerator
 
 # PARA FACILIDAD EN LA SIMULACION GENERANDO ZONAS, MANADAS
 # Y UBICANDOLAS SATISFACTORIAMENTE EN ZONAS SEGUN CSP
