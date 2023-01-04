@@ -1,9 +1,6 @@
-
-
 import random
-from src.components.place import Zone
+from src.components import Zone
 from src.components.utils import *
-
 
 class WorldGenerator:
     def __init__(self) -> None:
@@ -36,13 +33,8 @@ class WorldGenerator:
         return zones
 
     def generate_zone(self, id: int) -> Zone:
-        habitat = self.generate_habitat()
+        habitat = random.choice(self.habitats)
         return Zone(id, habitat)
-
-    def generate_habitat(self) -> str:
-        number_of_habitats = len(self.habitats)
-        habitat_index = self.random(0, number_of_habitats-1)
-        return self.habitats[habitat_index]
 
     def generate_adjacent_zones(self, zones: list[Zone]):
         number_of_zones = len(zones)
@@ -84,16 +76,6 @@ class WorldGenerator:
 
         return list(zones_copy_set.difference(adjacent_zones_set_in_id))
 
-    def update_adjacent_zones(self, zone, adjacent_zones, adjacent_zones_to_zone_i):
+    def update_adjacent_zones(self, zone:Zone, adjacent_zones:dict[Zone,list[Zone]], adjacent_zones_to_zone_i):
         for adjacent_zone in adjacent_zones_to_zone_i:
             adjacent_zones[adjacent_zone].append(zone)
-
-
-def main():
-    generator = WorldGenerator()
-    for i in range(100):
-        generator.generate(1, 6)
-
-
-if __name__ == "__main__":
-    main()

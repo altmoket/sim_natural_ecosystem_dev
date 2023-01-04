@@ -1,8 +1,4 @@
-
-
-from src.components import *
-from src.components.utils import *
-
+from src import *
 
 class TestZone:
     z_tropical = Zone(1, Habitat.tropical)
@@ -33,8 +29,6 @@ class TestZone:
         temperature = self.get_temperature(self.z_tempered)
         print(temperature)
         assert 0 == 0
-    
-    
-
+        
 class TestFlock:
     pass

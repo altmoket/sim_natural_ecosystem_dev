@@ -1,7 +1,4 @@
-
-
-from src.algorithms.world_generator import WorldGenerator
-
+from src import WorldGenerator
 
 class TestWorldGenerator:
     generator = WorldGenerator()
