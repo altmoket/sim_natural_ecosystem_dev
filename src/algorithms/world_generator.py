@@ -38,11 +38,11 @@ class WorldGenerator:
         number_of_zones = len(zones)
         adjacent_zones = self.initialize_adjacent_zones(zones)
         for i in range(number_of_zones):
-            adjacent_zones = self.generate_adjacent_zones_to_zone_i_and_update_adjacent_zones(
+            adjacent_zones = self.generate_and_update_adjacent_zones_to_zone_i(
                 zones, adjacent_zones, i)
         return adjacent_zones
 
-    def generate_adjacent_zones_to_zone_i_and_update_adjacent_zones(self, zones, adjacent_zones, i):
+    def generate_and_update_adjacent_zones_to_zone_i(self, zones, adjacent_zones, i):
         adjacent_zones_to_zone_i = self.generate_adjacent_zones_to_zone_i(
             zones, i, adjacent_zones)
         adjacent_zones = self.update_adjacent_zones(
