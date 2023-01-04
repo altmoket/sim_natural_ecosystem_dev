@@ -10,8 +10,7 @@ def CSP(flocks: list[Flock], zones: list[Zone], adj_z: dict[Zone, list[Zone]], a
     adj_f: dict[Flock, list[Flock]] = defaultdict(lambda: [])
     # Determinar opciones para cada una de las variables
     for flock in flocks:
-        options[flock] = list(filter(lambda zone: zone.type in Species.search_specie_type(
-            flock.__type__).habitat(), zones))
+        options[flock] = list(filter(lambda zone: zone.type in Specie.search_specie_type(flock.__type__.name).habitat, zones))
         if len(options[flock]) == 0:
             return None
         if len(options[flock]) == 1:

@@ -41,7 +41,7 @@ class Simulator:
         flock = self.ecosystem.max_probability(True)
         sex = self.generate_sex()
         flock.add_animal(sex)
-        print(f'Time:{int(self.time)}  Number: {self.birth_count}  Event: Birth of a {flock.__type__}')
+        print(f'Time:{int(self.time)}  Number: {self.birth_count}  Event: Birth of a {flock.__type__.name}')
         if self.birth_count < 20:
             next_birth_time = self.generate_birth_time()
             self.birth_time = self.time+next_birth_time
@@ -60,7 +60,7 @@ class Simulator:
         flock = self.ecosystem.max_probability(False)
         sex = self.generate_sex()
         flock.remove_animal(sex)
-        print(f'Time:{int(self.time)}  Number: {self.death_count}  Event: Death of a {flock.__type__}')
+        print(f'Time:{int(self.time)}  Number: {self.death_count}  Event: Death of a {flock.__type__.name}')
         if self.ecosystem.total_of_animals > 0:
             next_death_time = self.generate_death_time()
             self.death_time = self.time + next_death_time
