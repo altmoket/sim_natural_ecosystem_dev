@@ -7,15 +7,34 @@ class Specie:
     rabbit = 'rabbit'
     tiger = 'tiger'
     ant = 'ant'
+    seal = 'seal'
+    fish = 'fish'
 
 
 class Habitat:
-    tropical = 'tropical'
-    desertic = 'desertic'
-    polar = 'polar'
-    tempered = 'tempered'
+    __type__ = "base"
+
+
+class TropicalHabitat(Habitat):
+    __type__ = "tropical"
+
+
+class DeserticHabitat(Habitat):
+    __type__ = "desertic"
+
+
+class PolarHabitat(Habitat):
+    __type__ = "polar"
+
+
+class TemperedHabitat(Habitat):
+    __type__ = "tempered"
 
 
 class Nutrition:
     herbivore = 'herbivore'
     carnivorous = 'carnivorous'
+
+
+if __name__ == "__main__":
+    print(TropicalHabitat.name)

@@ -1,9 +1,9 @@
 import random
-from .utils import Habitat
-type_temperature = {Habitat.tropical: (17, 26), 
-                    Habitat.desertic: (27, 35),
-                    Habitat.polar:    (-5, 10), 
-                    Habitat.tempered: ( 6, 18)}
+from .utils import TropicalHabitat, DeserticHabitat, PolarHabitat, TemperedHabitat
+type_temperature = {TropicalHabitat: (17, 26), 
+                    DeserticHabitat: (27, 35),
+                    PolarHabitat:    (-5, 10), 
+                    TemperedHabitat: ( 6, 18)}
 
 class Zone:
     def __init__(self, _id: int, zone_type):
@@ -22,10 +22,10 @@ class Zone:
         self.flocks.append(flock)
         
     def __str__(self) -> str:
-        return f'Zone {self.id}: {self.type}'
+        return f'Zone {self.id}: {self.type.__type__}'
 
     def __repr__(self) -> str:
-        return f'Zone {self.id}: {self.type}'
+        return f'Zone {self.id}: {self.type.__type__}'
 
     @property
     def total(self):

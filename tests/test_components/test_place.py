@@ -1,10 +1,11 @@
 from src import *
+from src.components.utils.tools import *
 
 class TestZone:
-    z_tropical = Zone(1, Habitat.tropical)
-    z_desertic = Zone(2, Habitat.desertic)
-    z_polar = Zone(3, Habitat.polar)
-    z_tempered = Zone(4, Habitat.tempered)
+    z_tropical = Zone(1, TropicalHabitat)
+    z_desertic = Zone(2, DeserticHabitat)
+    z_polar = Zone(3, PolarHabitat)
+    z_tempered = Zone(4, TemperedHabitat)
     
     def get_temperature(self, zone: Zone):
         temperature = zone.get_temperature()

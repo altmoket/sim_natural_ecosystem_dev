@@ -5,8 +5,8 @@ from src.components.utils import *
 
 class WorldGenerator:
     def __init__(self) -> None:
-        self.habitats = [Habitat.tropical, Habitat.desertic,
-                         Habitat.polar, Habitat.tempered]
+        self.habitats = [TropicalHabitat, DeserticHabitat,
+                         PolarHabitat, TemperedHabitat]
 
     def random(self, min, max):
         try:

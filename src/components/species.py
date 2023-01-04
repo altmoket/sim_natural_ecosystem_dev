@@ -18,86 +18,106 @@ class Species:
     def speed(): raise NotImplementedError()
     def reach(): raise NotImplementedError()
     def vision(): raise NotImplementedError()
+    def feeding(): raise NotImplementedError() # De que se alimenta
 
 
 class BengalTiger(Species):
     name = Specie.bengal_tiger
     def life_expectancy(): pass
-    def habitat(): return [Habitat.polar, Habitat.tempered]
+    def habitat(): return [PolarHabitat, TemperedHabitat]
     def nutrition(): return Nutrition.carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
     def reach(): pass
     def vision(): pass
+    def feeding(): pass
 
 
 class GrizzlyBear(Species):
     name = Specie.grizzly_bear
     def life_expectancy(): pass
-    def habitat(): return [Habitat.tropical, Habitat.desertic]
+    def habitat(): return [TropicalHabitat, DeserticHabitat]
     def nutrition(): return Nutrition.carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
     def reach(): pass
     def vision(): pass
+    def feeding(): pass
 
 
 class Horse(Species):
     name = Specie.horse
     def life_expectancy(): pass
-    def habitat(): return [Habitat.tropical, Habitat.desertic]
+    def habitat(): return [TropicalHabitat, DeserticHabitat]
     def nutrition(): return Nutrition.herbivore
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
     def reach(): pass
     def vision(): pass
+    def feeding(): pass
 
 
 class PolarBear(Species):
     name = Specie.polar_bear
     def life_expectancy(): pass
-    def habitat(): return [Habitat.polar, Habitat.tempered]
+    def habitat(): return [PolarHabitat, TemperedHabitat]
     def nutrition(): return Nutrition.carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
-    def speed(): pass
+    def speed(): return 40 # Km x Hora
     def reach(): pass
     def vision(): pass
+    def feeding(): return [Specie.seal]
 
 
 class Rabbit(Species):
     name = Specie.rabbit
     def life_expectancy(): pass
-    def habitat():return [Habitat.tropical, Habitat.desertic, Habitat.tempered, Habitat.polar]
+    def habitat():return [TropicalHabitat, DeserticHabitat, TemperedHabitat, PolarHabitat]
     def nutrition(): return Nutrition.herbivore
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
     def reach(): pass
     def vision(): pass
+    def feeding(): pass
 
 
 class Tiger(Species):
     name = Specie.tiger
     def life_expectancy(): pass
-    def habitat(): return [Habitat.tropical]
+    def habitat(): return [TropicalHabitat]
     def nutrition(): return Nutrition.carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
     def reach(): pass
     def vision(): pass
+    def feeding(): pass
     
 class Ant(Species):
     name = Specie.ant
     def life_expectancy(): pass
-    def habitat(): return [Habitat.desertic, Habitat.tropical]
+    def habitat(): return [DeserticHabitat, TropicalHabitat]
     def nutrition(): return Nutrition.herbivore
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
     def reach(): pass
     def vision(): pass
+    def feeding(): pass
+    
+class Seal(Species):
+    name = Specie.seal
+    def life_expectancy(): pass
+    def habitat(): return [PolarHabitat]
+    def nutrition(): return Nutrition.carnivorous
+    def fertility_level(): pass
+    def gestation_time(): pass
+    def speed(): pass
+    def reach(): pass
+    def vision(): pass
+    def feeding(): pass
