@@ -2,18 +2,19 @@ import random
 from src.components import Zone
 from src.components.utils import *
 
+
 class WorldGenerator:
     def __init__(self) -> None:
         self.habitats = [Habitat.tropical, Habitat.desertic,
                          Habitat.polar, Habitat.tempered]
-        
+
     def random(self, min, max):
         try:
-            if min > max: return 0
+            if min > max:
+                return 0
             return random.randint(min, max)
         except:
-            print("Min and Max:")
-            print(min, max)
+            print(f"Min:{min}, Max: {max}")
             raise "Error generando random"
 
     def generate(self, min_number_of_zones, max_number_of_zones):
@@ -27,10 +28,7 @@ class WorldGenerator:
         return zones, adjacent_zones  # Vertices, Aristas
 
     def generate_zones(self, number_of_zones: int) -> list[Zone]:
-        zones: list[Zone] = []
-        for i in range(number_of_zones):
-            zones.append(self.generate_zone(id=i))
-        return zones
+        return [self.generate_zone(id=i) for i in range(number_of_zones)]
 
     def generate_zone(self, id: int) -> Zone:
         habitat = random.choice(self.habitats)
@@ -40,19 +38,20 @@ class WorldGenerator:
         number_of_zones = len(zones)
         adjacent_zones = self.initialize_adjacent_zones(zones)
         for i in range(number_of_zones):
-            adjacent_zones_to_zone_i = self.generate_adjacent_zones_to_zone_i(
-                zones, i, adjacent_zones)
-            zone = zones[i]
-            adjacent_zones[zone] += adjacent_zones_to_zone_i
-            self.update_adjacent_zones(
-                zone, adjacent_zones, adjacent_zones_to_zone_i)
+            adjacent_zones = self.generate_adjacent_zones_to_zone_i_and_update_adjacent_zones(
+                zones, adjacent_zones, i)
+        return adjacent_zones
+
+    def generate_adjacent_zones_to_zone_i_and_update_adjacent_zones(self, zones, adjacent_zones, i):
+        adjacent_zones_to_zone_i = self.generate_adjacent_zones_to_zone_i(
+            zones, i, adjacent_zones)
+        adjacent_zones = self.update_adjacent_zones(
+            zones[i], adjacent_zones, adjacent_zones_to_zone_i)
+
         return adjacent_zones
 
     def initialize_adjacent_zones(self, zones):
-        adjacent_zones = {}
-        for zone in zones:
-            adjacent_zones[zone] = []
-        return adjacent_zones
+        return {zone: [] for zone in zones}
 
     def generate_adjacent_zones_to_zone_i(self, zones: list[Zone], id: int, adjacent_zones):
         avaliable_zones = self.get_avaliable_zones(zones, id, adjacent_zones)
@@ -76,6 +75,8 @@ class WorldGenerator:
 
         return list(zones_copy_set.difference(adjacent_zones_set_in_id))
 
-    def update_adjacent_zones(self, zone:Zone, adjacent_zones:dict[Zone,list[Zone]], adjacent_zones_to_zone_i):
+    def update_adjacent_zones(self, zone: Zone, adjacent_zones: dict[Zone, list[Zone]], adjacent_zones_to_zone_i):
+        adjacent_zones[zone] += adjacent_zones_to_zone_i
         for adjacent_zone in adjacent_zones_to_zone_i:
             adjacent_zones[adjacent_zone].append(zone)
+        return adjacent_zones
