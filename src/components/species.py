@@ -25,7 +25,7 @@ class BengalTiger(Species):
     name = Specie.bengal_tiger
     def life_expectancy(): pass
     def habitat(): return [PolarHabitat, TemperedHabitat]
-    def nutrition(): return Nutrition.carnivorous
+    def nutrition(): return Carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
@@ -38,7 +38,7 @@ class GrizzlyBear(Species):
     name = Specie.grizzly_bear
     def life_expectancy(): pass
     def habitat(): return [TropicalHabitat, DeserticHabitat]
-    def nutrition(): return Nutrition.carnivorous
+    def nutrition(): return Carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
@@ -51,7 +51,7 @@ class Horse(Species):
     name = Specie.horse
     def life_expectancy(): pass
     def habitat(): return [TropicalHabitat, DeserticHabitat]
-    def nutrition(): return Nutrition.herbivore
+    def nutrition(): return Herbivore
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
@@ -64,7 +64,7 @@ class PolarBear(Species):
     name = Specie.polar_bear
     def life_expectancy(): pass
     def habitat(): return [PolarHabitat, TemperedHabitat]
-    def nutrition(): return Nutrition.carnivorous
+    def nutrition(): return Carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): return 40 # Km x Hora
@@ -77,7 +77,7 @@ class Rabbit(Species):
     name = Specie.rabbit
     def life_expectancy(): pass
     def habitat():return [TropicalHabitat, DeserticHabitat, TemperedHabitat, PolarHabitat]
-    def nutrition(): return Nutrition.herbivore
+    def nutrition(): return Herbivore
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
@@ -90,7 +90,7 @@ class Tiger(Species):
     name = Specie.tiger
     def life_expectancy(): pass
     def habitat(): return [TropicalHabitat]
-    def nutrition(): return Nutrition.carnivorous
+    def nutrition(): return Carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
@@ -102,7 +102,7 @@ class Ant(Species):
     name = Specie.ant
     def life_expectancy(): pass
     def habitat(): return [DeserticHabitat, TropicalHabitat]
-    def nutrition(): return Nutrition.herbivore
+    def nutrition(): return Herbivore
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass
@@ -114,7 +114,7 @@ class Seal(Species):
     name = Specie.seal
     def life_expectancy(): pass
     def habitat(): return [PolarHabitat]
-    def nutrition(): return Nutrition.carnivorous
+    def nutrition(): return Carnivorous
     def fertility_level(): pass
     def gestation_time(): pass
     def speed(): pass

@@ -32,8 +32,13 @@ class TemperedHabitat(Habitat):
 
 
 class Nutrition:
-    herbivore = 'herbivore'
-    carnivorous = 'carnivorous'
+    __type__ = "base"
+    
+class Herbivore(Nutrition):
+    __type__ = 'herbivore'
+    
+class Carnivorous(Nutrition):
+    __type__ = 'carnivorous'
 
 
 if __name__ == "__main__":
