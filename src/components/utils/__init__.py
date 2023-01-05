@@ -1,1 +1,3 @@
-from .tools import Nutrition, Habitat, Specie
+from .tools import Habitat, Specie
+from .heapmax import heap
+from .distribution import exponential

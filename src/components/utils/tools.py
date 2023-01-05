@@ -14,8 +14,3 @@ class Habitat:
     desertic = 'desertic'
     polar = 'polar'
     tempered = 'tempered'
-
-
-class Nutrition:
-    herbivore = 'herbivore'
-    carnivorous = 'carnivorous'

@@ -1,7 +1,6 @@
 from ..components import Zone, Flock, Specie
 from ..algorithms import CSP
 
-
 class Ecosystem:
     def __init__(self, zones: list[Zone], flocks: list[Flock] = None, adj_z: dict[Zone, list[Zone]] = None, adj_e: dict[Specie, list[Specie]] = None):
         self.zones = zones
