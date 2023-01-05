@@ -1,7 +1,6 @@
 from ..components import *
 from collections import defaultdict
 
-
 def CSP(flocks: list[Flock], zones: list[Zone], adj_z: dict[Zone, list[Zone]], adj_e: dict[Specie, list[Specie]]):
     options = {}
     arcs: list[(Flock, Flock)] = []

@@ -7,7 +7,7 @@ class TestZone:
     z_tempered = Zone(4, Habitat.tempered)
     
     def get_temperature(self, zone: Zone):
-        temperature = zone.get_temperature()
+        temperature = zone.get_weather()
         return temperature
     
     def test_tropical_temperature(self):

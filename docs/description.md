@@ -1,4 +1,4 @@
-## Simulacion del desarrollo de un ecosistema natural.
+## Simulación del desarrollo de un ecosistema natural.
 
 #### Integrantes:
 * [Dianelys Cruz Mengana](https://github.com/DianeMC) C-311
@@ -10,27 +10,21 @@ Generar un ecosistema para simular el proceso de evolución de distintos tipos d
 
 **Nota:** No tienen que ser necesariamente especies inspiradas en la realidad, solamente deben poseer determinadas características que nos permitan integrarlas al ambiente.
 
-#### Caracteristicas comunes para cualquier especie:
+#### Características comunes para cualquier especie:
+- Hábitat natural
+- Si se alimenta o no de vegetación
 - Esperanza de vida
-- Habitat natural
-- Nivel de fertilidad
-- Tiempo de gestacion
-- Especies de las que se alimenta
 - Velocidad
-
-#### Caracteristicas de cada instancia de una especie:
-- Sexo
-- Estado de salud
 - Potencia de ataque
-- Localizacion
 - Nivel de defensa
 
-#### Factores que moldean el ecosistema y la evolucion
-- Clima
+#### Factores que moldean el ecosistema y la evolución
+- Temperatura
+- Precipitaciones
 - Migraciones
-- Cadena de alimentacion
+- Cadena de alimentación
 - Alianzas entre especies
-- Disponibilidad de recursos naturales
-- Caracteristicas del suelo
+- Disponibilidad de vegetación
+- Características del suelo
 
 **Nota:** La inserción de nuevos agentes y funcionalidades a la simulación puede demandar la incorporación de otras características.
