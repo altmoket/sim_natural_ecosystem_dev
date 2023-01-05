@@ -1,9 +1,9 @@
 from ..components import *
 from collections import defaultdict
-
+import random
 
 def CSP(flocks: list[Flock], zones: list[Zone], adj_z: dict[Zone, list[Zone]], adj_e: dict[Specie, list[Specie]]):
-    options = {}
+    options:dict[Flock,list[Zone]] = {}
     arcs: list[(Flock, Flock)] = []
     assigments: dict[Flock, Zone] = defaultdict(lambda: None)
     non_assigned: list[Flock] = flocks.copy()
@@ -13,7 +13,7 @@ def CSP(flocks: list[Flock], zones: list[Zone], adj_z: dict[Zone, list[Zone]], a
         options[flock] = list(filter(lambda zone: zone.type in Species.search_specie_type(
             flock.__type__).habitat(), zones))
         if len(options[flock]) == 0:
-            return None
+            options[flock]=zones.copy()
         if len(options[flock]) == 1:
             assigments[flock] = options[flock][0]
             non_assigned.remove(flock)
@@ -28,7 +28,22 @@ def CSP(flocks: list[Flock], zones: list[Zone], adj_z: dict[Zone, list[Zone]], a
             if flock1.__type__ in adj_e[flock2.__type__]:
                 adj_f[flock2].append(flock1)
                 arcs.append((flock2, flock1))
-    return Backtrack_Search(options, assigments, non_assigned, arcs, adj_z, adj_f)
+
+    #creando una copia de las opciones por cada grupo
+    temp_options={}
+    for item in options.items():
+        temp_options[item[0]] = options[item[0]].copy()
+
+    #intentar encontrar una distribucion que satisfaga todas las restricciones
+    solution = Backtrack_Search(options, assigments.copy(), non_assigned.copy(), arcs, adj_z, adj_f)
+    if solution: return solution
+
+    # en caso de que no se encuentre una distribucion ideal se le asigna a cada grupo alguna de las zonas en las que puede habitar
+    for flock in non_assigned:
+        n_options=len(temp_options[flock])
+        index=random.randint(0,n_options-1)
+        assigments[flock] = temp_options[flock][index]
+    return assigments
 
 
 def Backtrack_Search(options: dict[Flock, list[Zone]], assigment: dict[Flock, Zone], non_assigned: list[Flock], arcs: list[(Flock, Flock)], adj_z: dict[Zone, list[Zone]], adj_f: dict[Flock, list[Flock]]):
