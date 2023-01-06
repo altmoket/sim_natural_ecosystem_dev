@@ -36,13 +36,19 @@ def CSP(flocks: list[Flock], zones: list[Zone], adj_z: dict[Zone, list[Zone]], a
 
     #intentar encontrar una distribucion que satisfaga todas las restricciones
     solution = Backtrack_Search(options, assigments.copy(), non_assigned.copy(), arcs, adj_z, adj_f)
-    if solution: return solution
+    if solution:
+        print("\nValid Distribution") 
+        return solution
 
     # en caso de que no se encuentre una distribucion ideal se le asigna a cada grupo alguna de las zonas en las que puede habitar
     for flock in non_assigned:
-        n_options=len(temp_options[flock])
+        valid_zones=list(filter(lambda zone : not zone in assigments.values(),temp_options[flock]))
+        n_options=len(valid_zones)
+        if n_options == 0:
+            n_options=len(temp_options[flock])
+            valid_zones=temp_options[flock]
         index=random.randint(0,n_options-1)
-        assigments[flock] = temp_options[flock][index]
+        assigments[flock] = valid_zones[index]
     return assigments
 
 

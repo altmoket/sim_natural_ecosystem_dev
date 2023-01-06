@@ -3,23 +3,19 @@ import numpy as np
 from numpy.random import choice as np_choice
 from ..components import *
 from collections import defaultdict
-
+import math
 class AntColony(object):
 
-    def __init__(self, zone:Zone,adj_z:list[Zone,list[Zone]], decay, alpha=1, beta=0.5, delta_tau = 2, ):
-        self.zone=zone
+    def __init__(self, flock:Flock,adj_z:list[Zone,list[Zone]], decay, alpha=1, beta=0.5, delta_tau = 2 ):
+        self.zone=flock.zone
         self.adj_z  = adj_z
-        self.pheromone = self.get_pheromone()
+        self.pheromone : dict[Zone,dict[Zone,int]]=defaultdict(lambda : defaultdict(int)) 
         self.decay = decay
         self.alpha = alpha
         self.beta = beta
         self.delta_tau = delta_tau
         self.all_time_shortest_path = (-1, "placeholder", np.inf)
-        self.distance = self.get_pheromone()
-
-    def get_pheromone(self):
-        pheromone=np.zeros((len(self.adj_z),len(self.adj_z)))
-        pheromone=np.fill_diagonal(pheromone,-1)
+        self.distances : dict[Zone,dict[Zone,int]]=defaultdict(lambda : defaultdict(int)) 
 
     def run(self,n_ants,n_iterations):
         shortest_path = None
@@ -37,8 +33,11 @@ class AntColony(object):
         return self.all_time_shortest_path
 
     def spread_pheronome(self, all_paths):
-        #TODO: Your code here!
-        return None
+            for path in all_paths:
+                for i in range(0,len(path)-2):
+                    current=path[i]
+                    next=path[i+1]
+                    self.pheromone[current][next]+=self.delta_tau
 
     def path_dist(self, path):
         #TODO: Your code here!
@@ -47,7 +46,7 @@ class AntColony(object):
     def gen_all_paths(self,n_ants):
         all_paths = []
         for i in range(n_ants):
-            visited=np.zeros(len(self.zone))
+            visited : defaultdict[Zone,bool] = defaultdict(lambda:False)
             path = self.gen_path(self.zone,visited)
             all_paths.append((path, self.path_dist(path)))
         return all_paths
@@ -57,11 +56,15 @@ class AntColony(object):
             if not visited[next_zone]:
                 visited[next_zone]=True
                 distance[next_zone]=min(distance[next_zone],distance[zone]+1)
+            result=self.gen_path(next_zone,visited,distance)
+            if result:  return result 
         return None
 
-    def pick_move(self, pheromone, dist, visited):
-        #TODO: Your code here!
-        return None
+    def probability(self,zone1,zone2):
+        math.pow(self.pheromone[zone1][zone2],self.alpha)+math.pow(1/self.distances[zone1][zone2],self.beta)
+    
+    def Is_Objective(zone:Zone):
+        return
     
     def evaporate_pheromone(self):
         #TODO: Your code here!
