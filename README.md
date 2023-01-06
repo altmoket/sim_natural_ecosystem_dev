@@ -1,4 +1,4 @@
-## Simulacion del desarrollo de un ecosistema natural.
+## Simulación del desarrollo de un ecosistema natural.
 
 #### Integrantes:
 * [Dianelys Cruz Mengana](https://github.com/DianeMC) C-311
@@ -10,7 +10,7 @@ Generar un ecosistema para simular el proceso de evolución de distintos tipos d
 
 **Nota:** No tienen que ser necesariamente especies inspiradas en la realidad, solamente deben poseer determinadas características que nos permitan integrarlas al ambiente.
 
-#### Documentacion: [HERE](https://github.com/altmoket/sim_natural_ecosystem_dev/blob/main/docs/description.md)   
+#### Documentación: [HERE](https://github.com/altmoket/sim_natural_ecosystem_dev/blob/main/docs/description.md)   
 	
 #### Requerimientos:
 * Instalar [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -25,13 +25,12 @@ Generar un ecosistema para simular el proceso de evolución de distintos tipos d
 * Instalar **pytest** `pip install pytest`
 
 #### Formas de ejecucion:
-* Ejecucion Basica
+* Ejecución Básica
 ```python
 python main.py
 ```
 
-* Ejecucion de los tests
+* Ejecución de los tests
 ```python
 python -m pytest
 ```
-
