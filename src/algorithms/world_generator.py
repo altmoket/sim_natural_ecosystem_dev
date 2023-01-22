@@ -24,6 +24,8 @@ class WorldGenerator:
         zones = self.generate_zones(number_of_zones)
 
         adjacent_zones = self.generate_adjacent_zones(zones)
+        
+        self.assign_distance_among_zones(zones)
 
         return zones, adjacent_zones  # Vertices, Aristas
 
@@ -79,3 +81,13 @@ class WorldGenerator:
         for adjacent_zone in adjacent_zones_to_zone_i:
             adjacent_zones[adjacent_zone].append(zone)
         return adjacent_zones
+    
+    def assign_distance_among_zones(self, zones: list[Zone]):
+        for zone in zones:
+            for adj in zone.adj_z:
+                try:
+                    zone.distance_adj_z[adj]
+                except KeyError:
+                    distance = self.random(1, 15)
+                    zone.distance_adj_z[adj] = distance
+                    adj.distance_adj_z[zone] = distance
