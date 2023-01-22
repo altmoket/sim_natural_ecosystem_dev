@@ -16,7 +16,8 @@ class Zone:
         v_min, v_max = type_zone[self.type]['vegetation']         
         self.vegetation = round(random.uniform(v_min, v_max), 3)        
         self.flocks: list[Flock] = []
-        self.adj_z:list[Zone] = []   
+        self.adj_z:list[Zone] = []  
+        self.distance_adj_z: dict[Zone,int] = {}
         self.get_weather()
 
     # De invocar este metodo solo se encarga la Simulacion
