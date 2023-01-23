@@ -5,9 +5,10 @@ type_zone = {Habitat.tropical:{'temperature':(17, 26),'vegetation':(90, 100)},
             Habitat.desertic: {'temperature':(27, 35),'vegetation':(25,  35)},
             Habitat.polar:    {'temperature':(-5, 10),'vegetation':(65,  80)}, 
             Habitat.tempered: {'temperature':( 6, 18),'vegetation':(75,  85)}}
+zone_mutation = [Habitat.polar, Habitat.tempered, Habitat.tropical, Habitat.desertic]
 
 class Zone:
-    def __init__(self, _id: int, _type):
+    def __init__(self, _id: int, _type:Habitat):
         self.id = _id
         # Conjunto de Percepciones del Entorno
         self.type = _type             
@@ -19,6 +20,11 @@ class Zone:
         self.adj_z:list[Zone] = []  
         self.distance_adj_z: dict[Zone,int] = {}
         self.get_weather()
+        
+        self.max_heatstrokes = 5
+        self.heatstrokes = 0
+        self.max_coldstrokes = 5
+        self.coldstrokes = 0
 
     # De invocar este metodo solo se encarga la Simulacion
     def get_weather(self):
@@ -47,6 +53,52 @@ class Zone:
 
     def add_flock(self, flock):
         self.flocks.append(flock)
+        
+    def add_heatstroke(self):
+        self.heatstrokes += 1 if self.type != Habitat.desertic else 0
+        response = []
+        response.append({"status": "GETTING HEAT STROKE", "heatstrokes": self.heatstrokes})
+        if self.heatstrokes == self.max_heatstrokes:
+            zone_type_destiny = self.zone_type_destiny('heatstroke')
+            zone_type_destiny_str = str(zone_type_destiny).upper()
+            response.append({ 'status': "MUTATING ZONE", "zone_type_destiny": zone_type_destiny_str, 'zone_type': self.zone_type})
+            self.change_habitat(zone_type_destiny)
+            response.append({'status': "ZONE TYPE HAS CHANGED", "zone_type": self.zone_type})
+        return response
+    
+    def add_coldstroke(self):
+        self.coldstrokes += 1 if self.type != Habitat.polar else 0
+        response = []
+        response.append({"status": "GETTING COLD STROKE", "coldstrokes": self.coldstrokes})
+        if self.coldstrokes == self.max_coldstrokes:
+            zone_type_destiny = self.zone_type_destiny('coldstroke')
+            zone_type_destiny_str = str(zone_type_destiny).upper()
+            response.append({ 'status': "MUTATING ZONE", "zone_type_destiny": zone_type_destiny_str, 'zone_type': self.zone_type})
+            self.change_habitat(zone_type_destiny)
+            response.append({'status': "ZONE TYPE HAS CHANGED", "zone_type": self.zone_type})
+        return response
+        
+    def change_habitat(self, habitat):
+        self.type = habitat
+        self.weather = None             
+        self.floor = 0  
+        v_min, v_max = type_zone[self.type]['vegetation']         
+        self.vegetation = round(random.uniform(v_min, v_max), 3)
+        self.max_heatstrokes = 5
+        self.heatstrokes = 0
+        self.max_coldstrokes = 5
+        self.coldstrokes = 0
+    
+    def zone_type_destiny(self, param):
+        index = zone_mutation.index(self.type)
+        if param == 'heatstroke':
+            return zone_mutation[index + 1]
+        elif param == 'coldstroke':
+            return zone_mutation[index - 1]
+    
+    @property
+    def zone_type(self):
+        return str(self.type).upper()
         
     def __str__(self) -> str:
         return f'Zone {self.id}: {self.type}'
