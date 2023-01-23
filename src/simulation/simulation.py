@@ -1,7 +1,7 @@
 from src.ecosystems import Ecosystem
 import heapq as heap
 from scipy.stats import expon, bernoulli
-
+import random 
 class Simulator:
     def __init__(self, ecosystem: Ecosystem, final_time: int):
         self.time = 0
@@ -31,10 +31,10 @@ class Simulator:
         self.time = self.birth_time
         self.birth_count += 1
         self.ecosystem.total_of_animals += 1
-        flock = self.ecosystem.max_probability(True)
+        specie,zone = self.ecosystem.max_probability()
         sex = self.generate_sex()
-        flock.add_animal(int(self.time), sex)
-        print(f'Time:{int(self.time)}  Number: {self.birth_count}  Event: Birth of a {flock.__type__}')
+        zone.add_animal(specie(sex))
+        print(f'Time:{int(self.time)}  Number: {self.birth_count}  Event: Birth of a {specie._type}')
         if self.birth_count < 20:
             next_birth_time = self.generate_birth_time()
             self.birth_time = self.time+next_birth_time
@@ -50,10 +50,9 @@ class Simulator:
         self.time = self.death_time
         self.death_count += 1
         self.ecosystem.total_of_animals -= 1
-        flock = self.ecosystem.max_probability(False)
-        sex = self.generate_sex()
-        flock.remove_animal(sex)
-        print(f'Time:{int(self.time)}  Number: {self.death_count}  Event: Death of a {flock.__type__}')
+        zone = random.choice(list(filter(lambda zone :zone.total>0,self.ecosystem.zones)))
+        specie=zone.remove_animmal()._type
+        print(f'Time:{int(self.time)}  Number: {self.death_count}  Event: Death of a {specie}')
         if self.ecosystem.total_of_animals > 0:
             next_death_time = self.generate_death_time()
             self.death_time = self.time + next_death_time
@@ -69,4 +68,4 @@ class Simulator:
 
     def generate_sex(self):
         ber = bernoulli(p=0.5)
-        return ber.rvs(1)
+        return ber.rvs(1)[0]
