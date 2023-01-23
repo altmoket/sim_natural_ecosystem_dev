@@ -1,3 +1,4 @@
+from src.components.utils.tools import Habitat
 from ..components import Zone, Flock, Specie
 from ..algorithms import CSP
 
@@ -14,6 +15,14 @@ class Ecosystem:
             distribution = CSP(flocks, zones, adj_z, adj_e)
             for item in distribution.items():
                 item[0].asign_zone(item[1])
+                
+    @property
+    def desertic_zones(self):
+        return [zone for zone in self.zones if zone.type == Habitat.desertic]
+    
+    @property
+    def polar_zones(self):
+        return [zone for zone in self.zones if zone.type == Habitat.polar]
 
     def max_probability(self, birth: bool):
         min = 2
