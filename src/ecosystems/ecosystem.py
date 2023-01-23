@@ -14,7 +14,7 @@ class Ecosystem:
         if animals and adj_e and adj_z:
             distribution = CSP(animals, zones, adj_z, adj_e)
             for item in distribution.items():
-                item[1].add_animal(item[0])
+                item[1].create_animal(item[0])
                 
     @property
     def desertic_zones(self):

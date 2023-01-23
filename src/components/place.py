@@ -23,10 +23,9 @@ class Zone:
         self.limb:list[tuple[Species, int, int]] = []
         self.total=0
         self.get_weather()
-        
-        self.max_heatstrokes = 5
+        self.max_heatstrokes = 15
         self.heatstrokes = 0
-        self.max_coldstrokes = 5
+        self.max_coldstrokes = 15
         self.coldstrokes = 0
 
     # De invocar este metodo solo se encarga la Simulacion
@@ -67,12 +66,11 @@ class Zone:
         self.total-=1
         return animal 
         
-    def create_animal(self, animals:list[Species]):
-        for animal in animals:
-            animal.birthday = random.randint(2,365)
-            t_min = animal.life_expectancy()[0]
-            animal.age = random.randint(0,t_min-1)
-            self.add_animal(animal)
+    def create_animal(self, animal:Species):
+        animal.birthday = random.randint(2,365)
+        t_min = animal.life_expectancy()[0]
+        animal.age = random.randint(0,t_min-1)
+        self.add_animal(animal)
 
     def delete_animmal(self, animal:Species):
         self.species[animal._type][animal.sex].remove(animal)
@@ -84,7 +82,7 @@ class Zone:
             for animal in male: animal.reaction((time, self))
         for i, (animal,time_local) in enumerate(self.limb):
             if time_local==time:
-                death=animal.update(time,self)
+                death = animal.update(time,self)
                 if death: self.limb.remove(animal)
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
