@@ -146,10 +146,10 @@ class Simulator:
         return expon.rvs(1, size=1, scale=1)
     
     def generate_heatwave_time(self):
-        return expon.rvs(1, size=1, scale=1)
+        return expon.rvs(1, size=1, scale=1) # Modificar este parametro, no se cual distribucion poner
     
     def generate_coldwave_time(self):
-        return expon.rvs(1, size=1, scale=1)
+        return expon.rvs(1, size=1, scale=1) # Modificar este parametro, no se cual distribucion poner
 
     def generate_sex(self):
         ber = bernoulli(p=0.5)
