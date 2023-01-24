@@ -1,17 +1,18 @@
 import random
 from src.ecosystems import Ecosystem
 import heapq as heap
-from scipy.stats import expon, bernoulli
+from scipy.stats import bernoulli
 from ..components.utils import exponential 
 class Simulator:
     def __init__(self, ecosystem: Ecosystem, final_time: int):
-        self.time = 0
+        self.time = 1
+        self.age = 1
         
         # Event times
-        self.death_time = 0
-        self.birth_time = 0
-        self.heatwave_time = 0
-        self.coldwave_time = 0
+        self.death_time = 1
+        self.birth_time = 1
+        self.heatwave_time = 1
+        self.coldwave_time = 1
         
         # Event counters
         self.birth_count = 0
@@ -43,9 +44,15 @@ class Simulator:
         return events
 
     def simulate(self):
+        print(f"Year {self.age} of the Simulation")
         while len(self.events) > 0:
             event: tuple(int, function) = heap.heappop(self.events)
             self.events_methods[event[1]]()
+            #self.time += 1
+            #if self.time == 366: 
+            #   self.time = 1
+            #   self.age += 1
+            # print(f"Year {self.age} of the Simulation")
 
     def birth_event(self):
         self.time = self.birth_time
@@ -85,17 +92,15 @@ class Simulator:
         self.deaths_moments[self.death_count] = self.time
         
     def heatwave_event(self):
-        desertic_zones = self.ecosystem.desertic_zones
-        if len(desertic_zones)>0:
-            zone = random.choice(desertic_zones)
-            self.time = self.heatwave_time
-            self.heatwave_count += 1
-            print(f"Time:{int(self.time)} Number: {self.heatwave_count}  Event: Heat Wave from {zone}")
-            self.spread_heat(zone.adj_z) # Ordenar las zonas adjacentes por distancia. Agregar despues
-            next_heatwave_time = self.generate_heatwave_time()
-            self.heatwave_time = self.time + next_heatwave_time
-            self.add_event(self.heatwave_time, 'heatwave')
-            self.heatwave_moments[self.heatwave_count] = self.time
+        zone = random.choice(desertic_zones)
+        self.time = self.heatwave_time
+        self.heatwave_count += 1
+        print(f"Time:{int(self.time)} Number: {self.heatwave_count}  Event: Heat Wave from {zone}")
+        self.spread_heat(zone.adj_z) # Ordenar las zonas adjacentes por distancia. Agregar despues
+        next_heatwave_time = self.generate_heatwave_time(20)
+        self.heatwave_time = self.time + next_heatwave_time
+        self.add_event(self.heatwave_time, 'heatwave')
+        self.heatwave_moments[self.heatwave_count] = self.time
             
     def spread_heat(self, zones):
         for zone in zones: 
@@ -111,14 +116,14 @@ class Simulator:
                     raise Exception("Unrecognized action")
                 
     def coldwave_event(self):
-        polar_zones = self.ecosystem.polar_zones
+        polar_zones = None
         if len(polar_zones)>0:
             zone = random.choice(polar_zones)
             self.time = self.coldwave_time
             self.coldwave_count += 1
             print(f"Time:{int(self.time)} Number: {self.coldwave_count}  Event: Cold Wave from {zone}")
             self.spread_cold(zone.adj_z) # Ordenar las zonas adjacentes por distancia. Agregar despues
-            next_coldwave_time = self.generate_coldwave_time()
+            next_coldwave_time = self.generate_coldwave_time(30)
             self.coldwave_time = self.time + next_coldwave_time
             self.add_event(self.coldwave_time, 'coldwave')
             self.coldwave_moments[self.coldwave_count] = self.time
@@ -128,7 +133,8 @@ class Simulator:
             response = zone.add_coldstroke()
             for action in response:
                 if action['status'] == "GETTING COLD STROKE":
-                    print(f"Zone: {zone.id} has getting a coldstroke. Coldstroke Counter: {action['coldstrokes']}.")
+                    #print(f"Zone: {zone.id} has getting a coldstroke. Coldstroke Counter: {action['coldstrokes']}.")
+                    pass
                 elif action['status'] == "MUTATING ZONE":
                     print(f"Zone: {zone.id} is mutating to {action['zone_type_destiny']} zone type from {action['zone_type']}")
                 elif action['status'] == "ZONE TYPE HAS CHANGED":
@@ -147,11 +153,11 @@ class Simulator:
     def generate_death_time(self, lbd):
         return exponential(1/lbd)
     
-    def generate_heatwave_time(self):
-        return expon.rvs(1, size=1, scale=1) # Modificar este parametro, no se cual distribucion poner
+    def generate_heatwave_time(self, lbd):
+        return exponential(1/lbd)
     
-    def generate_coldwave_time(self):
-        return expon.rvs(1, size=1, scale=1) # Modificar este parametro, no se cual distribucion poner
+    def generate_coldwave_time(self, lbd):
+        return exponential(1/lbd)
 
     def generate_sex(self):
         ber = bernoulli(p=0.5)

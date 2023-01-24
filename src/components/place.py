@@ -23,10 +23,7 @@ class Zone:
         self.limb:list[tuple[Species, int, int]] = []
         self.total=0
         self.get_weather()
-        self.max_heatstrokes = 5
-        self.heatstrokes = 0
-        self.max_coldstrokes = 5
-        self.coldstrokes = 0
+        self.strokes = 5
 
     # De invocar este metodo solo se encarga la Simulacion
     def get_weather(self):
@@ -94,7 +91,7 @@ class Zone:
         return output
 
     def add_heatstroke(self):
-        self.heatstrokes += 1 if self.type != Habitat.desertic else 0
+        self.strokes += 1 if self.type != Habitat.desertic and self.strokes < 10 else self.strokes
         response = []
         response.append({"status": "GETTING HEAT STROKE", "heatstrokes": self.heatstrokes})
         if self.heatstrokes == self.max_heatstrokes:
@@ -125,10 +122,7 @@ class Zone:
         t_min, t_max = type_zone[self.type]['temperature']
         temperature = round(random.uniform(t_min, t_max), 2)
         self.weather = (temperature, False)
-        self.max_heatstrokes = 5
-        self.heatstrokes = 0
-        self.max_coldstrokes = 5
-        self.coldstrokes = 0
+        self.strokes = 5
     
     def zone_type_destiny(self, param):
         index = zone_mutation.index(self.type)
@@ -136,10 +130,6 @@ class Zone:
             return zone_mutation[index + 1]
         elif param == 'coldstroke':
             return zone_mutation[index - 1]
-    
-    @property
-    def zone_type(self):
-        return str(self.type).upper()
         
     def __str__(self) -> str:
         return f'Zone {self.id}: {self.type}'
