@@ -132,6 +132,12 @@ class MigrationProblem(Problem):
                 result+=len(animals)
         return zone.total - result
     
+def migration_astar(zone, goal):
+    problem = MigrationProblem(initial=zone, goal=goal)
+    result = astar_tree_search(problem=problem)
+    path = path_actions(node=result)
+    return path
+    
 # # Ejemplo
 # zone = Zone(1, Habitat.desertic)
 # prob = MigrationProblem(zone, Habitat.tropical)
