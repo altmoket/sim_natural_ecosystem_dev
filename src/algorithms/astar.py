@@ -2,6 +2,7 @@ import heapq
 import math
 from collections import deque
 from src.components.place import Zone
+from src.components import Specie,Species
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 
@@ -110,19 +111,26 @@ def weighted_astar_search(problem:Problem, h=None, weight=1.4):
 # Define Problems Below
 
 class MigrationProblem(Problem):
+    
     def __init__(self, initial=None, goal=None, **kwds):
         super().__init__(initial, goal, **kwds)
-        
+     
     def actions(self, state: Zone):
-        return state.adj_z
+        return list(state.adj_z.keys())
     def result(self, state, action):
         return action
     def is_goal(self, state: Zone):        
         return state.type == self.goal
-    def action_cost(self, s, a, s1): # Esto hay que llenarlo
-        return 1
+    def action_cost(self, s:Zone, a, s1:Zone): # Esto hay que llenarlo
+        return s.adj_z[a]
     def h(self, node): # Esto hay que llenarlo         
-        return 0
+        zone:Zone=node.state
+        result=0
+        for _, (female,male)  in zone.species.items():
+            animals=female+male
+            if len(animals)>0 and self.goal in animals[0].habitat():
+                result+=len(animals)
+        return result
     
 # # Ejemplo
 # zone = Zone(1, Habitat.desertic)
