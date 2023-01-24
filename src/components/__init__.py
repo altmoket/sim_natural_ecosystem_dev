@@ -1,2 +1,2 @@
-from .place import Zone, Flock
+from .place import Zone
 from .species import *

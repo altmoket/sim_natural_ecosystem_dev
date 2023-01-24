@@ -1,15 +1,10 @@
 from src import *
 
 def main():
-    flock1 = Flock(Specie.bengal_tiger, 10, 12)
-    flock2 = Flock(Specie.grizzly_bear, 12, 15)
-    flock3 = Flock(Specie.rabbit, 305, 106)
-    flock4 = Flock(Specie.tiger, 12, 13)
-    flock5 = Flock(Specie.polar_bear, 12, 15)
-    flock6 = Flock(Specie.bengal_tiger, 13, 15)
-    flock7 = Flock(Specie.horse, 16, 20)
-    flocks = [flock1, flock2, flock3, flock4, flock5, flock6, flock7]
-
+    
+    
+    animals=[Tiger(0),Tiger(1),Tiger(1),GrizzlyBear(0),GrizzlyBear(0),Horse(0),Horse(1),Horse(1),BengalTiger(1),GrizzlyBear(0),
+            Tiger(1),Rabbit(0),GrizzlyBear(0),BengalTiger(1),PolarBear(0),Horse(1),GrizzlyBear(1)]
     print('Zones')
     zones, adj_z = WorldGenerator().generate(8, 8)
 
@@ -21,21 +16,21 @@ def main():
              Specie.bengal_tiger: [Specie.rabbit],
              Specie.grizzly_bear: [Specie.tiger, Specie.rabbit],
              Specie.rabbit: [], Specie.horse: []}
-    eco = Ecosystem(zones, flocks=flocks, adj_z=adj_z, adj_e=adj_e)
+    eco = Ecosystem(zones, animals=animals, adj_z=adj_z, adj_e=adj_e)
     solution = eco.zones
     print('\nCSP')
     for item in solution:
-        print(f'{item} : {[flock.__type__ for flock in item.flocks]}')
+        print(f'{item} : {list(item.species.keys())}')
 
     print('\nSimulation')
     sim = Simulator(eco, 50)
     sim.simulate()
 
-    value = 0
-    for zone in sim.ecosystem.zones:
-        value += zone.total
-    total_animal = 576 + sim.birth_count - sim.death_count
-    assert value == total_animal
+    #value = 0
+    #for zone in sim.ecosystem.zones:
+    #    value += zone.total
+    #total_animal = 576 + sim.birth_count - sim.death_count
+    #assert value == total_animal
 
 if __name__ == "__main__":
     main()

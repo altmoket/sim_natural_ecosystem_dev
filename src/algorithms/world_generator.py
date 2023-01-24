@@ -51,7 +51,7 @@ class WorldGenerator:
             zones, i, adjacent_zones)
         adjacent_zones = self.update_adjacent_zones(
             zones[i], adjacent_zones, adjacent_zones_to_zone_i)
-        for zone in zones: zone.adj_z = adjacent_zones[zone] 
+        for zone in zones: zone.adj_z = {adj_zone:0 for adj_zone in adjacent_zones[zone]} 
         return adjacent_zones
 
     def generate_adjacent_zones_to_zone_i(self, zones: list[Zone], id: int, adjacent_zones: dict[Zone,list[Zone]]):
@@ -84,10 +84,8 @@ class WorldGenerator:
     
     def assign_distance_among_zones(self, zones: list[Zone]):
         for zone in zones:
-            for adj in zone.adj_z:
-                try:
-                    zone.distance_adj_z[adj]
-                except KeyError:
+            for adj,d in zone.adj_z.items():
+                if d==0 :
                     distance = self.random(1, 15)
-                    zone.distance_adj_z[adj] = distance
-                    adj.distance_adj_z[zone] = distance
+                    zone.adj_z[adj] = distance
+                    adj.adj_z[zone] = distance

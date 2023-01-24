@@ -121,3 +121,5 @@ def weighted_astar_search(problem:Problem, h=None, weight=1.4):
     return best_first_search(problem, f=lambda n: g(n) + weight * h(n))
 
 # Define Problems Below
+def astar(zone):
+    pass
