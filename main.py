@@ -1,10 +1,8 @@
 from src import *
 
-def main():
-    
-    
-    animals=[Tiger(0),Tiger(1),Tiger(1),GrizzlyBear(0),GrizzlyBear(0),Horse(0),Horse(1),Horse(1),BengalTiger(1),GrizzlyBear(0),
-            Tiger(1),Rabbit(0),GrizzlyBear(0),BengalTiger(1),PolarBear(0),Horse(1),GrizzlyBear(1)]
+def main():  
+    animals=[Tiger(0),Tiger(0),Tiger(1),Tiger(1),Rabbit(1),GrizzlyBear(0),PolarBear(1),GrizzlyBear(0),Horse(0),Horse(1),Horse(1),BengalTiger(1),
+            GrizzlyBear(0),Tiger(1),Rabbit(0),GrizzlyBear(1),BengalTiger(1),PolarBear(0),Horse(0),BengalTiger(0),GrizzlyBear(1), Horse(0)]
     print('Zones')
     zones, adj_z = WorldGenerator().generate(8, 8)
 
@@ -23,7 +21,7 @@ def main():
         print(f'{item} : {list(item.species.keys())}')
 
     print('\nSimulation')
-    sim = Simulator(eco, 50)
+    sim = Simulator(eco, 100)
     sim.simulate()
 
 if __name__ == "__main__":
