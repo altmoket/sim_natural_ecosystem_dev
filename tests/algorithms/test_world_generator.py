@@ -25,3 +25,11 @@ class TestWorldGenerator:
         zones = self.generator.generate(3, 6)
         print(zones)
         assert True
+        
+    def test_distances_among_zones(self):
+        zones, adjacent_z = self.generator.generate(3,15)
+        for zone in zones:
+            for adj, distance in zone.distance_adj_z.items():
+                print(f"({str(zone)}) -> ({str(adj)}) ------- {distance}")
+        assert True
+        
