@@ -1,7 +1,5 @@
 from ..components import Zone, Specie,Species
-from src.components.utils.tools import Habitat
-from ..algorithms import AntColony, CSP
-import random
+from ..algorithms import CSP,AntColony
 import math
 class Ecosystem:
     def __init__(self, zones: list[Zone], animals: list[Species] = None, adj_z: dict[Zone, list[Zone]] = None, adj_e: dict[Specie, list[Specie]] = None):
@@ -17,14 +15,6 @@ class Ecosystem:
             distribution = CSP(animals, zones, adj_z, adj_e)
             for item in distribution.items():
                 item[1].create_animal(item[0])
-                
-    @property
-    def desertic_zones(self):
-        return [zone for zone in self.zones if zone.type == Habitat.desertic]
-    
-    @property
-    def polar_zones(self):
-        return [zone for zone in self.zones if zone.type == Habitat.polar]
 
     def max_probability(self):
         balance = math.inf
