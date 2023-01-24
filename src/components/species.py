@@ -51,7 +51,7 @@ class ReactiveAgent(Species):
     def __init__(self, sex:int):
         Species.__init__(self,sex)
         self.path = []
-        self.next_zone = None
+        self.looking_for_food=False
         self.ate=False
         self.time_limb = 0
         self.is_starving=False
@@ -181,8 +181,14 @@ class ReactiveAgent(Species):
 class IntelligentAgent(ReactiveAgent):
     _type = "intelligent"
 
-    def get_next_zone(self,zone):
-        pass
+    def get_next_zone(self,state):
+        time , zone , colony = state
+        next_zone=colony.pick_move(self,(time,zone))
+        if next_zone == zone: 
+            pass
+        if not next_zone == None:
+            distance:int = zone.adj_z[next_zone]
+            time_limb = max(1,distance // self.my_speed)
 
 class BengalTiger(Species):
     _type = Specie.bengal_tiger

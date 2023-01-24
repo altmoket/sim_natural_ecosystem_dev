@@ -1,6 +1,6 @@
 from ..components import Zone, Specie,Species
 from src.components.utils.tools import Habitat
-from ..algorithms import CSP
+from ..algorithms import AntColony, CSP
 import random
 class Ecosystem:
     def __init__(self, zones: list[Zone], animals: list[Species] = None, adj_z: dict[Zone, list[Zone]] = None, adj_e: dict[Specie, list[Specie]] = None):
@@ -9,6 +9,7 @@ class Ecosystem:
         self.total_of_animals = 0
         for zone in self.zones:
             self.total_of_animals += zone.total
+        self.colony=AntColony(decay=1, alpha=1, beta=0.5, delta_tau = 0.2 )
 
     def __set_distribution(self, animals: list[Species], zones: list[Zone], adj_z: dict[Zone, list[Zone]], adj_e: dict[Specie, list[Specie]]):
         if animals and adj_e and adj_z:
