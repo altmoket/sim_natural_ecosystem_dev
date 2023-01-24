@@ -3,6 +3,7 @@ from src.ecosystems import Ecosystem
 import heapq as heap
 from scipy.stats import bernoulli
 from ..components.utils import exponential 
+
 class Simulator:
     def __init__(self, ecosystem: Ecosystem, final_time: int):
         self.time = 1
