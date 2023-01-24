@@ -87,10 +87,12 @@ class Zone:
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
                     self.add_animal(animal)
+
     def animals_in_own_habitat(self):
         output=list(self.species.keys())
         output=list(filter(lambda specie: self.type in Species.search(specie).habitat() ,output))
         return output
+        
     def add_heatstroke(self):
         self.heatstrokes += 1 if self.type != Habitat.desertic else 0
         response = []
@@ -121,9 +123,10 @@ class Zone:
         self.floor = 0  
         v_min, v_max = type_zone[self.type]['vegetation']         
         self.vegetation = round(random.uniform(v_min, v_max), 3)
-        self.max_heatstrokes = 5
+        self.get_weather()
+        self.max_heatstrokes = 15
         self.heatstrokes = 0
-        self.max_coldstrokes = 5
+        self.max_coldstrokes = 15
         self.coldstrokes = 0
     
     def zone_type_destiny(self, param):
