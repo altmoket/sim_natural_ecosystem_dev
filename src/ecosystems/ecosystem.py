@@ -2,6 +2,7 @@ from ..components import Zone, Specie,Species
 from src.components.utils.tools import Habitat
 from ..algorithms import AntColony, CSP
 import random
+import math
 class Ecosystem:
     def __init__(self, zones: list[Zone], animals: list[Species] = None, adj_z: dict[Zone, list[Zone]] = None, adj_e: dict[Specie, list[Specie]] = None):
         self.zones = zones
