@@ -26,11 +26,5 @@ def main():
     sim = Simulator(eco, 50)
     sim.simulate()
 
-    #value = 0
-    #for zone in sim.ecosystem.zones:
-    #    value += zone.total
-    #total_animal = 576 + sim.birth_count - sim.death_count
-    #assert value == total_animal
-
 if __name__ == "__main__":
     main()

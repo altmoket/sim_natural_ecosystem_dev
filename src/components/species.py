@@ -4,70 +4,32 @@ import random
 
 class Species:
     _type = Specie.base
-    @classmethod
-    def search_specie_type(self, name: property):
-        for cls in self.__subclasses__():
-            if cls._type == name:
-                return cls
-        raise Exception("Unknown Specie")
-    def __init__(self,sex:int):
-        self.birthday=0
-        self.age=0
-        self.sex=sex
+
+    def __init__(self, sex: int):
+        self.birthday = 0
+        self.age = 0
+        self.sex = sex
         self.health = round(random.uniform(92,100),3)
         self.full = round(random.uniform(92,100),3)
         self.time_death = random.randint(self.life_expectancy()[0], self.life_expectancy()[1])
         self.my_speed = random.randint(self.speed()[0], self.speed()[1])
-    @classmethod
+
     def habitat(self): raise NotImplementedError()
-    @classmethod
     def feed_on_vegetation(self): raise NotImplementedError()
-    @classmethod
     def life_expectancy(self): raise NotImplementedError()
-    @classmethod
     def speed(self): raise NotImplementedError()
-    @classmethod
-    def attack_power(self): raise NotImplementedError()
-    @classmethod
-    def defense_power(self): raise NotImplementedError()
-    @classmethod
     def prey(self): raise NotImplementedError()
-    @classmethod
     def depredator(self): raise NotImplementedError()
-    @classmethod
     def uninhabitable(self): raise NotImplementedError()
-    @classmethod
     def desnutrition(self): raise NotImplementedError()
 
-    #BORRAAAAAAAAR
-    def reaction(self, state):pass
-    def get_action(self, state):pass
-    def death(self, state):pass
-    def feed_weight(self, state):pass
-    def migrate_weight(self, state):pass 
-
-class ReactiveAgent(Species):
-    _type = "reactive"
-    def __init__(self, sex:int):
-        Species.__init__(self,sex)
+class Agent(Species):
+    def __init__(self, sex: int):
+        Species.__init__(self, sex)
         self.path = []
-        self.next_zone = None
-        self.ate=False
+        self.ate = False
         self.time_limb = 0
-        self.is_starving=False
-
-    def update(self,state):
-        time, zone = state
-        hungry = 0 if self.ate else self.desnutrition()
-        self.full=max(0,self.full- hungry)
-        self.health = max(0, self.health - hungry - self.uninhabitable()[zone.type])
-        if self.health == 0: return True
-        if self.time_limb > 0:
-            if time == self.birthday: self.age += 1
-            if self.age == self.time_death: return True
-            floor = 1 if zone.floor > 0 else 0
-            self.time_limb = self.time_limb -1 + floor
-        self.ate=False
+        self.is_starving = False
 
     def reaction(self, state):
         time, zone = state
@@ -86,53 +48,50 @@ class ReactiveAgent(Species):
             self.feed_here(zone)
             if not self.ate:
                 if not self.is_starving:
-                    self.is_starving=True
-                    next_zone , trip_time =self.get_next_zone(zone)
-                    self.time_limb=trip_time
+                    self.is_starving = True
+                    next_zone, trip_time = self.get_next_zone(zone)
+                    self.time_limb = trip_time
                     next_zone.limb.append((self,time))
-                else: self.is_starving=False     
+                else: self.is_starving = False     
         self.update(state)
 
     def get_action(self, state):
-        time, zone = state
-        if time == self.time_death: return 'death'
+        if self.age == self.time_death: return 'death'
         if self.is_starving: return 'feed'
         if len(self.path)>0 : return 'migrate'
-        weight1= self.feed(state)
-        path, weight2= self.migrate(state)
+        weight1 = self.feed_weight(state)
+        path, weight2 = self.migrate_weight(state)
         if weight2 < 0.3 and  weight1 < 0.3: return 'nothing'
-        if weight2 > weight1 :
+        if weight2 > weight1:
             self.path=path
             return 'migrate'
         return 'feed'
 
+    def update(self, state):
+        time, zone = state
+        hungry = 0 if self.ate else self.desnutrition()
+        self.full = max(0, self.full - hungry)
+        self.health = max(0, self.health - hungry - self.uninhabitable()[zone.type])
+        if self.health == 0: return True
+        if self.time_limb > 0:
+            if time == self.birthday: self.age += 1
+            if self.age == self.time_death: return True
+            floor = 1 if zone.floor > 0 else 0
+            self.time_limb = self.time_limb - 1 + floor
+        self.ate = False
 
-    def get_next_zone(self,zone):
-        max = 0
-        result=None
-        time=0
-        for next_zone,distance in zone.adj_z.items():
-            current =  next_zone.vegetation  if self.feed_on_vegetation() > 0 else 0 # vegetaciondde la zona
-            for animal in self.prey:
-                current+= len(zone.species[animal][0])+len(zone.species[animal][1]) #cantida de presas en la zona
-            trip_time=max(1,distance//self.my_speed)
-            current-= self.uninhabitable()[next_zone] * (trip_time) # nivel de salud que resta cruzar hacia la zona 
-            for animal in self.depredator:
-                current-= len(zone.species[animal][0])+len(zone.species[animal][1]) # cantidad de depredadores en la zona
-            if result==None: 
-                max=current
-                result=next_zone
-                time=trip_time
-            else:
-                if current>max:
-                    max=current
-                    result=next_zone
-                    time=trip_time
-            return result, time
+    def feed_here(self, zone): raise NotImplementedError() 
+    def get_next_zone(self, zone): raise NotImplementedError() 
+    def feed_weight(self, state): raise NotImplementedError()
+    def migrate_weight(self, state): raise NotImplementedError()    
+
+class ReactiveAgent(Agent):
+    def __init__(self, sex: int):
+        Agent.__init__(self, sex)
 
     def feed_here(self,zone):
             if self.feed_on_vegetation()>0 and zone.vegetation >0:
-                zone.vegetation =max(0,zone.vegetation- self.feed_on_vegetation())
+                zone.vegetation = max(0,zone.vegetation- self.feed_on_vegetation())
                 self.full= min(100,self.full+self.feed_on_vegetation())
                 self.ate = True
                 self.is_starving=False
@@ -146,6 +105,28 @@ class ReactiveAgent(Species):
                         self.ate=True
                         self.is_starving=False
                         return 
+
+    def get_next_zone(self, zone):
+        max = 0
+        result=None
+        time = 0
+        for next_zone, distance in zone.adj_z.items():
+            current =  next_zone.vegetation  if self.feed_on_vegetation() > 0 else 0 # vegetacion de la zona
+            for animal in self.prey:
+                current+= len(zone.species[animal][0])+len(zone.species[animal][1]) # cantidad de presas en la zona
+            trip_time=max(1,distance//self.my_speed)
+            current-= self.uninhabitable()[next_zone] * (trip_time) # nivel de salud que resta cruzar hacia la zona 
+            for animal in self.depredator:
+                current-= len(zone.species[animal][0])+len(zone.species[animal][1]) # cantidad de depredadores en la zona
+            if result == None: 
+                max=current
+                result=next_zone
+                time=trip_time
+            elif current > max:
+                max=current
+                result=next_zone
+                time=trip_time
+            return result, time
  
     def feed_weight(self, state):
         result= self.full/100
@@ -157,19 +138,19 @@ class ReactiveAgent(Species):
         if not zone.type in self.habitat:
             path=astar(zone)
             if len(path)>0:
-                current_weight=self.get_weight(path)
+                current_weight = self.get_path_weight(path)
                 if current_weight>0:
                     weight=current_weight
         depredators=list(filter(lambda specie : specie in self.prey(),zone.species.keys()))
         if len(depredators)>0:
             currentpath=astar(zone)
             if len(currentpath)>0:
-                current_weight=self.get_weight(path)
+                current_weight=self.get_path_weight(path)
                 if current_weight>0 and current_weight<=weight:
                     path = currentpath
         return path,weight
 
-    def get_weight(self,path):
+    def get_path_weight(self,path):
         health_left=self.health
         current_zone=path[0]
         for next_zone in path[1:]:
@@ -181,10 +162,12 @@ class ReactiveAgent(Species):
 class IntelligentAgent(ReactiveAgent):
     _type = "intelligent"
 
-    def get_next_zone(self,zone):
-        pass
+    def feed_here(self, zone): pass
+    def get_next_zone(self, zone): pass
+    def feed_weight(self, state): pass
+    def migrate_weight(self, state): pass
 
-class BengalTiger(Species):
+class BengalTiger(ReactiveAgent):
     _type = Specie.bengal_tiger
     @classmethod
     def habitat(self): return [Habitat.polar, Habitat.tempered]
@@ -200,7 +183,7 @@ class BengalTiger(Species):
     def defense_power(self): pass
 
 
-class GrizzlyBear(Species):
+class GrizzlyBear(ReactiveAgent):
     _type = Specie.grizzly_bear
     @classmethod
     def habitat(self): return [Habitat.tropical, Habitat.desertic]
@@ -216,7 +199,7 @@ class GrizzlyBear(Species):
     def defense_power(self): pass
 
 
-class Horse(Species):
+class Horse(ReactiveAgent):
     _type = Specie.horse
     @classmethod
     def habitat(self): return [Habitat.tropical, Habitat.desertic]
@@ -232,7 +215,7 @@ class Horse(Species):
     def defense_power(self): pass
 
 
-class PolarBear(Species):
+class PolarBear(ReactiveAgent):
     _type = Specie.polar_bear
     @classmethod
     def habitat(self): return [Habitat.polar, Habitat.tempered]
@@ -248,7 +231,7 @@ class PolarBear(Species):
     def defense_power(self): pass
 
 
-class Rabbit(Species):
+class Rabbit(ReactiveAgent):
     _type = Specie.rabbit
     @classmethod
     def habitat(self):return [Habitat.tropical, Habitat.desertic, Habitat.tempered, Habitat.polar]
@@ -263,7 +246,7 @@ class Rabbit(Species):
     @classmethod
     def defense_power(self): pass
 
-class Tiger(Species):
+class Tiger(ReactiveAgent):
     _type = Specie.tiger
     @classmethod
     def habitat(self): return [Habitat.tropical]
@@ -278,7 +261,7 @@ class Tiger(Species):
     @classmethod
     def defense_power(self): pass
       
-class Ant(Species):
+class Ant(ReactiveAgent):
     _type = Specie.ant
     def habitat(): return [Habitat.desertic, Habitat.tropical]
     def feed_on_vegetation(): return True
