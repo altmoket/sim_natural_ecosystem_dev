@@ -154,7 +154,7 @@ class Agent(Species):
                     weight=current_weight
         depredators=list(filter(lambda specie : specie in self.prey(),zone.species.keys()))
         if len(depredators)>0:
-            currentpath=astar(zone)
+            currentpath=migration_astar(zone,zone.type,self.depredator_heuristic)
             if len(currentpath)>0:
                 current_weight=self.get_path_weight(path)
                 if current_weight>0 and current_weight<=weight:
@@ -176,12 +176,44 @@ class ReactiveAgent(Agent):
     def __init__(self, sex: int):
         Agent.__init__(self, sex)
 
+    def habitat_heuristic(self, node):
+        zone:Zone=node.state
+        result=0
+        for _, (female,male)  in zone.species.items():
+            animals=female+male
+            if len(animals)>0 and self.goal in animals[0].habitat():
+                result+=len(animals)
+        return zone.total - result
+    def depredator_heuristic(self, node):
+        zone:Zone=node.state
+        result=0
+        for _, (female,male)  in zone.species.items():
+            animals=female+male
+            if len(animals)>0 and self.goal in animals[0].habitat():
+                result+=len(animals)
+        return zone.total - result
+
 class IntelligentAgent(ReactiveAgent):
     _type = "intelligent"
     def __init__(self, sex: int):
         Agent.__init__(self, sex)
         self.feed_way='look_for_food'
-        
+    def habitat_heuristic(self, node):
+        zone:Zone=node.state
+        result=0
+        for _, (female,male)  in zone.species.items():
+            animals=female+male
+            if len(animals)>0 and self.goal in animals[0].habitat():
+                result+=len(animals)
+        return zone.total - result
+    def depredator_heuristic(self, node):
+        zone:Zone=node.state
+        result=0
+        for _, (female,male)  in zone.species.items():
+            animals=female+male
+            if len(animals)>0 and self.goal in animals[0].habitat():
+                result+=len(animals)
+        return zone.total - result    
 
             
 
