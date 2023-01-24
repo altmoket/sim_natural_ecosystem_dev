@@ -1,8 +1,6 @@
 import heapq
 import math
 from collections import deque
-from src.components.place import Zone
-from src.components import Specie,Species
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 
@@ -115,16 +113,16 @@ class MigrationProblem(Problem):
     def __init__(self, initial=None, goal=None, **kwds):
         super().__init__(initial, goal, **kwds)
      
-    def actions(self, state: Zone):
+    def actions(self, state):
         return list(state.adj_z.keys())
     def result(self, state, action):
         return action
-    def is_goal(self, state: Zone):        
+    def is_goal(self, state):        
         return state.type == self.goal
-    def action_cost(self, s:Zone, a, s1:Zone): # Esto hay que llenarlo
+    def action_cost(self, s, a, s1): # Esto hay que llenarlo
         return s.adj_z[a]
     def h(self, node): # Esto hay que llenarlo         
-        zone:Zone=node.state
+        zone=node.state
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
