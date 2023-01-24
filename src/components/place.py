@@ -23,7 +23,6 @@ class Zone:
         self.limb:list[tuple[Species, int, int]] = []
         self.total=0
         self.get_weather()
-        
         self.max_heatstrokes = 5
         self.heatstrokes = 0
         self.max_coldstrokes = 5
@@ -67,32 +66,33 @@ class Zone:
         self.total-=1
         return animal 
         
-    def create_animal(self, animals:list[Species]):
-        for animal in animals:
-            animal.birthday = random.randint(2,365)
-            t_min = animal.life_expectancy()[0]
-            animal.age = random.randint(0,t_min-1)
-            self.add_animal(animal)
+    def create_animal(self, animal:Species):
+        animal.birthday = random.randint(2,365)
+        t_min = animal.life_expectancy()[0]
+        animal.age = random.randint(0,t_min-1)
+        self.add_animal(animal)
 
     def delete_animmal(self, animal:Species):
         self.species[animal._type][animal.sex].remove(animal)
         self.total-=1
 
-    def actions_generator(self, time):
+    def actions_generator(self, time,colony):
         for _,(female, male) in self.species.items():
-            for animal in female: animal.reaction((time, self))
-            for animal in male: animal.reaction((time, self))
+            for animal in female: animal.reaction((time, self,colony))
+            for animal in male: animal.reaction((time, self,colony))
         for i, (animal,time_local) in enumerate(self.limb):
             if time_local==time:
-                death=animal.update(time,self)
+                death = animal.update(time,self)
                 if death: self.limb.remove(animal)
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
                     self.add_animal(animal)
+
     def animals_in_own_habitat(self):
         output=list(self.species.keys())
         output=list(filter(lambda specie: self.type in Species.search(specie).habitat() ,output))
         return output
+
     def add_heatstroke(self):
         self.heatstrokes += 1 if self.type != Habitat.desertic else 0
         response = []
@@ -118,11 +118,13 @@ class Zone:
         return response
         
     def change_habitat(self, habitat):
-        self.type = habitat
-        self.weather = None             
+        self.type = habitat             
         self.floor = 0  
         v_min, v_max = type_zone[self.type]['vegetation']         
         self.vegetation = round(random.uniform(v_min, v_max), 3)
+        t_min, t_max = type_zone[self.type]['temperature']
+        temperature = round(random.uniform(t_min, t_max), 2)
+        self.weather = (temperature, False)
         self.max_heatstrokes = 5
         self.heatstrokes = 0
         self.max_coldstrokes = 5
