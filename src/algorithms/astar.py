@@ -1,13 +1,7 @@
-
-import random
 import heapq
 import math
-import sys
-from collections import defaultdict, deque, Counter
-from itertools import combinations
-
+from collections import deque
 from src.components.place import Zone
-from src.components.utils.tools import Habitat
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 
@@ -22,7 +16,6 @@ class Problem(object):
     def __str__(self):
         return '{}({!r}, {!r})'.format(
             type(self).__name__, self.initial, self.goal)
-    
 
 class Node:
     def __init__(self, state, parent=None, action=None, path_cost=0):
@@ -36,7 +29,6 @@ class Node:
 failure = Node('failure', path_cost=math.inf)
 cutoff  = Node('cutoff',  path_cost=math.inf)
     
-    
 def expand(problem: Problem, node: Node):
     s = node.state
     for action in problem.actions(s):
@@ -45,22 +37,17 @@ def expand(problem: Problem, node: Node):
         yield Node(s1, node, action, cost)
 
 def path_actions(node: Node):
-    if node.parent is None:
-        return []  
+    if node.parent is None: return []  
     return path_actions(node.parent) + [node.action]
 
-
 def path_states(node: Node):
-    if node in (cutoff, failure, None): 
-        return []
+    if node in (cutoff, failure, None): return []
     return path_states(node.parent) + [node.state]
 
 FIFOQueue = deque
-
 LIFOQueue = list
 
 class PriorityQueue:
-
     def __init__(self, items=(), key=lambda x: x): 
         self.key = key
         self.items = [] # a heap of (score, item) pairs
@@ -71,8 +58,7 @@ class PriorityQueue:
         pair = (self.key(item), item)
         heapq.heappush(self.items, pair)
 
-    def pop(self):
-        return heapq.heappop(self.items)[1]
+    def pop(self): return heapq.heappop(self.items)[1]
     
     def top(self): return self.items[0][1]
 
