@@ -23,9 +23,9 @@ class Zone:
         self.limb:list[tuple[Species, int, int]] = []
         self.total=0
         self.get_weather()
-        self.max_heatstrokes = 15
+        self.max_heatstrokes = 5
         self.heatstrokes = 0
-        self.max_coldstrokes = 15
+        self.max_coldstrokes = 5
         self.coldstrokes = 0
 
     # De invocar este metodo solo se encarga la Simulacion
@@ -92,7 +92,7 @@ class Zone:
         output=list(self.species.keys())
         output=list(filter(lambda specie: self.type in Species.search(specie).habitat() ,output))
         return output
-        
+
     def add_heatstroke(self):
         self.heatstrokes += 1 if self.type != Habitat.desertic else 0
         response = []
@@ -118,15 +118,16 @@ class Zone:
         return response
         
     def change_habitat(self, habitat):
-        self.type = habitat
-        self.weather = None             
+        self.type = habitat             
         self.floor = 0  
         v_min, v_max = type_zone[self.type]['vegetation']         
         self.vegetation = round(random.uniform(v_min, v_max), 3)
-        self.get_weather()
-        self.max_heatstrokes = 15
+        t_min, t_max = type_zone[self.type]['temperature']
+        temperature = round(random.uniform(t_min, t_max), 2)
+        self.weather = (temperature, False)
+        self.max_heatstrokes = 5
         self.heatstrokes = 0
-        self.max_coldstrokes = 15
+        self.max_coldstrokes = 5
         self.coldstrokes = 0
     
     def zone_type_destiny(self, param):

@@ -2,6 +2,7 @@ import random
 from src.ecosystems import Ecosystem
 import heapq as heap
 from scipy.stats import expon, bernoulli
+from ..components.utils import exponential 
 class Simulator:
     def __init__(self, ecosystem: Ecosystem, final_time: int):
         self.time = 0
@@ -58,17 +59,17 @@ class Simulator:
             zone.add_animal(specie(sex))
             print(f'Time: {int(self.time)}  Counter: {self.birth_count}  Event: Birth of a {specie._type} in {zone}')
             
-            next_death_time = self.generate_death_time()
+            next_death_time = self.generate_death_time(7)
             self.death_time = self.time + next_death_time
             self.add_event(self.death_time, 'death')
 
-        next_birth_time = self.generate_birth_time()
+        next_birth_time = self.generate_birth_time(10)
         self.birth_time = self.time+next_birth_time
         self.add_event(self.birth_time, 'birth')
         self.births_moments[self.birth_count] = self.time
 
         if next_death_time is None and self.ecosystem.total_of_animals > 100:
-            next_death_time = self.generate_death_time()
+            next_death_time = self.generate_death_time(12)
             self.death_time = self.time + next_death_time
             self.add_event(self.death_time, 'death')
 
@@ -140,11 +141,11 @@ class Simulator:
         if event_time <= self.final_time:
             heap.heappush(self.events, (event_time, event))
 
-    def generate_birth_time(self):
-        return expon.rvs(1, size=1, scale=1)
+    def generate_birth_time(self, lbd):
+        return exponential(1/lbd)
 
-    def generate_death_time(self):
-        return expon.rvs(1, size=1, scale=1)
+    def generate_death_time(self, lbd):
+        return exponential(1/lbd)
     
     def generate_heatwave_time(self):
         return expon.rvs(1, size=1, scale=1) # Modificar este parametro, no se cual distribucion poner
