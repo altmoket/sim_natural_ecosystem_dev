@@ -147,9 +147,7 @@ class Agent(Species):
         weight=0
         path=None
         if not zone.type in self.habitat:
-            prob = MigrationProblem(zone, zone.type)
-            result = astar_tree_search(prob,self.habitat_heuristic)
-            path = path_states(result) 
+            path = migration_astar(zone,zone.type,self.habitat_heuristic)
             if len(path)>0:
                 current_weight = self.get_path_weight(path)
                 if current_weight>0:
