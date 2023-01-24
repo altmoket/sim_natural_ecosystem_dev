@@ -1,6 +1,6 @@
 from .utils import Habitat,Specie
 import random
-#from ..algorithms import astar
+from ..algorithms import *
 
 class Species:
     _type = Specie.base
@@ -32,7 +32,7 @@ class Agent(Species):
         self.time_limb = 0
         self.is_starving = False
         self.feed_way='feed'
-
+        self.migate_algorithm_1 = MigrationProblem()
     def reaction(self, state):    
         time, zone, colony = state
         if time == self.birthday: self.age += 1
@@ -147,7 +147,9 @@ class Agent(Species):
         weight=0
         path=None
         if not zone.type in self.habitat:
-            path=astar(zone)
+            prob = MigrationProblem(zone, zone.type)
+            result = astar_tree_search(prob,self.habitat_heuristic)
+            path = path_states(result) 
             if len(path)>0:
                 current_weight = self.get_path_weight(path)
                 if current_weight>0:
@@ -168,7 +170,9 @@ class Agent(Species):
             time_limb = self.get_trip_time(current_zone,next_zone)
             health_left=max(0,health_left-time_limb * self.desnutrition())
         return health_left/100
-          
+
+    def depredator_heuristic(self, node): pass 
+    def habitat_heuristic(self, node): pass 
 
 class ReactiveAgent(Agent):
     def __init__(self, sex: int):
@@ -179,17 +183,6 @@ class IntelligentAgent(ReactiveAgent):
     def __init__(self, sex: int):
         Agent.__init__(self, sex)
         self.feed_way='look_for_food'
-    def feed_here(self, zone): pass
-    def feed_weight(self, state): pass
-    def migrate_weight(self, state): pass
-
-    def get_next_zone(self,state):
-        time , zone , colony = state
-        next_zone=colony.pick_move(self,(time,zone))
-        if next_zone == zone: 
-            self.looking_for_food=False
-        elif not next_zone == None:
-            return next_zone
         
 
             

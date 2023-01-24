@@ -130,11 +130,11 @@ class MigrationProblem(Problem):
             animals=female+male
             if len(animals)>0 and self.goal in animals[0].habitat():
                 result+=len(animals)
-        return result
+        return zone.total - result
     
 # # Ejemplo
 # zone = Zone(1, Habitat.desertic)
 # prob = MigrationProblem(zone, Habitat.tropical)
 
 # result = astar_tree_search(prob)
-# actions = path_actions(result) # Con esto se obtiene la lista de zonas a seguir
+# actions = path_states(result) # Con esto se obtiene la lista de zonas a seguir

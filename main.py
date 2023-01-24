@@ -22,9 +22,16 @@ def main():
     for item in solution:
         print(f'{item} : {list(item.species.keys())}')
 
+    print('\nA*')
+    prob = MigrationProblem(solution[0], Habitat.tropical)
+    result = astar_tree_search(prob)
+    actions = path_states(result) 
+    print(actions)
+
     print('\nSimulation')
     sim = Simulator(eco, 12, 3) # Dias / Años
     sim.simulate()
-
+    
+    
 if __name__ == "__main__":
     main()
