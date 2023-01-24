@@ -99,7 +99,6 @@ def best_first_search(problem:Problem, f):
     return failure
 
 def best_first_tree_search(problem, f):
-    "A version of best_first_search without the `reached` table."
     frontier = PriorityQueue([Node(problem.initial)], key=f)
     while frontier:
         node = frontier.pop()
