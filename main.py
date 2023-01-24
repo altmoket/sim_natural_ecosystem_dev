@@ -23,7 +23,7 @@ def main():
         print(f'{item} : {list(item.species.keys())}')
 
     print('\nSimulation')
-    sim = Simulator(eco, 100)
+    sim = Simulator(eco, 12, 3) # Dias / Años
     sim.simulate()
 
 if __name__ == "__main__":
