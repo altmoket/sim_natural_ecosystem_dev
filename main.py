@@ -17,6 +17,7 @@ def main():
              Specie.rabbit: [], Specie.horse: []}
     eco = Ecosystem(zones, animals=animals, adj_z=adj_z, adj_e=adj_e)
     solution = eco.zones
+    
     print('\nCSP')
     for item in solution:
         print(f'{item} : {list(item.species.keys())}')
