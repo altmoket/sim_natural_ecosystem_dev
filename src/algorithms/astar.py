@@ -143,3 +143,4 @@ class MigrationProblem(Problem):
 # prob = MigrationProblem(zone, Habitat.tropical)
 
 # result = astar_tree_search(prob)
+# actions = path_actions(result) # Con esto se obtiene la lista de zonas a seguir
