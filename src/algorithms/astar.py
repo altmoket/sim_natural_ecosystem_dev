@@ -7,6 +7,7 @@ from collections import defaultdict, deque, Counter
 from itertools import combinations
 
 from src.components.place import Zone
+from src.components.utils.tools import Habitat
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 
@@ -121,5 +122,24 @@ def weighted_astar_search(problem:Problem, h=None, weight=1.4):
     return best_first_search(problem, f=lambda n: g(n) + weight * h(n))
 
 # Define Problems Below
-def astar(zone):
-    pass
+
+class MigrationProblem(Problem):
+    def __init__(self, initial=None, goal=None, **kwds):
+        super().__init__(initial, goal, **kwds)
+        
+    def actions(self, state: Zone):
+        return state.adj_z
+    def result(self, state, action):
+        return action
+    def is_goal(self, state: Zone):        
+        return state.type == self.goal
+    def action_cost(self, s, a, s1): # Esto hay que llenarlo
+        return 1
+    def h(self, node): # Esto hay que llenarlo         
+        return 0
+    
+# # Ejemplo
+# zone = Zone(1, Habitat.desertic)
+# prob = MigrationProblem(zone, Habitat.tropical)
+
+# result = astar_tree_search(prob)
