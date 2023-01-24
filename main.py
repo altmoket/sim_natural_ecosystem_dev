@@ -1,8 +1,9 @@
 from src import *
 
 def main():  
-    animals=[Tiger(0),Tiger(0),Tiger(1),Tiger(1),Rabbit(1),GrizzlyBear(0),PolarBear(1),GrizzlyBear(0),Horse(0),Horse(1),Horse(1),BengalTiger(1),
-            GrizzlyBear(0),Tiger(1),Rabbit(0),GrizzlyBear(1),BengalTiger(1),PolarBear(0),Horse(0),BengalTiger(0),GrizzlyBear(1), Horse(0)]
+    animals=[Tiger(0),Tiger(0),Tiger(1),Rabbit(1),GrizzlyBear(0),PolarBear(1),GrizzlyBear(0),Horse(0),Rabbit(0),
+            Horse(1),Horse(1),BengalTiger(1),GrizzlyBear(0),Tiger(1),Rabbit(0),GrizzlyBear(1),BengalTiger(1),
+            PolarBear(0),Horse(0),BengalTiger(0),GrizzlyBear(1),Horse(0),Tiger(1),Rabbit(1),PolarBear(0),PolarBear(0)]
     print('Zones')
     zones, adj_z = WorldGenerator().generate(8, 8)
 
