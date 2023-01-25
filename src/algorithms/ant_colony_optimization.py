@@ -1,13 +1,9 @@
-import random as rn
-import numpy as np
-from numpy.random import choice as np_choice
 from ..components import *
 from collections import defaultdict
 import math
-class AntColony(object):
 
-    def __init__(self, decay, alpha=1, beta=0.5, delta_tau = 0.6):
-        
+class AntColony(object):
+    def __init__(self, decay, alpha=1, beta=0.5, delta_tau = 0.6):      
         #self.pheromones: dict[Specie,dict[Zone,dict[Zone,int]]]= defaultdict({zone:{next:0 for next in adj} for zone,adj in adj_z})
         #self.pheromones: dict[Specie,dict[Zone,dict[Zone,tuple(int,int)]]]= defaultdict(defaultdict(lambda : defaultdict(lambda : (0,0))))
         self.decay = decay
@@ -15,7 +11,6 @@ class AntColony(object):
         self.beta = beta
         self.delta_tau = delta_tau
         #self.distances : dict[Zone,dict[Zone,int]]=defaultdict(lambda : defaultdict(int)) 
-
 
     def pick_move(self,animal,state):
         time,zone = state
@@ -38,7 +33,6 @@ class AntColony(object):
             if choice == None: return None
             animal.path.append(choice)
             return choice
-            
 
     def spread_pheronome(self,time,animal):
         zone = animal.path[0]
