@@ -53,7 +53,7 @@ class Agent(Species):
                     self.is_starving = True
                     next_zone, trip_time = self.get_next_zone(zone)
                     self.time_limb = trip_time
-                    next_zone.limb.append((self,time))
+                    next_zone.limb.append((self, time))
                 else: self.is_starving = False     
         elif action == 'look_for_food':
             next_zone=colony.pick_move(self,(time,zone))
@@ -64,14 +64,14 @@ class Agent(Species):
             else:
                 self.looking_for_food=True
                 self.time_limb = self.get_trip_time(zone,next_zone)
-                next_zone.limb.append((self,time))
+                next_zone.limb.append((self, time))
         self.update(state)
 
     def get_action(self, state):
         if self.age == self.time_death: return 'death'
         if self.is_starving: return 'feed'
         if self.looking_for_food: return 'look_for_food'
-        if len(self.path)>0 : return 'migrate'
+        if len(self.path) > 1: return 'migrate'
         weight1 = self.feed_weight(state)
         path, weight2 = self.migrate_weight(state)
         if weight2 < 0.3 and  weight1 < 0.3: return 'nothing'
@@ -81,7 +81,7 @@ class Agent(Species):
         return self.feed_way
 
     def update(self, state):
-        time, zone,_ = state
+        time, zone, _ = state
         hungry = 0 if self.ate else type(self).desnutrition()
         self.full = max(0, self.full - hungry)
         self.health = max(0, self.health - hungry - type(self).uninhabitable()[zone.type])
@@ -116,25 +116,26 @@ class Agent(Species):
                     self.is_starving=False
                     return 
 
-    def get_next_zone(self, state):
-        _ , zone , _ = state
-        max = 0
+    def get_next_zone(self, zone):
+        #_ , zone , _ = state
+        max_current = 0
         result=None
         time = 0
         for next_zone, distance in zone.adj_z.items():
             current =  next_zone.vegetation  if type(self).feed_on_vegetation() > 0 else 0 # vegetacion de la zona
-            for animal in self.prey:
+            for animal in type(self).prey():
                 current+= len(zone.species[animal][0])+len(zone.species[animal][1]) # cantidad de presas en la zona
-            trip_time=max(1,distance//self.my_speed)
-            current-= type(self).uninhabitable()[next_zone] * (trip_time) # nivel de salud que resta cruzar hacia la zona 
+            trip_time = max(1,distance//self.my_speed)
+            value = type(self).uninhabitable()[next_zone.type]
+            current-= value * (trip_time) # nivel de salud que resta cruzar hacia la zona 
             for animal in type(self).depredator():
                 current-= len(zone.species[animal][0])+len(zone.species[animal][1]) # cantidad de depredadores en la zona
             if result == None: 
-                max=current
+                max_current=current
                 result=next_zone
                 time=trip_time
-            elif current > max:
-                max=current
+            elif current > max_current:
+                max_current=current
                 result=next_zone
                 time=trip_time
             return result, time

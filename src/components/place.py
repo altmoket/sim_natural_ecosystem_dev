@@ -70,14 +70,15 @@ class Zone:
         self.species[type(animal)][animal.sex].remove(animal)
         self.total-=1
 
-    def actions_generator(self, time,colony):
-        for _,(female, male) in self.species.items():
-            for animal in female: animal.reaction((time, self,colony))
-            for animal in male: animal.reaction((time, self, colony))
-        for i, (animal, time_local) in enumerate(self.limb):
-            if time_local==time:
-                death = animal.update(time,self)
-                if death: self.limb.remove(animal)
+    def actions_generator(self, time, colony):
+        species = dict(self.species)
+        for _,(female, male) in species.items():
+            for animal in female + male: 
+                animal.reaction((time, self, colony))
+        for i, (animal,time_local) in enumerate(self.limb):
+            if time != time_local:
+                death = animal.update((time, self, colony))
+                if death: self.limb.remove((animal,time_local))
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
                     self.add_animal(animal)

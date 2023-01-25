@@ -54,11 +54,7 @@ class Simulator:
                 for zone in self.ecosystem.zones:
                     zone.get_weather(False)
                 for zone in self.ecosystem.zones:
-                    for _, (female, male) in zone.species.items():
-                        for animal in female + male:
-                            animal.get_action((self.day,zone,self.ecosystem.colony))
-                    for animal in zone.limb:
-                        animal.update((self.day,zone,self.ecosystem.colony))                
+                    zone.actions_generator(self.day,self.ecosystem.colony)           
                 print(f"Day: {self.day}  ACCIONES AGENTES")
                 self.day += 1
                 if self.day == 366: 
@@ -73,10 +69,11 @@ class Simulator:
                 zone.get_weather(False)
             for zone in self.ecosystem.zones:
                 for _, (female, male) in zone.species.items():
-                    for animal in female + male:
-                        animal.get_action((self.day,zone,self.ecosystem.colony))
+                    listin = female + male
+                    for animal in listin:
+                        animal.reaction((self.day,zone,self.ecosystem.colony))
                 for animal in zone.limb:
-                    animal.update((self.day,zone,self.ecosystem.colony))   
+                    animal[0].update((self.day,zone,self.ecosystem.colony))   
                 print(f"Day: {self.day}  ACCIONES AGENTES")
                 self.day += 1
                 if self.day == 366: 
