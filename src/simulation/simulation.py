@@ -68,18 +68,13 @@ class Simulator:
             for zone in self.ecosystem.zones:
                 zone.get_weather(False)
             for zone in self.ecosystem.zones:
-                for _, (female, male) in zone.species.items():
-                    listin = female + male
-                    for animal in listin:
-                        animal.reaction((self.day,zone,self.ecosystem.colony))
-                for animal in zone.limb:
-                    animal[0].update((self.day,zone,self.ecosystem.colony))   
-                print(f"Day: {self.day}  ACCIONES AGENTES")
-                self.day += 1
-                if self.day == 366: 
-                    self.day = 1
-                    self.year += 1
-                    print(f"Year {self.year} of the Simulation")
+                zone.actions_generator(self.day,self.ecosystem.colony)   
+            print(f"Day: {self.day}  ACCIONES AGENTES")
+            self.day += 1
+            if self.day == 366: 
+                self.day = 1
+                self.year += 1
+                print(f"Year {self.year} of the Simulation")
                 
 
     def birth_event(self, time):

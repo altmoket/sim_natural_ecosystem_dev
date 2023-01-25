@@ -67,14 +67,11 @@ class Zone:
         self.add_animal(animal)
 
     def delete_animal(self, animal):
-        self.species[type(animal)][animal.sex].remove(animal)
+        specie, sex = type(animal), animal.sex
+        self.species[specie][sex].remove(animal)
         self.total-=1
 
     def actions_generator(self, time, colony):
-        species = dict(self.species)
-        for _,(female, male) in species.items():
-            for animal in female + male: 
-                animal.reaction((time, self, colony))
         for i, (animal,time_local) in enumerate(self.limb):
             if time != time_local:
                 death = animal.update((time, self, colony))
@@ -82,6 +79,10 @@ class Zone:
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
                     self.add_animal(animal)
+        species = dict(self.species)
+        for _,(female, male) in species.items():
+            for animal in female + male: 
+                animal.reaction((time, self, colony))
         
     def change_habitat(self, habitat):
         self.type = habitat             

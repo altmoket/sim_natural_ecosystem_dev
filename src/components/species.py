@@ -44,8 +44,8 @@ class Agent(Species):
             if 1- self.full/100 > 0.7: self.feed_here(self.path[0])
             self.path.pop(0)
             self.time_limb = self.get_trip_time(zone,self.path[0])
-            if len(self.path)>0 : self.path[0].limb.append((self, time))
-            if len(self.path)==1 : self.path =[]
+            if len(self.path) > 0 : self.path[0].limb.append((self, time))
+            if len(self.path) == 1: self.path = []
         elif action == 'feed':
             self.feed_here(zone)
             if not self.ate:
