@@ -113,16 +113,16 @@ class MigrationProblem(Problem):
     def __init__(self, initial=None, goal=None, **kwds):
         super().__init__(initial, goal, **kwds)
      
-    def actions(self, state: Zone):
+    def actions(self, state):
         return list(state.adj_z.keys())
     def result(self, state, action):
         return action
     def is_goal(self, state: Zone):        
         return state.type in self.goal
-    def action_cost(self, s:Zone, a, s1:Zone): # Esto hay que llenarlo
+    def action_cost(self, s:Zone, a, s1:Zone):
         return s.adj_z[a]
     def h(self, node): # Esto hay que llenarlo         
-        zone:Zone=node.state
+        zone=node.state
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
