@@ -1,6 +1,6 @@
-from .utils import Habitat,Specie
+from .utils import Habitat, Specie
 import random
-from ..algorithms import migration_astar,MigrationProblem
+from ..algorithms import migration_astar, MigrationProblem
 
 class Species:
     _type = Specie.base
@@ -33,6 +33,7 @@ class Agent(Species):
         self.is_starving = False
         self.feed_way='feed'
         self.migate_algorithm_1 = MigrationProblem()
+
     def reaction(self, state):    
         time, zone, colony = state
         if time == self.birthday: self.age += 1
@@ -100,21 +101,21 @@ class Agent(Species):
         return time_limb
 
     def feed_here(self,zone):
-            if self.feed_on_vegetation()>0 and zone.vegetation >0:
-                zone.vegetation = max(0,zone.vegetation- self.feed_on_vegetation())
-                self.full= min(100,self.full+self.feed_on_vegetation())
-                self.ate = True
-                self.is_starving=False
-            else:
-                for animal in self.prey():
-                    female,male=zone.species[animal]
-                    if len(female+male)>0: 
-                        choice=random.choice(female+male)
-                        zone.delete_animal(choice)
-                        self.full= min(100,self.full+choice.full)
-                        self.ate=True
-                        self.is_starving=False
-                        return 
+        if self.feed_on_vegetation() > 0 and zone.vegetation > 0:
+            zone.vegetation = max(0,zone.vegetation- self.feed_on_vegetation())
+            self.full= min(100,self.full+self.feed_on_vegetation())
+            self.ate = True
+            self.is_starving=False
+        else:
+            for animal in self.prey():
+                female,male=zone.species[animal]
+                if len(female+male)>0: 
+                    choice=random.choice(female+male)
+                    zone.delete_animal(choice)
+                    self.full= min(100,self.full+choice.full)
+                    self.ate=True
+                    self.is_starving=False
+                    return 
 
     def get_next_zone(self, state):
         _ , zone , _ = state
@@ -184,6 +185,7 @@ class ReactiveAgent(Agent):
             if len(animals)>0 and self.goal in animals[0].habitat():
                 result+=len(animals)
         return zone.total - result
+
     def depredator_heuristic(self, node):
         zone=node.state
         result=0
@@ -194,10 +196,10 @@ class ReactiveAgent(Agent):
         return zone.total - result
 
 class IntelligentAgent(ReactiveAgent):
-    _type = "intelligent"
     def __init__(self, sex: int):
         Agent.__init__(self, sex)
         self.feed_way='look_for_food'
+
     def habitat_heuristic(self, node):
         zone=node.state
         result=0
@@ -206,6 +208,7 @@ class IntelligentAgent(ReactiveAgent):
             if len(animals)>0 and self.goal in animals[0].habitat():
                 result+=len(animals)
         return zone.total - result
+
     def depredator_heuristic(self, node):
         zone=node.state
         result=0
@@ -214,108 +217,88 @@ class IntelligentAgent(ReactiveAgent):
             if len(animals)>0 and self.goal in animals[0].habitat():
                 result+=len(animals)
         return zone.total - result    
-
             
 
 class BengalTiger(ReactiveAgent):
     _type = Specie.bengal_tiger
-    @classmethod
-    def habitat(self): return [Habitat.polar, Habitat.tempered]
-    @classmethod
-    def feed_on_vegetation(self): return False
-    @classmethod
-    def life_expectancy(self): return (20,26)
-    @classmethod
-    def speed(self): return(1,5)
-    @classmethod
-    def attack_power(self): pass
-    @classmethod
-    def defense_power(self): pass
 
+    def habitat(self): return [Habitat.polar, Habitat.tempered]
+    def feed_on_vegetation(self): return False
+    def life_expectancy(self): return (20,26)
+    def speed(self): return(1,5)
+    def prey(self): raise NotImplementedError()
+    def depredator(self): raise NotImplementedError()
+    def uninhabitable(self): raise NotImplementedError()
+    def desnutrition(self): raise NotImplementedError()
 
 class GrizzlyBear(ReactiveAgent):
     _type = Specie.grizzly_bear
-    @classmethod
-    def habitat(self): return [Habitat.tropical, Habitat.desertic]
-    @classmethod
-    def feed_on_vegetation(self): return False
-    @classmethod
-    def life_expectancy(self): return (20,30)
-    @classmethod
-    def speed(self): return(1,5)
-    @classmethod
-    def attack_power(self): pass
-    @classmethod
-    def defense_power(self): pass
 
+    def habitat(self): return [Habitat.tropical, Habitat.desertic]
+    def feed_on_vegetation(self): return False
+    def life_expectancy(self): return (20,30)
+    def speed(self): return(1,5)
+    def prey(self): raise NotImplementedError()
+    def depredator(self): raise NotImplementedError()
+    def uninhabitable(self): raise NotImplementedError()
+    def desnutrition(self): raise NotImplementedError()
 
 class Horse(ReactiveAgent):
     _type = Specie.horse
-    @classmethod
-    def habitat(self): return [Habitat.tropical, Habitat.desertic]
-    @classmethod
-    def feed_on_vegetation(self): return True
-    @classmethod
-    def life_expectancy(self): return (25,30)
-    @classmethod
-    def speed(self): return(1,5)
-    @classmethod
-    def attack_power(self): pass
-    @classmethod
-    def defense_power(self): pass
 
+    def habitat(self): return [Habitat.tropical, Habitat.desertic]
+    def feed_on_vegetation(self): return True
+    def life_expectancy(self): return (25,30)
+    def speed(self): return(1,5)
+    def prey(self): raise NotImplementedError()
+    def depredator(self): raise NotImplementedError()
+    def uninhabitable(self): raise NotImplementedError()
+    def desnutrition(self): raise NotImplementedError()
 
 class PolarBear(ReactiveAgent):
     _type = Specie.polar_bear
-    @classmethod
-    def habitat(self): return [Habitat.polar, Habitat.tempered]
-    @classmethod
-    def feed_on_vegetation(self): return True
-    @classmethod
-    def life_expectancy(self): return (20,25)
-    @classmethod
-    def speed(self): return(1,5)
-    @classmethod
-    def attack_power(self): pass
-    @classmethod
-    def defense_power(self): pass
 
+    def habitat(self): return [Habitat.polar, Habitat.tempered]
+    def feed_on_vegetation(self): return True
+    def life_expectancy(self): return (20,25)
+    def speed(self): return(1,5)
+    def prey(self): raise NotImplementedError()
+    def depredator(self): raise NotImplementedError()
+    def uninhabitable(self): raise NotImplementedError()
+    def desnutrition(self): raise NotImplementedError()
 
 class Rabbit(ReactiveAgent):
     _type = Specie.rabbit
-    @classmethod
+
     def habitat(self):return [Habitat.tropical, Habitat.desertic, Habitat.tempered, Habitat.polar]
-    @classmethod
     def feed_on_vegetation(self): return True
-    @classmethod
     def life_expectancy(self): return (7,9)
-    @classmethod
     def speed(self): return(1,5)
-    @classmethod
-    def attack_power(self): pass
-    @classmethod
-    def defense_power(self): pass
+    def prey(self): raise NotImplementedError()
+    def depredator(self): raise NotImplementedError()
+    def uninhabitable(self): raise NotImplementedError()
+    def desnutrition(self): raise NotImplementedError()
 
 class Tiger(ReactiveAgent):
     _type = Specie.tiger
-    @classmethod
+
     def habitat(self): return [Habitat.tropical]
-    @classmethod
     def feed_on_vegetation(self): return False
-    @classmethod
     def life_expectancy(self): return (8,10)
-    @classmethod
     def speed(self): return(1,5)
-    @classmethod
-    def attack_power(self): pass
-    @classmethod
-    def defense_power(self): pass
+    def prey(self): raise NotImplementedError()
+    def depredator(self): raise NotImplementedError()
+    def uninhabitable(self): raise NotImplementedError()
+    def desnutrition(self): raise NotImplementedError()
       
 class Ant(ReactiveAgent):
     _type = Specie.ant
+
     def habitat(): return [Habitat.desertic, Habitat.tropical]
     def feed_on_vegetation(): return True
     def life_expectancy(): return (1,2)
     def speed(): return(1,5)
-    def attack_power(): pass
-    def defense_power(): pass 
+    def prey(self): raise NotImplementedError()
+    def depredator(self): raise NotImplementedError()
+    def uninhabitable(self): raise NotImplementedError()
+    def desnutrition(self): raise NotImplementedError()

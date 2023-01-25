@@ -1,6 +1,5 @@
 import random
 from .utils import Habitat, exponential
-#from ..components.species import Species
 from collections import defaultdict
 
 type_zone = {Habitat.tropical:{'temperature':(17, 26),'vegetation':(90, 100)}, 
@@ -54,8 +53,8 @@ class Zone:
         self.species[specie][sex].append(animal)
         self.total+=1
 
-    def remove_animmal(self):
-        no_empty=lambda specie : (len(self.species[specie][0])+len(self.species[specie][1]))>0
+    def remove_animal(self):
+        no_empty = lambda specie : (len(self.species[specie][0])+len(self.species[specie][1]))>0
         specie = random.choice(list(filter(no_empty,list(self.species.keys()))))
         list_sex = random.choice(list(filter(lambda animal_list:len(animal_list)>0,self.species[specie])))
         animal=random.choice(list_sex)
@@ -69,7 +68,7 @@ class Zone:
         animal.age = random.randint(0,t_min-1)
         self.add_animal(animal)
 
-    def delete_animmal(self, animal):
+    def delete_animal(self, animal):
         self.species[animal._type][animal.sex].remove(animal)
         self.total-=1
 
@@ -84,11 +83,6 @@ class Zone:
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
                     self.add_animal(animal)
-
-    #def animals_in_own_habitat(self):
-    #    output=list(self.species.keys())
-    #    output=list(filter(lambda specie: self.type in Species.search(specie).habitat() ,output))
-    #    return output
         
     def change_habitat(self, habitat):
         self.type = habitat             

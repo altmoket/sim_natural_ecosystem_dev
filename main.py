@@ -29,7 +29,7 @@ def main():
     print(actions)
 
     print('\nSimulation')
-    sim = Simulator(eco, 12, 3) # Dias / Años
+    sim = Simulator(eco, 12, 2) # Dias / Años
     sim.simulate()
 
 #class test:

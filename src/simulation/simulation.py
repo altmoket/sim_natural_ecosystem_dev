@@ -100,7 +100,7 @@ class Simulator:
         self.ecosystem.total_of_animals = max(self.ecosystem.total_of_animals - 1, 0)
         if self.ecosystem.total_of_animals > 0:
             zone = random.choice(list(filter(lambda zone : zone.total > 0, self.ecosystem.zones)))
-            specie = zone.remove_animmal()._type
+            specie = zone.remove_animal()._type
             print(f'Day: {self.day}  Counter: {self.death_count}  Event: Death of a {specie} in {zone}')
         
         self.deaths_moments[self.death_count] = time
