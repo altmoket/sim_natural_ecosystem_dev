@@ -31,8 +31,6 @@ class Simulator:
         self.final_day = final_day
         self.final_year = final_year
         
-       
-        
         # Init some events
         print(f"Year {self.year} of the Simulation")
         self.birth_event((self.year,self.day))
