@@ -5,6 +5,10 @@ from scipy.stats import bernoulli
 from ..components.utils import exponential 
 from .printer import AnimalActionPrinter
 
+printer = AnimalActionPrinter() # Aqui se le puede pasar un animal en concreto
+                                # o dejarlo vacio, Pero para imprimir un mensaje
+                                # tiene que estar seteado un animal,
+                                # printer.animal = animal. 
 class Simulator:
     def __init__(self, ecosystem: Ecosystem, final_day: int, final_year):
         self.day = 1
@@ -27,10 +31,7 @@ class Simulator:
         self.final_day = final_day
         self.final_year = final_year
         
-        self.printer = AnimalActionPrinter()# Aqui se le puede pasar un animal en concreto
-                                            # o dejarlo vacio, Pero para imprimir un mensaje
-                                            # tiene que estar seteado un animal,
-                                            # self.printer.animal = animal. 
+       
         
         # Init some events
         print(f"Year {self.year} of the Simulation")
