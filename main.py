@@ -22,9 +22,15 @@ def main():
     for item in solution:
         print(f'{item} : {list(item.species.keys())}')
 
+    #print('\nA*') 
+    #tiger = Tiger(0)
+    #path,_ = tiger.migrate_weight((3,solution[0])) 
+    #print(path)
+
     print('\nSimulation')
     sim = Simulator(eco, 12, 3) # Dias / Años
     sim.simulate()
 
+    
 if __name__ == "__main__":
     main()

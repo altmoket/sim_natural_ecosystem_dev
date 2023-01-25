@@ -1,6 +1,10 @@
 import heapq
 import math
 from collections import deque
+<<<<<<< HEAD
+=======
+from src.components.place import Zone
+>>>>>>> fb1c90837c85d9f591366e6cd1db930387dbe752
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 
@@ -117,23 +121,23 @@ class MigrationProblem(Problem):
         return list(state.adj_z.keys())
     def result(self, state, action):
         return action
-    def is_goal(self, state):        
-        return state.type == self.goal
-    def action_cost(self, s, a, s1): # Esto hay que llenarlo
+    def is_goal(self, state: Zone):        
+        return state.type in self.goal
+    def action_cost(self, s:Zone, a, s1:Zone):
         return s.adj_z[a]
     def h(self, node): # Esto hay que llenarlo         
         zone=node.state
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
-            if len(animals)>0 and self.goal in animals[0].habitat():
+            if len(animals)>0 and not set(self.goal).isdisjoint(set(animals[0].habitat())):
                 result+=len(animals)
-        return result
-    
-def migration_astar(zone, goal):
-    problem = MigrationProblem(initial=zone, goal=goal)
-    result = astar_tree_search(problem=problem)
-    path = path_actions(node=result)
+        return zone.total - result
+
+
+def migration_astar(problem,heuristic=None): 
+    result = astar_tree_search(problem=problem,h=heuristic)
+    path = path_states(node=result)
     return path
     
 # # Ejemplo
@@ -141,4 +145,4 @@ def migration_astar(zone, goal):
 # prob = MigrationProblem(zone, Habitat.tropical)
 
 # result = astar_tree_search(prob)
-# actions = path_actions(result) # Con esto se obtiene la lista de zonas a seguir
+# actions = path_states(result) # Con esto se obtiene la lista de zonas a seguir

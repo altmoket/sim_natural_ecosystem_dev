@@ -17,7 +17,7 @@ class AntColony(object):
         #self.distances : dict[Zone,dict[Zone,int]]=defaultdict(lambda : defaultdict(int)) 
 
 
-    def pick_move(self,animal:ReactiveAgent,state):
+    def pick_move(self,animal,state):
         time,zone = state
         if self.Is_goal(animal,zone):
             animal.path.append(zone)
@@ -40,7 +40,7 @@ class AntColony(object):
             return choice
             
 
-    def spread_pheronome(self,time,animal:ReactiveAgent):
+    def spread_pheronome(self,time,animal):
         zone = animal.path[0]
         for next_zone in animal.path[1:]:
             pheromones,last_time=self.pheromones[animal._type][zone][next_zone]
@@ -52,7 +52,7 @@ class AntColony(object):
     def get_probability(self,pheromones,distance):
         current=math.pow(pheromones,self.alpha)+math.pow(1/distance,self.beta)
     
-    def Is_goal(self,animal:Species,zone:Zone):
+    def Is_goal(self,animal,zone):
         if zone.vegetation>0  and animal.feed_on_vegetation()>0: return True
         can_eat=lambda specie,animals: specie in animal.prey() and len(animals[0]+animals[1])>0
         return len(list(filter(can_eat,zone.species.items()))) > 0

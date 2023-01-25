@@ -1,6 +1,6 @@
 from .utils import Habitat,Specie
 import random
-#from ..algorithms import astar
+from ..algorithms import migration_astar,MigrationProblem
 
 class Species:
     _type = Specie.base
@@ -23,6 +23,8 @@ class Species:
     def uninhabitable(self): raise NotImplementedError()
     def desnutrition(self): raise NotImplementedError()
 
+    
+
 class Agent(Species):
     def __init__(self, sex: int):
         Species.__init__(self, sex)
@@ -32,7 +34,7 @@ class Agent(Species):
         self.time_limb = 0
         self.is_starving = False
         self.feed_way='feed'
-
+        self.migrate_algorithm = None
     def reaction(self, state):    
         time, zone, colony = state
         if time == self.birthday: self.age += 1
@@ -78,7 +80,7 @@ class Agent(Species):
         if weight2 < 0.3 and  weight1 < 0.3: return 'nothing'
         if weight2 > weight1:
             self.path=path
-            return 'migrate'
+            return 'migrate' #Falta comprobar que el path!= none 
         return self.feed_way
 
     def update(self, state):
@@ -146,18 +148,19 @@ class Agent(Species):
         _,zone=state
         weight=0
         path=None
-        if not zone.type in self.habitat:
-            path=astar(zone)
+        if not zone.type in self.habitat():
+            problem = MigrationProblem(initial=zone, goal=self.habitat())
+            path = migration_astar(problem, self.habitat_heuristic(problem))
             if len(path)>0:
                 current_weight = self.get_path_weight(path)
                 if current_weight>0:
                     weight=current_weight
         depredators=list(filter(lambda specie : specie in self.prey(),zone.species.keys()))
         if len(depredators)>0:
-            currentpath=astar(zone)
+            currentpath=migration_astar(problem, self.depredator_heuristic(problem))
             if len(currentpath)>0:
-                current_weight=self.get_path_weight(path)
-                if current_weight>0 and current_weight<=weight:
+                 current_weight=self.get_path_weight(path)
+                 if current_weight>0 and current_weight<=weight:
                     path = currentpath
         return path,weight
 
@@ -167,30 +170,64 @@ class Agent(Species):
         for next_zone in path[1:]:
             time_limb = self.get_trip_time(current_zone,next_zone)
             health_left=max(0,health_left-time_limb * self.desnutrition())
+            current_zone=next_zone
         return health_left/100
-          
+
+    def habitat_heuristic(self,problem): pass
+    def depredator_heuristic(self, problem): pass 
 
 class ReactiveAgent(Agent):
     def __init__(self, sex: int):
         Agent.__init__(self, sex)
+
+    def habitat_heuristic(self,problem):
+        def h(node):       
+            zone=node.state
+            result=0
+            for _, (female,male)  in zone.species.items():
+                animals=female+male
+                if len(animals)>0 and not set(problem.goal).isdisjoint(set(animals[0].habitat())):
+                    result+=len(animals)
+            return zone.total - result
+        return h
+    def depredator_heuristic(self,problem):
+        def h(node):       
+            zone=node.state
+            result=0
+            for _, (female,male)  in zone.species.items():
+                animals=female+male
+                if len(animals)>0 and not set(problem.goal).isdisjoint(set(animals[0].habitat())):
+                    result+=len(animals)
+            return zone.total - result
+        return h
 
 class IntelligentAgent(ReactiveAgent):
     _type = "intelligent"
     def __init__(self, sex: int):
         Agent.__init__(self, sex)
         self.feed_way='look_for_food'
-    def feed_here(self, zone): pass
-    def feed_weight(self, state): pass
-    def migrate_weight(self, state): pass
 
-    def get_next_zone(self,state):
-        time , zone , colony = state
-        next_zone=colony.pick_move(self,(time,zone))
-        if next_zone == zone: 
-            self.looking_for_food=False
-        elif not next_zone == None:
-            return next_zone
-        
+    def habitat_heuristic(self,problem):
+        def h(node):       
+            zone=node.state
+            result=0
+            for _, (female,male)  in zone.species.items():
+                animals=female+male
+                if len(animals)>0 and not set(problem.goal).isdisjoint(set(animals[0].habitat())):
+                    result+=len(animals)
+            return zone.total - result
+        return h
+
+    def depredator_heuristic(self,problem):
+        def h(node):       
+            zone=node.state
+            result=0
+            for _, (female,male)  in zone.species.items():
+                animals=female+male
+                if len(animals)>0 and not set(problem.goal).isdisjoint(set(animals[0].habitat())):
+                    result+=len(animals)
+            return zone.total - result
+        return h 
 
             
 
@@ -208,7 +245,10 @@ class BengalTiger(ReactiveAgent):
     def attack_power(self): pass
     @classmethod
     def defense_power(self): pass
-
+    @classmethod
+    def desnutrition(self): return 2
+    @classmethod
+    def prey(self): pass
 
 class GrizzlyBear(ReactiveAgent):
     _type = Specie.grizzly_bear
@@ -224,7 +264,10 @@ class GrizzlyBear(ReactiveAgent):
     def attack_power(self): pass
     @classmethod
     def defense_power(self): pass
-
+    @classmethod
+    def desnutrition(self): return 2
+    @classmethod
+    def prey(self): pass
 
 class Horse(ReactiveAgent):
     _type = Specie.horse
@@ -240,7 +283,10 @@ class Horse(ReactiveAgent):
     def attack_power(self): pass
     @classmethod
     def defense_power(self): pass
-
+    @classmethod
+    def desnutrition(self): return 2
+    @classmethod
+    def prey(self): pass
 
 class PolarBear(ReactiveAgent):
     _type = Specie.polar_bear
@@ -256,7 +302,10 @@ class PolarBear(ReactiveAgent):
     def attack_power(self): pass
     @classmethod
     def defense_power(self): pass
-
+    @classmethod
+    def desnutrition(self): return 2
+    @classmethod
+    def prey(self): pass
 
 class Rabbit(ReactiveAgent):
     _type = Specie.rabbit
@@ -272,6 +321,10 @@ class Rabbit(ReactiveAgent):
     def attack_power(self): pass
     @classmethod
     def defense_power(self): pass
+    @classmethod
+    def desnutrition(self): return 2
+    @classmethod
+    def prey(self): pass
 
 class Tiger(ReactiveAgent):
     _type = Specie.tiger
@@ -287,6 +340,10 @@ class Tiger(ReactiveAgent):
     def attack_power(self): pass
     @classmethod
     def defense_power(self): pass
+    @classmethod
+    def desnutrition(self): return 2
+    @classmethod
+    def prey(self): pass
       
 class Ant(ReactiveAgent):
     _type = Specie.ant
@@ -296,3 +353,7 @@ class Ant(ReactiveAgent):
     def speed(): return(1,5)
     def attack_power(): pass
     def defense_power(): pass 
+    @classmethod
+    def desnutrition(self): return 2
+    @classmethod
+    def prey(self): pass
