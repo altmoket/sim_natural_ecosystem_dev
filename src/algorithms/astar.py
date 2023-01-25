@@ -130,7 +130,6 @@ class MigrationProblem(Problem):
                 result+=len(animals)
         return zone.total - result
 
-
 def migration_astar(problem,heuristic=None): 
     result = astar_tree_search(problem=problem,h=heuristic)
     path = path_states(node=result)

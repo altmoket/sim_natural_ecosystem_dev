@@ -20,6 +20,7 @@ class Species:
     def depredator(): raise NotImplementedError()
     def uninhabitable(): raise NotImplementedError()
     def desnutrition(): raise NotImplementedError()
+    def str(): return "Specie"
 
 class Agent(Species):
     def __init__(self, sex: int):
