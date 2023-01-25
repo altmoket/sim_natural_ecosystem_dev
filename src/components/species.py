@@ -45,7 +45,8 @@ class Agent(Species):
             #distance:int = zone.adj_z[self.path[0]]
             #self.time_limb = max(1,distance // self.my_speed)
             self.time_limb = self.get_trip_time(zone,self.path[0])
-            if len(self.path)>0 : self.path[0].limb.append((self, time))
+            if len(self.path) > 0 : self.path[0].limb.append((self, time))
+            if len(self.path) == 1: self.path = []
         elif action == 'feed':
             self.feed_here(zone)
             if not self.ate:
