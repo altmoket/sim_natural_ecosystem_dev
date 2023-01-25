@@ -22,9 +22,11 @@ def main():
     #path,_ = tiger.migrate_weight((3,solution[0])) 
     #print(path)
 
+    print(len(animals))
     print('\nSimulation')
-    sim = Simulator(eco, 12, 2) # Dias / Años
+    sim = Simulator(eco, 12, 3) # Dias / Años
     sim.simulate()
+    print(sim.ecosystem.total_of_animals)
 
     
 if __name__ == "__main__":

@@ -108,8 +108,7 @@ def weighted_astar_search(problem:Problem, h=None, weight=1.4):
     return best_first_search(problem, f=lambda n: g(n) + weight * h(n))
 
 # Define Problems Below
-class MigrationProblem(Problem):
-    
+class MigrationProblem(Problem):   
     def __init__(self, initial=None, goal=None, **kwds):
         super().__init__(initial, goal, **kwds)
      
@@ -126,17 +125,17 @@ class MigrationProblem(Problem):
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
-            if len(animals)>0 and not set(self.goal).isdisjoint(set(animals[0].habitat())):
+            if len(animals)>0 and not set(self.goal).isdisjoint(set(type(animals[0]).habitat())):
                 result+=len(animals)
         return zone.total - result
 
-class DepredatorsProblem(Problem):
+class DepredatorsProblem(MigrationProblem):
     def __init__(self, initial=None, goal=None, **kwds):
         super().__init__(initial, goal, **kwds)
      
     def is_goal(self, state: Zone):  
-        common =  lambda specie : specie in self.goal and (len(state.species[specie][0]) > 0 or len(state.species[specie][1]) > 0)
-        common_species= list(filter(self.common(state),state.species.keys()))              
+        common = lambda specie : specie in self.goal and (len(state.species[specie][0]) > 0 or len(state.species[specie][1]) > 0)
+        common_species= list(filter(common,state.species.keys()))              
         return len(common_species) == 0 
         
     def h(self, node):        

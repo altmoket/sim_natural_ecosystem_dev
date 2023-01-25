@@ -32,7 +32,6 @@ class Agent(Species):
         self.is_starving = False
         self.feed_way='feed'
 
-
     def reaction(self, state):    
         time, zone, colony = state
         if time == self.birthday: self.age += 1
@@ -82,7 +81,7 @@ class Agent(Species):
         return self.feed_way
 
     def update(self, state):
-        time, zone = state
+        time, zone,_ = state
         hungry = 0 if self.ate else type(self).desnutrition()
         self.full = max(0, self.full - hungry)
         self.health = max(0, self.health - hungry - type(self).uninhabitable()[zone.type])
@@ -141,10 +140,10 @@ class Agent(Species):
             return result, time
  
     def feed_weight(self, state):
-        result= self.full/100
+        return self.full/100
 
     def migrate_weight(self, state):
-        _,zone=state
+        _,zone,_=state
         weight=0
         path=None
         if not zone.type in type(self).habitat():
@@ -154,13 +153,13 @@ class Agent(Species):
                 current_weight = self.get_path_weight(path)
                 if current_weight>0:
                     weight=current_weight
-        is_depredator= lambda specie : specie in self.depredator() and (len(zone.species[specie][0]) > 0 or len(zone.species[specie][1]) > 0)
+        is_depredator= lambda specie : specie in type(self).depredator() and (len(zone.species[specie][0]) > 0 or len(zone.species[specie][1]) > 0)
         depredators=list(filter(is_depredator,zone.species.keys()))
         if len(depredators)>0:
-            problem=DepredatorsProblem(initial=zone, goal=self.depredator())
+            problem=DepredatorsProblem(initial=zone, goal=type(self).depredator())
             currentpath=migration_astar(problem, self.depredator_heuristic(problem))
             if len(currentpath)>0:
-                 current_weight=self.get_path_weight(path)
+                 current_weight=self.get_path_weight(currentpath)
                  if current_weight>0 and current_weight<=weight:
                     path = currentpath
         return path,weight
@@ -187,7 +186,7 @@ class ReactiveAgent(Agent):
             result = 0
             for _, (female,male) in zone.species.items():
                 animals = female + male
-                if len(animals)>0 and not set(problem.goal).isdisjoint(set(animals[0].habitat())):
+                if len(animals)>0 and not set(problem.goal).isdisjoint(set(type(animals[0]).habitat())):
                     result+=len(animals)
             return zone.total - result
         return h
