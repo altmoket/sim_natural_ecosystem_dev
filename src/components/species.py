@@ -21,8 +21,9 @@ class Species:
     def uninhabitable(): raise NotImplementedError()
     def desnutrition(): raise NotImplementedError()
     def str(): return "Specie"
-
+   
 class Agent(Species):
+    feed_way='feed'
     def __init__(self, sex: int):
         Species.__init__(self, sex)
         self.path = []
@@ -30,9 +31,7 @@ class Agent(Species):
         self.ate=False
         self.time_limb = 0
         self.is_starving = False
-        self.feed_way='feed'
-
-
+        
     def reaction(self, state):    
         time, zone, colony = state
         if time == self.birthday: self.age += 1
@@ -176,7 +175,7 @@ class Agent(Species):
 
     def habitat_heuristic(self,problem): pass
     def depredator_heuristic(self, problem): pass 
-
+    def feed_action(self): raise NotImplementedError()
 class ReactiveAgent(Agent):
     def __init__(self, sex: int):
         Agent.__init__(self, sex)
@@ -202,6 +201,17 @@ class ReactiveAgent(Agent):
                     result+=len(animals)
             return  result
         return h
+    
+    def feed_action(self,zone,time):
+        self.feed_here(zone)
+        if not self.ate:
+                if not self.is_starving:
+                    self.is_starving = True
+                    next_zone, trip_time = self.get_next_zone(zone)
+                    self.time_limb = trip_time
+                    next_zone.limb.append((self,time))
+                else: self.is_starving = False
+
 
 class IntelligentAgent(ReactiveAgent):
     def __init__(self, sex: int):
@@ -223,10 +233,8 @@ class IntelligentAgent(ReactiveAgent):
         def h(node):       
             zone=node.state
             result=0
-            for _, (female,male)  in zone.species.items():
-                animals=female+male
-                if len(animals)>0 and not set(problem.goal).isdisjoint(set(animals[0].habitat())):
-                    result+=len(animals)
+            for specie in self.depredator():
+                continue
             return zone.total - result
         return h 
 

@@ -79,7 +79,7 @@ class Zone:
         for i, (animal, time_local) in enumerate(self.limb):
             if time_local==time:
                 death = animal.update(time,self)
-                if death: self.limb.remove(animal)
+                if death: self.limb.remove((animal, time_local))
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
                     self.add_animal(animal)
