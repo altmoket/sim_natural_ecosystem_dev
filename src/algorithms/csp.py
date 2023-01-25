@@ -9,7 +9,7 @@ def CSP(animals, zones, adj_z, adj_e):
     adj_f= defaultdict(lambda: [])
     # Determinar opciones para cada una de las variables
     for animal in animals:
-        options[animal] = list(filter(lambda zone: zone.type in animal.habitat(), zones))
+        options[animal] = list(filter(lambda zone: zone.type in type(animal).habitat(), zones))
         if len(options[animal]) == 0:
             options[animal]=zones.copy()
         if len(options[animal]) == 1:
@@ -20,10 +20,10 @@ def CSP(animals, zones, adj_z, adj_e):
         for j in range(i+1, len(animals)):
             animal1 = animals[i]
             animal2 = animals[j]
-            if animal2._type in adj_e[animal1._type]:
+            if type(animal2) in adj_e[type(animal1)]:
                 adj_f[animal1].append(animal2)
                 arcs.append((animal1, animal2))
-            if animal1._type in adj_e[animal2._type]:
+            if type(animal1) in adj_e[type(animal2)]:
                 adj_f[animal2].append(animal1)
                 arcs.append((animal2, animal1))
 

@@ -2,6 +2,7 @@ import heapq
 import math
 from collections import deque
 from src.components.place import Zone
+
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 
@@ -102,13 +103,11 @@ def astar_tree_search(problem:Problem, h=None):
     h = h or problem.h
     return best_first_tree_search(problem, f=lambda n: g(n) + h(n))
 
-
 def weighted_astar_search(problem:Problem, h=None, weight=1.4):
     h = h or problem.h
     return best_first_search(problem, f=lambda n: g(n) + weight * h(n))
 
 # Define Problems Below
-
 class MigrationProblem(Problem):
     
     def __init__(self, initial=None, goal=None, **kwds):
@@ -131,15 +130,7 @@ class MigrationProblem(Problem):
                 result+=len(animals)
         return zone.total - result
 
-
 def migration_astar(problem,heuristic=None): 
     result = astar_tree_search(problem=problem,h=heuristic)
     path = path_states(node=result)
     return path
-    
-# # Ejemplo
-# zone = Zone(1, Habitat.desertic)
-# prob = MigrationProblem(zone, Habitat.tropical)
-
-# result = astar_tree_search(prob)
-# actions = path_states(result) # Con esto se obtiene la lista de zonas a seguir
