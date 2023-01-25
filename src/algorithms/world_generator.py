@@ -5,8 +5,7 @@ from collections import defaultdict
 
 class WorldGenerator:
     def __init__(self) -> None:
-        self.habitats = [Habitat.tropical, Habitat.desertic,
-                         Habitat.polar, Habitat.tempered]
+        self.habitats = [Habitat.tropical, Habitat.desertic,Habitat.polar, Habitat.tempered]
         
     def random(self, min, max):
         try:
@@ -27,7 +26,7 @@ class WorldGenerator:
         
         self.assign_distance_among_zones(zones)
 
-        return zones, adjacent_zones  # Vertices, Aristas
+        return zones  # Vertices, Aristas
 
     def generate_zones(self, number_of_zones: int) -> list[Zone]:
         return [self.generate_zone(id=i) for i in range(number_of_zones)]

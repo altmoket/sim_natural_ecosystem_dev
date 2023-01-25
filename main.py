@@ -1,21 +1,16 @@
 from src import *
 
 def main():  
-    animals=[Tiger(0),Tiger(0),Tiger(1),Rabbit(1),GrizzlyBear(0),PolarBear(1),GrizzlyBear(0),Horse(0),Rabbit(0),
-            Horse(1),Horse(1),BengalTiger(1),GrizzlyBear(0),Tiger(1),Rabbit(0),GrizzlyBear(1),BengalTiger(1),
-            PolarBear(0),Horse(0),BengalTiger(0),GrizzlyBear(1),Horse(0),Tiger(1),Rabbit(1),PolarBear(0),PolarBear(0)]
+    animals=[Tiger(0),Tiger(0),Tiger(1),Rabbit(1),GrizzlyBear(0),PolarBear(1),GrizzlyBear(0),Horse(0),Rabbit(0),Ant(0),Ant(1),
+            Horse(1),Horse(1),BengalTiger(1),GrizzlyBear(0),Tiger(1),Rabbit(0),GrizzlyBear(1),BengalTiger(1),Ant(0),Ant(0),Ant(1),
+            PolarBear(0),Horse(0),BengalTiger(0),GrizzlyBear(1),Horse(0),Tiger(1),Rabbit(1),PolarBear(0),PolarBear(0),Ant(1)]
     print('Zones')
-    zones, adj_z = WorldGenerator().generate(8, 8)
+    zones = WorldGenerator().generate(8, 8)
 
     print('\nMap')
-    [print(f'{zone} adj {adj}') for zone, adj in adj_z.items()]
+    [print(f'{zone} adj {zone.adj_z}') for zone in zones]
 
-    adj_e = {Specie.tiger: [Specie.grizzly_bear, Specie.horse],
-             Specie.polar_bear: [Specie.bengal_tiger],
-             Specie.bengal_tiger: [Specie.rabbit],
-             Specie.grizzly_bear: [Specie.tiger, Specie.rabbit],
-             Specie.rabbit: [], Specie.horse: []}
-    eco = Ecosystem(zones, animals=animals, adj_z=adj_z, adj_e=adj_e)
+    eco = Ecosystem(zones, animals=animals)
     solution = eco.zones
     
     print('\nCSP')

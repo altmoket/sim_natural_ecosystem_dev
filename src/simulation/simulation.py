@@ -45,14 +45,18 @@ class Simulator:
             event:tuple[int, int, function] = heap.heappop(self.events)
             year, day, item = event
             while (self.year < year or (self.year == year and self.day < day)):
+                for zone in self.ecosystem.zones:
+                    zone.get_weather(False)
                 print(f"Day: {self.day}  ACCIONES AGENTES")
                 self.day += 1
+                for zone in self.ecosystem.zones: zone.get_weather(False)
                 if self.day == 366: 
                     self.day = 1
                     self.year += 1
                     print(f"Year {self.year} of the Simulation")
             
             self.events_methods[item]((year,day))
+
         while (self.year < self.final_year or (self.year == self.final_year and self.day <= self.final_day)):
                 print(f"Day: {self.day}  ACCIONES AGENTES")
                 self.day += 1
@@ -72,7 +76,7 @@ class Simulator:
             specie, zone = output
             sex = self.generate_sex()
             zone.add_animal(specie(sex))
-            print(f'Day: {self.day}  Counter: {self.birth_count}  Event: Birth of a {specie._type} in {zone}')
+            print(f'Day: {self.day}  Counter: {self.birth_count}  Event: Birth of a {specie.str()} in {zone}')
             
             next_death_time = self.generate_death_time(12)
             day = max(1, (next_death_time + self.day) % 366)
@@ -100,8 +104,8 @@ class Simulator:
         self.ecosystem.total_of_animals = max(self.ecosystem.total_of_animals - 1, 0)
         if self.ecosystem.total_of_animals > 0:
             zone = random.choice(list(filter(lambda zone : zone.total > 0, self.ecosystem.zones)))
-            specie = zone.remove_animal()._type
-            print(f'Day: {self.day}  Counter: {self.death_count}  Event: Death of a {specie} in {zone}')
+            animal = zone.remove_animal()
+            print(f'Day: {self.day}  Counter: {self.death_count}  Event: Death of a {type(animal).str()} in {zone}')
         
         self.deaths_moments[self.death_count] = time
         
