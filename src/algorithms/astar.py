@@ -1,10 +1,7 @@
 import heapq
 import math
 from collections import deque
-<<<<<<< HEAD
-=======
 from src.components.place import Zone
->>>>>>> fb1c90837c85d9f591366e6cd1db930387dbe752
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 
