@@ -118,7 +118,7 @@ class MigrationProblem(Problem):
     def result(self, state, action):
         return action
     def is_goal(self, state: Zone):        
-        return state.type == self.goal
+        return state.type in self.goal
     def action_cost(self, s:Zone, a, s1:Zone): # Esto hay que llenarlo
         return s.adj_z[a]
     def h(self, node): # Esto hay que llenarlo         
@@ -126,12 +126,12 @@ class MigrationProblem(Problem):
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
-            if len(animals)>0 and self.goal in animals[0].habitat():
+            if len(animals)>0 and not set(self.goal).isdisjoint(set(animals[0].habitat())):
                 result+=len(animals)
         return zone.total - result
-    
-def migration_astar(zone, goal,heuristic=None):
-    problem = MigrationProblem(initial=zone, goal=goal)
-    result = astar_tree_search(problem=problem,heuristic=heuristic)
+
+
+def migration_astar(problem,heuristic=None): 
+    result = astar_tree_search(problem=problem,h=heuristic)
     path = path_states(node=result)
     return path
