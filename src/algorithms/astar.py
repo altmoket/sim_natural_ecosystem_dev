@@ -131,6 +131,23 @@ class MigrationProblem(Problem):
                 result+=len(animals)
         return zone.total - result
 
+class DepredatorsProblem(Problem):
+    def __init__(self, initial=None, goal=None, **kwds):
+        super().__init__(initial, goal, **kwds)
+     
+    def is_goal(self, state: Zone):  
+        common =  lambda specie : specie in self.goal and (len(state.species[specie][0]) > 0 or len(state.species[specie][1]) > 0)
+        common_species= list(filter(self.common(state),state.species.keys()))              
+        return len(common_species) == 0 
+        
+    def h(self, node):        
+        zone:Zone=node.state
+        result=0
+        for specie, (female,male)  in zone.species.items():
+            animals=female+male
+            if len(animals)>0 and specie in self.goal:
+                result+=len(animals)
+        return zone.total - result
 
 def migration_astar(problem,heuristic=None): 
     result = astar_tree_search(problem=problem,h=heuristic)

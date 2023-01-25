@@ -1,6 +1,6 @@
 from .utils import Habitat,Specie
 import random
-from ..algorithms import migration_astar,MigrationProblem
+from ..algorithms import migration_astar,MigrationProblem,DepredatorsProblem
 
 class Species:
     _type = Specie.base
@@ -34,7 +34,7 @@ class Agent(Species):
         self.time_limb = 0
         self.is_starving = False
         self.feed_way='feed'
-        self.migrate_algorithm = None
+
     def reaction(self, state):    
         time, zone, colony = state
         if time == self.birthday: self.age += 1
@@ -95,6 +95,7 @@ class Agent(Species):
             floor = 1 if zone.floor > 0 else 0
             self.time_limb = self.time_limb - 1 + floor
         self.ate = False
+        return False
 
     def get_trip_time(self,zone,next_zone):
         distance:int = zone.adj_z[next_zone]
@@ -155,8 +156,10 @@ class Agent(Species):
                 current_weight = self.get_path_weight(path)
                 if current_weight>0:
                     weight=current_weight
-        depredators=list(filter(lambda specie : specie in self.prey(),zone.species.keys()))
+        is_depredator= lambda specie : specie in self.depredator() and (len(zone.species[specie][0]) > 0 or len(zone.species[specie][1]) > 0)
+        depredators=list(filter(is_depredator,zone.species.keys()))
         if len(depredators)>0:
+            problem=DepredatorsProblem(initial=zone, goal=self.depredator())
             currentpath=migration_astar(problem, self.depredator_heuristic(problem))
             if len(currentpath)>0:
                  current_weight=self.get_path_weight(path)
@@ -190,15 +193,16 @@ class ReactiveAgent(Agent):
                     result+=len(animals)
             return zone.total - result
         return h
+
     def depredator_heuristic(self,problem):
-        def h(node):       
+        def h(node):        
             zone=node.state
             result=0
-            for _, (female,male)  in zone.species.items():
+            for specie, (female,male)  in zone.species.items():
                 animals=female+male
-                if len(animals)>0 and not set(problem.goal).isdisjoint(set(animals[0].habitat())):
+                if len(animals)>0 and specie in problem.goal:
                     result+=len(animals)
-            return zone.total - result
+            return  result
         return h
 
 class IntelligentAgent(ReactiveAgent):
