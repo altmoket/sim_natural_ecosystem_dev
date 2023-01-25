@@ -3,7 +3,12 @@ from src.ecosystems import Ecosystem
 import heapq as heap
 from scipy.stats import bernoulli
 from ..components.utils import exponential 
+from .printer import AnimalActionPrinter
 
+printer = AnimalActionPrinter() # Aqui se le puede pasar un animal en concreto
+                                # o dejarlo vacio, Pero para imprimir un mensaje
+                                # tiene que estar seteado un animal,
+                                # printer.animal = animal. 
 class Simulator:
     def __init__(self, ecosystem: Ecosystem, final_day: int, final_year):
         self.day = 1
