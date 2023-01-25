@@ -3,7 +3,12 @@ from src.ecosystems import Ecosystem
 import heapq as heap
 from scipy.stats import bernoulli
 from ..components.utils import exponential 
+from .printer import AnimalActionPrinter
 
+printer = AnimalActionPrinter() # Aqui se le puede pasar un animal en concreto
+                                # o dejarlo vacio, Pero para imprimir un mensaje
+                                # tiene que estar seteado un animal,
+                                # printer.animal = animal. 
 class Simulator:
     def __init__(self, ecosystem: Ecosystem, final_day: int, final_year):
         self.day = 1
@@ -29,6 +34,7 @@ class Simulator:
         # Init some events
         print(f"Year {self.year} of the Simulation")
         self.birth_event((self.year,self.day))
+        self.death_event((self.year,self.day))
         self.heatwave_event((self.year,self.day))
         self.coldwave_event((self.year,self.day))
 
@@ -47,9 +53,10 @@ class Simulator:
             while (self.year < year or (self.year == year and self.day < day)):
                 for zone in self.ecosystem.zones:
                     zone.get_weather(False)
+                for zone in self.ecosystem.zones:
+                    zone.actions_generator(self.day,self.ecosystem.colony)           
                 print(f"Day: {self.day}  ACCIONES AGENTES")
                 self.day += 1
-                for zone in self.ecosystem.zones: zone.get_weather(False)
                 if self.day == 366: 
                     self.day = 1
                     self.year += 1
@@ -58,6 +65,15 @@ class Simulator:
             self.events_methods[item]((year,day))
 
         while (self.year < self.final_year or (self.year == self.final_year and self.day <= self.final_day)):
+            for zone in self.ecosystem.zones:
+                zone.get_weather(False)
+            for zone in self.ecosystem.zones:
+                for _, (female, male) in zone.species.items():
+                    listin = female + male
+                    for animal in listin:
+                        animal.reaction((self.day,zone,self.ecosystem.colony))
+                for animal in zone.limb:
+                    animal[0].update((self.day,zone,self.ecosystem.colony))   
                 print(f"Day: {self.day}  ACCIONES AGENTES")
                 self.day += 1
                 if self.day == 366: 
@@ -68,21 +84,16 @@ class Simulator:
 
     def birth_event(self, time):
         self.year, self.day = time
-        self.birth_count += 1
-        self.ecosystem.total_of_animals += 1
         output = self.ecosystem.max_probability()
-        next_death_time = None
+
         if output: 
+            self.ecosystem.total_of_animals += 1
             specie, zone = output
             sex = self.generate_sex()
             zone.add_animal(specie(sex))
+            self.birth_count += 1
             print(f'Day: {self.day}  Counter: {self.birth_count}  Event: Birth of a {specie.str()} in {zone}')
-            
-            next_death_time = self.generate_death_time(12)
-            day = max(1, (next_death_time + self.day) % 366)
-            year = (next_death_time + self.day) // 366 + self.year
-            if year < self.final_year or (year == self.final_year and day <= self.final_day):
-                heap.heappush(self.events, (year, day, 'death'))
+            self.births_moments[self.birth_count] = time
 
         next_birth_time = self.generate_birth_time(10)
         day = max(1, (next_birth_time + self.day) % 366)
@@ -90,24 +101,23 @@ class Simulator:
         if year < self.final_year or (year == self.final_year and day <= self.final_day):
             heap.heappush(self.events, (year, day, 'birth'))
 
-        self.births_moments[self.birth_count] = time
-        if next_death_time is None and self.ecosystem.total_of_animals > 100:
-            next_death_time = self.generate_death_time(15)
-            day = max(1, (next_death_time + self.day) % 366)
-            year = (next_death_time + self.day) // 366 + self.year
-            if year < self.final_year or (year == self.final_year and day <= self.final_day):
-                heap.heappush(self.events, (year, day, 'death'))
-
     def death_event(self, time):
         self.year, self.day = time
-        self.death_count += 1
-        self.ecosystem.total_of_animals = max(self.ecosystem.total_of_animals - 1, 0)
-        if self.ecosystem.total_of_animals > 0:
+        total_of_animals = self.ecosystem.total_of_animals - 1
+
+        if total_of_animals > 100:
+            self.ecosystem.total_of_animals = total_of_animals
             zone = random.choice(list(filter(lambda zone : zone.total > 0, self.ecosystem.zones)))
             animal = zone.remove_animal()
+            self.death_count += 1
             print(f'Day: {self.day}  Counter: {self.death_count}  Event: Death of a {type(animal).str()} in {zone}')
-        
-        self.deaths_moments[self.death_count] = time
+            self.deaths_moments[self.death_count] = time
+
+        next_death_time = self.generate_death_time(15)
+        day = max(1, (next_death_time + self.day) % 366)
+        year = (next_death_time + self.day) // 366 + self.year
+        if year < self.final_year or (year == self.final_year and day <= self.final_day):
+            heap.heappush(self.events, (year, day, 'death'))    
         
     def heatwave_event(self, time):
         zone = random.choice(self.ecosystem.zones)

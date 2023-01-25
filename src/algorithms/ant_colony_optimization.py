@@ -5,7 +5,7 @@ import math
 class AntColony(object):
     def __init__(self, decay, alpha=1, beta=0.5, delta_tau = 0.6):      
         #self.pheromones: dict[Specie,dict[Zone,dict[Zone,int]]]= defaultdict({zone:{next:0 for next in adj} for zone,adj in adj_z})
-        #self.pheromones: dict[Specie,dict[Zone,dict[Zone,tuple(int,int)]]]= defaultdict(defaultdict(lambda : defaultdict(lambda : (0,0))))
+        self.pheromones = defaultdict(defaultdict(lambda : defaultdict(lambda : (0,0))))
         self.decay = decay
         self.alpha = alpha
         self.beta = beta

@@ -56,10 +56,8 @@ class Zone:
     def remove_animal(self):
         no_empty = lambda specie : (len(self.species[specie][0])+len(self.species[specie][1]))>0
         specie = random.choice(list(filter(no_empty,list(self.species.keys()))))
-        list_sex = random.choice(list(filter(lambda animal_list:len(animal_list)>0,self.species[specie])))
-        animal=random.choice(list_sex)
-        list_sex.remove(animal)
-        self.total-=1
+        animal = random.choice(self.species[specie][0] + self.species[specie][1])
+        self.delete_animal(animal)
         return animal 
         
     def create_animal(self, animal):
@@ -72,14 +70,15 @@ class Zone:
         self.species[type(animal)][animal.sex].remove(animal)
         self.total-=1
 
-    def actions_generator(self, time,colony):
-        for _,(female, male) in self.species.items():
-            for animal in female: animal.reaction((time, self,colony))
-            for animal in male: animal.reaction((time, self, colony))
-        for i, (animal, time_local) in enumerate(self.limb):
-            if time_local==time:
-                death = animal.update(time,self)
-                if death: self.limb.remove((animal, time_local))
+    def actions_generator(self, time, colony):
+        species = dict(self.species)
+        for _,(female, male) in species.items():
+            for animal in female + male: 
+                animal.reaction((time, self, colony))
+        for i, (animal,time_local) in enumerate(self.limb):
+            if time != time_local:
+                death = animal.update((time, self, colony))
+                if death: self.limb.remove((animal,time_local))
                 elif animal.time_limb == 0: 
                     self.limb.pop(i)
                     self.add_animal(animal)
