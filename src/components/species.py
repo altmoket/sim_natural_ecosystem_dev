@@ -1,6 +1,6 @@
 from .utils import Habitat,Specie
 import random
-from ..algorithms import *
+from ..algorithms import migration_astar,MigrationProblem
 
 class Species:
     _type = Specie.base
@@ -177,7 +177,7 @@ class ReactiveAgent(Agent):
         Agent.__init__(self, sex)
 
     def habitat_heuristic(self, node):
-        zone:Zone=node.state
+        zone=node.state
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
@@ -185,7 +185,7 @@ class ReactiveAgent(Agent):
                 result+=len(animals)
         return zone.total - result
     def depredator_heuristic(self, node):
-        zone:Zone=node.state
+        zone=node.state
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
@@ -199,7 +199,7 @@ class IntelligentAgent(ReactiveAgent):
         Agent.__init__(self, sex)
         self.feed_way='look_for_food'
     def habitat_heuristic(self, node):
-        zone:Zone=node.state
+        zone=node.state
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male
@@ -207,7 +207,7 @@ class IntelligentAgent(ReactiveAgent):
                 result+=len(animals)
         return zone.total - result
     def depredator_heuristic(self, node):
-        zone:Zone=node.state
+        zone=node.state
         result=0
         for _, (female,male)  in zone.species.items():
             animals=female+male

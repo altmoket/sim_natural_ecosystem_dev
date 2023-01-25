@@ -1,13 +1,12 @@
-from ..components import Species,Zone,Specie
 from collections import defaultdict
 import random
 
-def CSP(animals: list[Species], zones: list[Zone], adj_z: dict[Zone, list[Zone]], adj_e: dict[Specie, list[Specie]]):
-    options:dict[Species,list[Zone]] = {}
-    arcs: list[(Species, Species)] = []
-    assigments: dict[Species, Zone] = defaultdict(lambda: None)
-    non_assigned: list[Species] = animals.copy()
-    adj_f: dict[Species, list[Species]] = defaultdict(lambda: [])
+def CSP(animals, zones, adj_z, adj_e):
+    options = {}
+    arcs= []
+    assigments= defaultdict(lambda: None)
+    non_assigned= animals.copy()
+    adj_f= defaultdict(lambda: [])
     # Determinar opciones para cada una de las variables
     for animal in animals:
         options[animal] = list(filter(lambda zone: zone.type in animal.habitat(), zones))
@@ -51,7 +50,7 @@ def CSP(animals: list[Species], zones: list[Zone], adj_z: dict[Zone, list[Zone]]
     return assigments
 
 
-def Backtrack_Search(options: dict[Species, list[Zone]], assigment: dict[Species, Zone], non_assigned: list[Species], arcs: list[(Species, Species)], adj_z: dict[Zone, list[Zone]], adj_f: dict[Species, list[Species]]):
+def Backtrack_Search(options, assigment, non_assigned, arcs, adj_z, adj_f):
     if len(non_assigned) == 0:
         return assigment
     # comprobando consistencia de los arcos

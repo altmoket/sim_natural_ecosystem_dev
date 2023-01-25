@@ -2,7 +2,6 @@ import heapq
 import math
 from collections import deque
 from src.components.place import Zone
-from src.components import Specie,Species
 class Problem(object):
 
     def __init__(self, initial=None, goal=None, **kwds): 

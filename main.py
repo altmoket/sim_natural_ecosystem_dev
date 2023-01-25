@@ -31,7 +31,21 @@ def main():
     print('\nSimulation')
     sim = Simulator(eco, 12, 3) # Dias / Años
     sim.simulate()
-    
+
+#class test:
+#    def __init__(self):
+#         prob = MigrationProblem(solution[0], Habitat.tropical)
+#    result = astar_tree_search(prob,h)
+#    actions = path_states(result) 
+#    print(actions)
+#    def h(self, node): # Esto hay que llenarlo         
+#        zone:Zone=node.state
+#        result=0
+#        for _, (female,male)  in zone.species.items():
+#            animals=female+male
+#            if len(animals)>0 and self.goal in animals[0].habitat():
+#                result+=len(animals)
+#        return zone.total - result    
     
 if __name__ == "__main__":
     main()

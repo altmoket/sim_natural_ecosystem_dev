@@ -1,6 +1,6 @@
 import random
 from .utils import Habitat, exponential
-from ..components.species import Species
+#from ..components.species import Species
 from collections import defaultdict
 
 type_zone = {Habitat.tropical:{'temperature':(17, 26),'vegetation':(90, 100)}, 
@@ -18,9 +18,9 @@ class Zone:
         self.floor = 0  
         v_min, v_max = type_zone[self.type]['vegetation']         
         self.vegetation = round(random.uniform(v_min, v_max), 3)        
-        self.species: defaultdict[Species, tuple[list[Species],list[Species]]] = defaultdict(lambda : ([],[]))
-        self.adj_z:dict[Zone,int] = {}  
-        self.limb:list[tuple[Species, int, int]] = []
+        self.species = defaultdict(lambda : ([],[]))
+        self.adj_z= {}  
+        self.limb = []
         self.total=0
         self.get_weather()
         self.strokes = 3
@@ -49,7 +49,7 @@ class Zone:
             self.floor = self.floor - 1 if self.floor > 0 else 0
             print(f'{str(self)} with temperature {temperature}, is not raining')
 
-    def add_animal(self, animal:Species):
+    def add_animal(self, animal):
         specie, sex = animal._type, animal.sex
         self.species[specie][sex].append(animal)
         self.total+=1
@@ -63,13 +63,13 @@ class Zone:
         self.total-=1
         return animal 
         
-    def create_animal(self, animal:Species):
+    def create_animal(self, animal):
         animal.birthday = random.randint(2,365)
         t_min = animal.life_expectancy()[0]
         animal.age = random.randint(0,t_min-1)
         self.add_animal(animal)
 
-    def delete_animmal(self, animal:Species):
+    def delete_animmal(self, animal):
         self.species[animal._type][animal.sex].remove(animal)
         self.total-=1
 
@@ -85,10 +85,10 @@ class Zone:
                     self.limb.pop(i)
                     self.add_animal(animal)
 
-    def animals_in_own_habitat(self):
-        output=list(self.species.keys())
-        output=list(filter(lambda specie: self.type in Species.search(specie).habitat() ,output))
-        return output
+    #def animals_in_own_habitat(self):
+    #    output=list(self.species.keys())
+    #    output=list(filter(lambda specie: self.type in Species.search(specie).habitat() ,output))
+    #    return output
         
     def change_habitat(self, habitat):
         self.type = habitat             
