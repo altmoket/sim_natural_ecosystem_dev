@@ -1,0 +1,5584 @@
+Zones
+Zone 0: polar with temperature 0.86, is not raining
+Zone 1: tropical with temperature 18.5, is not raining
+Zone 2: tropical with temperature 19.4, is not raining
+Zone 3: desertic with temperature 31.96, is not raining
+Zone 4: tropical with temperature 24.94, is raining
+Zone 5: desertic with temperature 32.45, is not raining
+Zone 6: polar with temperature 7.58, is not raining
+Zone 7: desertic with temperature 31.33, is not raining
+
+Map
+Zone 0: polar adj {Zone 6: polar: 2, Zone 4: tropical: 2, Zone 1: tropical: 12, Zone 2: tropical: 13, Zone 7: desertic: 1, Zone 3: desertic: 11, Zone 5: desertic: 3}
+Zone 1: tropical adj {Zone 0: polar: 12, Zone 6: polar: 11, Zone 3: desertic: 1, Zone 4: tropical: 9}
+Zone 2: tropical adj {Zone 0: polar: 13, Zone 6: polar: 2, Zone 3: desertic: 6, Zone 4: tropical: 8}
+Zone 3: desertic adj {Zone 0: polar: 11, Zone 7: desertic: 6, Zone 2: tropical: 6, Zone 6: polar: 11, Zone 4: tropical: 8, Zone 1: tropical: 1, Zone 5: desertic: 11}
+Zone 4: tropical adj {Zone 0: polar: 2, Zone 3: desertic: 8, Zone 2: tropical: 8, Zone 6: polar: 15, Zone 1: tropical: 9, Zone 7: desertic: 1}
+Zone 5: desertic adj {Zone 3: desertic: 11, Zone 0: polar: 3, Zone 7: desertic: 9}
+Zone 6: polar adj {Zone 0: polar: 2, Zone 1: tropical: 11, Zone 2: tropical: 2, Zone 3: desertic: 11, Zone 4: tropical: 15, Zone 7: desertic: 9}
+Zone 7: desertic adj {Zone 0: polar: 1, Zone 3: desertic: 6, Zone 4: tropical: 1, Zone 6: polar: 9, Zone 5: desertic: 9}
+
+CSP
+Zone 0: polar : [<class 'src.components.species.PolarBear'>, <class 'src.components.species.BengalTiger'>]
+Zone 1: tropical : [<class 'src.components.species.Tiger'>, <class 'src.components.species.Horse'>, <class 'src.components.species.GrizzlyBear'>]
+Zone 2: tropical : [<class 'src.components.species.Tiger'>, <class 'src.components.species.Rabbit'>, <class 'src.components.species.Ant'>, <class 'src.components.species.Horse'>]
+Zone 3: desertic : [<class 'src.components.species.GrizzlyBear'>, <class 'src.components.species.Ant'>]
+Zone 4: tropical : [<class 'src.components.species.Tiger'>, <class 'src.components.species.Horse'>, <class 'src.components.species.Ant'>]
+Zone 5: desertic : [<class 'src.components.species.GrizzlyBear'>, <class 'src.components.species.Horse'>]
+Zone 6: polar : [<class 'src.components.species.Rabbit'>, <class 'src.components.species.BengalTiger'>, <class 'src.components.species.PolarBear'>]
+Zone 7: desertic : [<class 'src.components.species.Rabbit'>, <class 'src.components.species.Ant'>, <class 'src.components.species.GrizzlyBear'>]
+32
+
+Simulation
+Year 1 of the Simulation
+Day: 1  Counter: 1  Event: Birth of a Tiger in Zone 1: tropical
+Day: 1  Counter: 1  Event: Heat Wave on Zone 2: tropical (4)
+Day: 1  Counter: 1  Event: Cold Wave on Zone 5: desertic (2)
+Day: 1
+Zone 0: polar
+Polar Bear ate Bengal Tiger
+Zone 1: tropical
+Tiger ate Horse
+Tiger ate Horse
+Grizzly Bear ate Tiger
+Zone 2: tropical
+Tiger ate Horse
+Tiger ate Rabbit
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Tiger ate Horse
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Rabbit ate plants
+Rabbit ate plants
+Bengal Tiger ate Rabbit
+Bengal Tiger ate Rabbit
+Polar Bear ate Bengal Tiger
+Zone 7: desertic
+Rabbit ate plants
+Ant ate plants
+Ant ate plants
+Grizzly Bear ate Rabbit
+
+Day: 2  Counter: 2  Event: Heat Wave on Zone 5: desertic (3)
+Day: 2
+Zone 0: polar
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 3
+Zone 0: polar
+Tiger migrating to Zone 4: tropical
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 4
+Zone 0: polar
+Tiger migrating to Zone 7: desertic
+Grizzly Bear ate Tiger
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 5
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Tiger migrating to Zone 4: tropical
+
+Day: 6
+Zone 0: polar
+Polar Bear ate Bengal Tiger
+Tiger migrating to Zone 7: desertic
+Tiger migrating to Zone 7: desertic
+Tiger migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 7
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Tiger migrating to Zone 4: tropical
+Tiger migrating to Zone 4: tropical
+
+Day: 8
+Zone 0: polar
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Tiger migrating to Zone 4: tropical
+
+Day: 9
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 10  Counter: 2  Event: Cold Wave on Zone 2: tropical (3)
+Day: 10
+Zone 0: polar
+Tiger migrating to Zone 4: tropical
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 11
+Zone 0: polar
+Tiger migrating to Zone 4: tropical
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 12
+Zone 0: polar
+Tiger migrating to Zone 7: desertic
+Tiger migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+
+Day: 13
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Tiger migrating to Zone 4: tropical
+
+Day: 14
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Horse ate plants
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Grizzly Bear ate Tiger
+
+Day: 15
+Zone 0: polar
+Tiger migrating to Zone 6: polar
+Grizzly Bear ate Tiger
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+
+Day: 16
+Zone 0: polar
+Grizzly Bear ate Tiger
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Horse ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 17  Counter: 2  Event: Birth of a Ant in Zone 4: tropical
+Day: 17  Counter: 3  Event: Cold Wave on Zone 5: desertic (2)
+Day: 17
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Horse ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Tiger migrating to Zone 2: tropical
+Zone 7: desertic
+
+Day: 18
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Horse ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 19
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Horse ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 20
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Ant ate plants
+Horse ate plants
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 21  Counter: 4  Event: Cold Wave on Zone 6: polar (2)
+Day: 21
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear ate Tiger
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 22
+Zone 0: polar
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 23
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 24
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 25
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 26  Counter: 3  Event: Birth of a Ant in Zone 4: tropical
+Day: 26
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 27
+Zone 0: polar
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 28
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 29
+Zone 0: polar
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 30
+Zone 0: polar
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 31
+Zone 0: polar
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 32
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 33  Counter: 4  Event: Birth of a Ant in Zone 0: polar
+Day: 33  Counter: 5  Event: Birth of a Ant in Zone 0: polar
+Day: 33
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 34
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 35
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 36
+Zone 0: polar
+Horse ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 37  Counter: 6  Event: Birth of a Ant in Zone 4: tropical
+Day: 37  Counter: 7  Event: Birth of a Ant in Zone 4: tropical
+Day: 37  Counter: 8  Event: Birth of a Ant in Zone 4: tropical
+Day: 37
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 38
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Ant ate plants
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 39
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 40
+Zone 0: polar
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 41
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 42
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 43
+Zone 0: polar
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 44
+Zone 0: polar
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 45
+Zone 0: polar
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 46
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 47
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 48
+Zone 0: polar
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 49
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 50
+Zone 0: polar
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 51
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 52  Counter: 9  Event: Birth of a Ant in Zone 0: polar
+Day: 52  Counter: 5  Event: Cold Wave on Zone 4: tropical (2)
+Day: 52  Counter: 3  Event: Heat Wave on Zone 0: polar (4)
+Day: 52
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 53
+Zone 0: polar
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 54
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 55
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 56
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 57
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 58
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 59
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 60
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 61
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 62
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 63  Counter: 10  Event: Birth of a Grizzly Bear in Zone 0: polar
+Day: 63  Counter: 11  Event: Birth of a Ant in Zone 0: polar
+Day: 63
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 64
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 65
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 66
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 67
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Sick Death of a Grizzly Bear
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 68
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 69  Counter: 6  Event: Cold Wave on Zone 2: tropical (2)
+Day: 69
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 70
+Zone 0: polar
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 71  Counter: 12  Event: Birth of a Ant in Zone 0: polar
+Day: 71
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 72
+Zone 0: polar
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 73
+Zone 0: polar
+Grizzly Bear migrating to Zone 7: desertic
+Sick Death of a Grizzly Bear
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 74  Counter: 4  Event: Heat Wave on Zone 0: polar (5)
+Zone: 0 is mutating to tempered zone type from polar zone type
+Day: 74
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 75  Counter: 13  Event: Birth of a Ant in Zone 0: tempered
+Day: 75
+Zone 0: tempered
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 76  Counter: 14  Event: Birth of a Ant in Zone 0: tempered
+Day: 76
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 77
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 78
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 79
+Zone 0: tempered
+Horse ate plants
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 80
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 81
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 82
+Zone 0: tempered
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 83
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 84
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 85
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 86
+Zone 0: tempered
+Horse ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 87
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Sick Death of a Grizzly Bear
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 88
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 89  Counter: 5  Event: Heat Wave on Zone 1: tropical (4)
+Day: 89
+Zone 0: tempered
+Horse ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 90
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+Ant ate plants
+
+Day: 91
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 92
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 93  Counter: 15  Event: Birth of a Ant in Zone 0: tempered
+Day: 93
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 94
+Zone 0: tempered
+Sick Death of a Grizzly Bear
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 95
+Zone 0: tempered
+Horse ate plants
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 96
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 97
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 98
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 99
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 100
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 101
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 102
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 103
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 104
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 105
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 106
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 107
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 108
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 109
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 110  Counter: 6  Event: Heat Wave on Zone 2: tropical (3)
+Day: 110
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Ant ate plants
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 111
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 112
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 113
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 114
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 115
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 116
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 117
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 118
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 119
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 120
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 121  Counter: 16  Event: Birth of a Ant in Zone 0: tempered
+Day: 121
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 122
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 123
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 124  Counter: 7  Event: Cold Wave on Zone 1: tropical (3)
+Day: 124
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 125  Counter: 7  Event: Heat Wave on Zone 5: desertic (3)
+Day: 125
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 126
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 127
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 128
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 129
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 130
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 131
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 132  Counter: 17  Event: Birth of a Ant in Zone 0: tempered
+Day: 132
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 133
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 134
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 135
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 136
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 137  Counter: 18  Event: Birth of a Ant in Zone 0: tempered
+Day: 137
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 138
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 139
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 140
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 141
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 142
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 143
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 144
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 145
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 146  Counter: 8  Event: Cold Wave on Zone 3: desertic (2)
+Day: 146
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 147  Counter: 19  Event: Birth of a Ant in Zone 0: tempered
+Day: 147
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 148
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 149
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 150
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 151
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 152
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 153
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 154
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 155
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 156
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 157
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 158
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 159
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 160
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 161
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 162
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 163
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 164
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 165
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 166
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 167
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 168
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 169
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 170  Counter: 9  Event: Cold Wave on Zone 1: tropical (2)
+Day: 170
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 171
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 172
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 173  Counter: 20  Event: Birth of a Ant in Zone 0: tempered
+Day: 173
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 174
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 175
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 176
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 177
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 178
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 179
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 180
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 181  Counter: 21  Event: Birth of a Ant in Zone 0: tempered
+Day: 181
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 182  Counter: 22  Event: Birth of a Ant in Zone 0: tempered
+Day: 182
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 183
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 184  Counter: 23  Event: Birth of a Ant in Zone 0: tempered
+Day: 184
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 185
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 186
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 187
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 188
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 189
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 190
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 191
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 192
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 193  Counter: 10  Event: Cold Wave on Zone 6: polar (1)
+Day: 193
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 194
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 195  Counter: 11  Event: Cold Wave on Zone 0: tempered (2)
+Day: 195
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 196
+Zone 0: tempered
+Grizzly Bear migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 197
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 198
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 199  Counter: 24  Event: Birth of a Ant in Zone 0: tempered
+Day: 199
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 200  Counter: 12  Event: Cold Wave on Zone 4: tropical (1)
+Day: 200
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 201
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 202
+Zone 0: tempered
+Sick Death of a Grizzly Bear
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 203
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 204
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 205
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 206
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 207
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 208
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 209
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 210
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 211
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 212
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 213
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 214
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 215
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant ate plants
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 216
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 217
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 218
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 219  Counter: 8  Event: Heat Wave on Zone 0: tempered (3)
+Day: 219
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 220
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 221
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 222
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 223
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 224
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 225
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 226
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 227
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 228
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tropical
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 229  Counter: 13  Event: Cold Wave on Zone 4: tropical (0)
+Zone: 4 is mutating to tempered zone type from tropical zone type
+Day: 229
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 230
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 231
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 232
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 233
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 234
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 235
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 236
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 237
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 238
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 239  Counter: 14  Event: Cold Wave on Zone 7: desertic (2)
+Day: 239
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 240
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 241
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 242
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 243
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 244
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 245  Counter: 15  Event: Cold Wave on Zone 0: tempered (2)
+Day: 245
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 246
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 247
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 248
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 249
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 250
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 251
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 252
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 253
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 254
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 255
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 256
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 257
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 258
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 259
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 260  Counter: 25  Event: Birth of a Ant in Zone 0: tempered
+Day: 260
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 261
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 262
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 263  Counter: 26  Event: Birth of a Ant in Zone 0: tempered
+Day: 263
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 264
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 265  Counter: 16  Event: Cold Wave on Zone 5: desertic (2)
+Day: 265
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 266
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 267
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 268  Counter: 17  Event: Cold Wave on Zone 7: desertic (1)
+Day: 268
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 269
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 270
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 271
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 272
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 273
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 274
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 275
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 276
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 277
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 278
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 279
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 280
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 281
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 282
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 283  Counter: 27  Event: Birth of a Ant in Zone 0: tempered
+Day: 283
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 284
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 285
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 286
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 287
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 288
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 289
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 290  Counter: 28  Event: Birth of a Ant in Zone 0: tempered
+Day: 290
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 291  Counter: 29  Event: Birth of a Ant in Zone 0: tempered
+Day: 291
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 292
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 293
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 294
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 295
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 296
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 297
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 298
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 299
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 300
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 301
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 302
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 303
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 304
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 305
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 306
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 307
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 308
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 309
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 310
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 311
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 312  Counter: 18  Event: Cold Wave on Zone 1: tropical (1)
+Day: 312  Counter: 19  Event: Cold Wave on Zone 5: desertic (1)
+Day: 312
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 313
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Sick Death of a Ant
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 314  Counter: 30  Event: Birth of a Ant in Zone 0: tempered
+Day: 314
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 315
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 316
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 317
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 318
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 319
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 320
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 321
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 322
+Zone 0: tempered
+Horse migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 323
+Zone 0: tempered
+Ant migrating to Zone 7: desertic
+Ant migrating to Zone 7: desertic
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: desertic
+
+Day: 324  Counter: 20  Event: Cold Wave on Zone 7: desertic (0)
+Zone: 7 is mutating to tropical zone type from desertic zone type
+Day: 324
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+
+Day: 325  Counter: 31  Event: Birth of a Ant in Zone 0: tempered
+Day: 325
+Zone 0: tempered
+Horse migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 326
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 327
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 328  Counter: 9  Event: Heat Wave on Zone 3: desertic (3)
+Day: 328
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 329
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 330
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 331
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 332  Counter: 32  Event: Birth of a Ant in Zone 7: tropical
+Day: 332  Counter: 10  Event: Heat Wave on Zone 3: desertic (4)
+Day: 332
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 333
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 334  Counter: 21  Event: Cold Wave on Zone 3: desertic (3)
+Day: 334
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+Ant ate plants
+
+Day: 335
+Zone 0: tempered
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+Ant ate plants
+
+Day: 336
+Zone 0: tempered
+Sick Death of a Ant
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 337
+Zone 0: tempered
+Sick Death of a Ant
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Sick Death of a Ant
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 338
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+
+Day: 339
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 340
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 341  Counter: 11  Event: Heat Wave on Zone 7: tropical (4)
+Day: 341
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 342
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 343
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 344  Counter: 22  Event: Cold Wave on Zone 6: polar (0)
+Day: 344
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 345
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 346
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 347
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 348
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 349
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 350
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 351
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 352  Counter: 23  Event: Cold Wave on Zone 2: tropical (2)
+Day: 352
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 353
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 354  Counter: 12  Event: Heat Wave on Zone 0: tempered (3)
+Day: 354
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 355
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 356
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 357
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+
+Day: 358
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 359  Counter: 24  Event: Cold Wave on Zone 4: tempered (2)
+Day: 359
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 360
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 361
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 362
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 363
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 364
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+
+Day: 365
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Year 2 of the Simulation
+Day: 1  Counter: 13  Event: Heat Wave on Zone 1: tropical (2)
+Day: 1
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+
+Day: 2
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 3
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 4
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 5
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant ate plants
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 6
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 7  Counter: 33  Event: Birth of a Ant in Zone 0: tempered
+Day: 7  Counter: 34  Event: Birth of a Ant in Zone 0: tempered
+Day: 7
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 8
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 9  Counter: 25  Event: Cold Wave on Zone 7: tropical (3)
+Day: 9
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 10  Counter: 35  Event: Birth of a Ant in Zone 0: tempered
+Day: 10
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+Ant ate plants
+
+Day: 11  Counter: 36  Event: Birth of a Ant in Zone 0: tempered
+Day: 11  Counter: 37  Event: Birth of a Ant in Zone 0: tempered
+Day: 11
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+Day: 12
+Zone 0: tempered
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Ant migrating to Zone 7: tropical
+Zone 1: tropical
+Zone 2: tropical
+Zone 3: desertic
+Zone 4: tempered
+Zone 5: desertic
+Zone 6: polar
+Zone 7: tropical
+
+17

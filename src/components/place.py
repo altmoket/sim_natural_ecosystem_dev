@@ -53,10 +53,10 @@ class Zone:
         self.species[specie][sex].append(animal)
         self.total+=1
 
-    def remove_animal(self):
+    def remove_animal(self):       
         no_empty = lambda specie : (len(self.species[specie][0])+len(self.species[specie][1]))>0
         specie = random.choice(list(filter(no_empty,list(self.species.keys()))))
-        animal = random.choice(self.species[specie][0] + self.species[specie][1])
+        animal = random.choice(self.species[specie][0] + self.species[specie][1]+self.limb)
         self.delete_animal(animal)
         return animal 
         
@@ -67,9 +67,12 @@ class Zone:
         self.add_animal(animal)
 
     def delete_animal(self, animal):
-        specie, sex = type(animal), animal.sex
-        self.species[specie][sex].remove(animal)
-        self.total-=1
+        if animal in self.limb:
+            self.limb.remove(animal)
+        else:
+            specie, sex = type(animal), animal.sex
+            self.species[specie][sex].remove(animal)
+            self.total-=1
 
     def actions_generator(self, time, colony):
         for i, (animal,time_local) in enumerate(self.limb):
@@ -80,9 +83,11 @@ class Zone:
                     self.limb.pop(i)
                     self.add_animal(animal)
         species = dict(self.species)
+        graveyard=[]
         for _,(female, male) in species.items():
             for animal in female + male: 
-                animal.reaction((time, self, colony))
+                if not animal in graveyard:
+                    graveyard= graveyard + animal.reaction((time, self, colony))
         
     def change_habitat(self, habitat):
         self.type = habitat             

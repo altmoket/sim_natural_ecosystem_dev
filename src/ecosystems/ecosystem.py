@@ -6,10 +6,14 @@ class Ecosystem:
     def __init__(self, zones:list[Zone], animals:list[Species]=None):
         self.zones = zones
         self.__set_distribution(animals, zones)
-        self.total_of_animals = 0
-        for zone in self.zones:
-            self.total_of_animals += zone.total
         self.colony=AntColony(decay=1, alpha=1, beta=0.5, delta_tau = 0.2 )
+
+    @property
+    def total_of_animals(self):
+        total = 0
+        for zone in self.zones:
+            total += zone.total + len(zone.limb)
+        return total
 
     def __set_distribution(self, animals:list[Species], zones:list[Zone]):
         adj_z = {key:list(key.adj_z.keys()) for key in zones}

@@ -1,4 +1,7 @@
 from src import *
+import sys
+file_path = "randomfile.txt"
+sys.stdout = open(file_path, "w")
 
 def main():  
     animals=[Tiger(0),Tiger(0),Tiger(1),Rabbit(1),GrizzlyBear(0),PolarBear(1),GrizzlyBear(0),Horse(0),Rabbit(0),Ant(0),Ant(1),
@@ -24,7 +27,7 @@ def main():
 
     print(len(animals))
     print('\nSimulation')
-    sim = Simulator(eco, 12, 3) # Dias / Años
+    sim = Simulator(eco, 12, 2) # Dias / Años
     sim.simulate()
     print(sim.ecosystem.total_of_animals)
 

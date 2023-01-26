@@ -53,10 +53,12 @@ class Simulator:
             while (self.year < year or (self.year == year and self.day < day)):
                 for zone in self.ecosystem.zones:
                     zone.get_weather(False)
+                print(f"Day: {self.day}")
                 for zone in self.ecosystem.zones:
-                    zone.actions_generator(self.day,self.ecosystem.colony)           
-                print(f"Day: {self.day}  ACCIONES AGENTES")
+                    print(zone)
+                    zone.actions_generator(self.day,self.ecosystem.colony)      
                 self.day += 1
+                print("")
                 if self.day == 366: 
                     self.day = 1
                     self.year += 1
@@ -67,10 +69,12 @@ class Simulator:
         while (self.year < self.final_year or (self.year == self.final_year and self.day <= self.final_day)):
             for zone in self.ecosystem.zones:
                 zone.get_weather(False)
+            print(f"Day: {self.day}")
             for zone in self.ecosystem.zones:
-                zone.actions_generator(self.day,self.ecosystem.colony)   
-            print(f"Day: {self.day}  ACCIONES AGENTES")
+                print(zone)
+                zone.actions_generator(self.day,self.ecosystem.colony) 
             self.day += 1
+            print("")
             if self.day == 366: 
                 self.day = 1
                 self.year += 1
@@ -82,7 +86,6 @@ class Simulator:
         output = self.ecosystem.max_probability()
 
         if output: 
-            self.ecosystem.total_of_animals += 1
             specie, zone = output
             sex = self.generate_sex()
             zone.add_animal(specie(sex))
@@ -98,11 +101,10 @@ class Simulator:
 
     def death_event(self, time):
         self.year, self.day = time
-        total_of_animals = self.ecosystem.total_of_animals - 1
 
-        if total_of_animals > 100:
-            self.ecosystem.total_of_animals = total_of_animals
-            zone = random.choice(list(filter(lambda zone : zone.total > 0, self.ecosystem.zones)))
+        if self.ecosystem.total_of_animals > 100:
+
+            zone = random.choice(list(filter(lambda zone : zone.total+len(zone.limb) > 0, self.ecosystem.zones)))
             animal = zone.remove_animal()
             self.death_count += 1
             print(f'Day: {self.day}  Counter: {self.death_count}  Event: Death of a {type(animal).str()} in {zone}')
