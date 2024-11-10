@@ -1,4 +1,4 @@
-# Simulación del desarrollo de un ecosistema natural.
+# Natural Ecosystem Simulation
 ## Project Overview
 The Natural Ecosystem Simulation project aims to create an ecosystem to simulate the evolutionary processes of various species that interact with each other and their environment. The species do not need to be inspired by real-life organisms but should possess specific characteristics that allow them to integrate into the ecosystem.
 
